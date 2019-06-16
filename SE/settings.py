@@ -12,8 +12,17 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import django.contrib.auth as auth
+import sys
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0,os.path.join(BASE_DIR,'apps'))
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,13 +46,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'course',
-    'foundmental',
-    'homepage',
-    'inspage',
-    'sab',
-    'User',
-    'userHome'
+    'apps.course',
+    'apps.foundmental',
+    'apps.homepage',
+    'apps.inspage',
+    'apps.sab',
+    'apps.User',
+    'apps.userHome',
+    'apps.imageStorage',
 ]
 
 MIDDLEWARE = [
@@ -61,8 +71,7 @@ ROOT_URLCONF = 'SE.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,6 +79,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -81,17 +91,23 @@ WSGI_APPLICATION = 'SE.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'se',
+#         'USER':'setest',
+#         'PASSWORD':'123456',
+#         'HOST':'localhost',
+#         'PORT':'3306',
+#     }
+# }
+#
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'se',
-        'USER':'setest',
-        'PASSWORD':'123456',
-        'HOST':'localhost',
-        'PORT':'3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
