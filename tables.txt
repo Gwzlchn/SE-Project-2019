@@ -1,0 +1,96 @@
+User{
+Int  Uid （Pkey）
+	VarChar  userName 
+VarChar  PassWord
+Roles  enum(“Teacher”、“EduIns”、“Parent”、”Admin”)
+}
+
+
+Parent{
+	Int Pid  (Pkey)
+	VarChar PName
+	VarChar CName
+	Int Age
+	Sex enum(“male”,”female”)
+	Char PhoneNumber
+	VarChar Email
+	Date Birthday
+	VarChar lessonDirection
+	VarChar feeRange
+	VarChar Area
+Float Money
+}
+PUser{
+Int	Uid (Fkey User)
+	Int  Pid	(Fkey Parent)
+}
+EduIns{
+	VarChar Id(Pkey) //身份证
+	VarChar EduArea
+	VarChar Address
+Int SLAge
+Int SHAge
+Char PhoneNumber
+	VarChar Email
+Varchar Remark
+Tinyint status
+Float Money
+}
+EUser{
+Int Uid(Fkey User)
+Int Eid(Fkey EduIns)
+}
+Teacher{
+	VarChar Eid(Pkey) //识别码
+	VarChar TName
+	Int Age
+	Sex enum(“male”,”female”)
+VarChar EduArea
+Int Seniority
+Int SLAge
+Int SHAge
+Char PhoneNumber
+	VarChar Email
+Varchar Remark
+Tinyint status
+Float Money
+}
+TUser{
+Int Uid(Fkey User)
+Int Id(Fkey Teacher)
+}
+Class{
+Int Cid(Pkey)
+Varchar Subject
+Varchar Area
+Int SLAge
+Int SHAge
+Int SLPrice
+Int SHPrice
+Varchar Url
+Int Score
+}
+
+PEC{
+Int Cid(Fkey class)
+Int Pid(Fkey parent)
+Int Eid(Fkey eduins)
+Semester enum(“half”,”one”,”two”)
+}
+PTC{
+Int Cid(Fkey class)
+Int Pid(Fkey parent)
+Int Id(Fkey teacher)
+Semester enum(“half”,”one”,”two”)
+}
+AuditionE{
+Int Pid(Fkey parent)
+Int Eid(Fkey eduins)
+}
+AuditionT{
+Int Pid(Fkey parent)
+Int Id(Fkey teacher)
+}
+
+
+
