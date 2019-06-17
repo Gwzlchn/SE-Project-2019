@@ -11,3 +11,5 @@ ckeditor
 pillow
 markdown
 （pip install 即可）
+
+3. 文章作者始终为id = 1 的管理员！有USER之后再做更改

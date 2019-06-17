@@ -18,7 +18,7 @@
         <div class="col-12 alert alert-success">作者：{{ article.author }}</div>
         <!-- 文章正文 -->
         <div class="col-12">
-            <p>{{ article.body }}</p>
+            <p>{{ article.body|safe }}</p>
         </div>
     </div>
 </div>
