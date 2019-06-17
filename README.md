@@ -7,7 +7,7 @@ username : se
 passwd : sesese
 
 2. 依赖包
-ckeditor
+ django-ckeditor
 pillow
 markdown
 （pip install 即可）
