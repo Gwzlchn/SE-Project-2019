@@ -1,0 +1,24 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Upload Videos</title>
+</head>
+<body>
+
+<h1>Video Uploader</h1>
+<form enctype="multipart/form-data" method="POST" action="">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Upload"/>
+</form>
+
+<br><br>
+<video width='400' controls>
+<source src='{{ MEDIA_URL }}{{ videofile }}' type='video/mp4'>
+Your browser does not support the video tag.
+</video>
+<br><br>
+</p>
+
+</body>
+</html>

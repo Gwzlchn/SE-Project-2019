@@ -6,5 +6,6 @@ from . import views
 app_name = 'imageStorage'
 
 urlpatterns = [
-    path('post/', views.showimage)  # new
+    path('postimage/', views.showimage),
+    path('postvideo/', views.showvideo)# new
 ]
