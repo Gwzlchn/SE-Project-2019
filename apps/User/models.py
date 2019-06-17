@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.dispatch import receiver
 from django.db.models.signals import post_save
 # Create your models here.
 
@@ -41,30 +40,3 @@ class Inst(models.Model):
 class Admin(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='extension4')
 
-@receiver(post_save,sender=User)
-def handler_POS_extension(sender,instance,created,**kwargs):
-    if created:  # 如果是第一次创建user对象，就创建一个POS对象进行绑定
-        POS.objects.create(user=instance)
-    else:  # 如果是修改user对象，那么也要将extension进行保存
-        instance.extension.save()
-
-@receiver(post_save,sender=User)
-def handler_Teach_extension(sender,instance,created,**kwargs):
-    if created:  # 如果是第一次创建user对象，就创建一个Teach对象进行绑定
-        Teach.objects.create(user=instance)
-    else:  # 如果是修改user对象，那么也要将extension进行保存
-        instance.extension.save()
-
-@receiver(post_save,sender=User)
-def handler_Inst_extension(sender,instance,created,**kwargs):
-    if created:  # 如果是第一次创建user对象，就创建一个Inst对象进行绑定
-        Inst.objects.create(user=instance)
-    else:  # 如果是修改user对象，那么也要将extension进行保存
-        instance.extension.save()
-
-@receiver(post_save,sender=User)
-def handler_Admin_extension(sender,instance,created,**kwargs):
-    if created:  # 如果是第一次创建user对象，就创建一个Admin对象进行绑定
-        Admin.objects.create(user=instance)
-    else:  # 如果是修改user对象，那么也要将extension进行保存
-        instance.extension.save()
