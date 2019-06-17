@@ -21,8 +21,12 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('userHome/',include('apps.userHome.urls', namespace='userHome')),
-    path('', include('apps.fondamental.storage.urls', 'storage')),
+
     path('article/', include('apps.fondamental.article.urls',namespace='article')),
+
+    #测试用
+    path('storage/', include('apps.fondamental.storage.urls', namespace='storage')),
+    path('comment/', include('apps.fondamental.comment.urls', namespace='comment')),
 ]
 
 if settings.DEBUG: # new

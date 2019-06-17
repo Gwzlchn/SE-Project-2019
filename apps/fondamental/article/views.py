@@ -6,6 +6,7 @@ import markdown
 
 from .models import Article
 from .forms import ArticlePostForm
+from ..comment.models import Comment
 
 
 def article_list(request):
@@ -17,11 +18,10 @@ def article_list(request):
     return render(request, 'article/list.html', context)
 
 
-
-
 def article_detail(request, id):
     article = Article.objects.get(id=id)
-
+    # 取出文章评论
+    comments = Comment.objects.filter(article=id)
     # 将markdown语法渲染成html样式
     article.body = markdown.markdown(article.body,
         extensions=[
@@ -31,8 +31,10 @@ def article_detail(request, id):
         'markdown.extensions.codehilite',
         ])
 
-    context = { 'article': article }
+    # 添加comments上下文
+    context = {'article': article,  'comments': comments}
     return render(request, 'article/detail.html', context)
+
 
 # 写文章的视图
 def article_create(request):
