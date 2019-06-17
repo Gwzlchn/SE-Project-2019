@@ -22,8 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('userHome/',include('apps.userHome.urls', namespace='userHome')),
     path('', include('apps.fondamental.storage.urls', 'storage')),
-
-
     path('article/', include('apps.fondamental.article.urls',namespace='article')),
 ]
 
