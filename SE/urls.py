@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('userHome/',include('userHome.urls', namespace='userHome')),
+    path('userHome/',include('apps.userHome.urls', namespace='userHome')),
     path('', include('apps.imageStorage.urls', 'imageStorage')), # new
 ]
 

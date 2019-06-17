@@ -7,4 +7,5 @@ app_name = 'userHome'
 
 urlpatterns = [
     path(r'TeacherInfomation/',views.TeacherInfo),
+    path(r'userHome/',views.dispatch),
 ]
