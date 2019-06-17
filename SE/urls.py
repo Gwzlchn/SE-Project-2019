@@ -20,8 +20,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('userHome/',include('userHome.urls', namespace='userHome')),
-    path('', include('apps.imageStorage.urls', 'imageStorage')), # new
+    path('userHome/',include('apps.userHome.urls', namespace='userHome')),
+    path('', include('apps.fondamental.storage.urls', 'storage')),
+
+
+    path('article/', include('apps.fondamental.article.urls',namespace='article')),
 ]
 
 if settings.DEBUG: # new

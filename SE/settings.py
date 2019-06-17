@@ -14,6 +14,8 @@ import os
 import django.contrib.auth as auth
 import sys
 
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0,os.path.join(BASE_DIR,'apps'))
@@ -22,7 +24,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-
+CKEDITOR_UPLOAD_PATH = 'upload/'
 
 
 # Quick-start development settings - unsuitable for production
@@ -46,14 +48,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #RICH TEXT EDITOR
+    'ckeditor',
+    'ckeditor_uploader',
+
+    #APPS
     'apps.course',
-    'apps.foundmental',
+    'apps.fondamental.storage',
+    'apps.fondamental.comment',
+    'apps.fondamental.article',
     'apps.homepage',
     'apps.inspage',
     'apps.sab',
     'apps.User',
     'apps.userHome',
-    'apps.imageStorage',
+
 ]
 
 MIDDLEWARE = [
