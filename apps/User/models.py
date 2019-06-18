@@ -24,19 +24,6 @@ Age_Choice=(
     ('Sen','Senior'),
 )
 
-
-class ShoppingCart(models.Model):
-    Pid = models.ForeignKey('Parent',on_delete=models.CASCADE)
-    Cid = models.ForeignKey('Course',on_delete=models.CASCADE)
-    Amount = models.IntegerField()
-
-class PayRecord(models.Model):
-    Pid = models.ForeignKey('Parent',on_delete=models.CASCADE)
-    CName = models.CharField(max_length=50)
-    Amount = models.IntegerField()
-    TPrice = models.FloatField()
-    Time = models.DateField()
-
 class Parent(models.Model):
     Pid = models.IntegerField(primary_key=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='POS')

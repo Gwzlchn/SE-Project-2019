@@ -8,3 +8,6 @@ def display_Teach_info(user):
     teacher = umodel.Teach.objects.get(t_user=user.id)
     dict['name'] = teacher.name
     return dict
+
+def trans_teach_info(user):
+    return
