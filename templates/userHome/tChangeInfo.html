@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改信息</title>
+</head>
+<body>
+    <form>
+        {% for a,b in teacher %}
+            {{ a }}:
+            <input type="text" value = "{{ b }}" name = "{{ a }}" ><br>
+        {% endfor %}
+        <input type="submit" value="提交修改" >
+    </form>
+</body>
+</html>
