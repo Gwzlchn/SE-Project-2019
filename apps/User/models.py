@@ -63,5 +63,7 @@ class Institution(models.Model):
     Brief = models.CharField(max_length = 80)
     Wallet=models.FloatField(default=0)
 
-
+class Admin(models.Model):
+    Aid =  models.IntegerField(primary_key=True)
+    user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='Adm')
 
