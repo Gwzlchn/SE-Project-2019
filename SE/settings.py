@@ -54,9 +54,9 @@ INSTALLED_APPS = [
 
     #APPS
     'apps.course',
-    'apps.fondamental.storage',
-    'apps.fondamental.comment',
-    'apps.fondamental.article',
+    'apps.fundamental.storage',
+    'apps.fundamental.comment',
+    'apps.fundamental.article',
     'apps.homepage',
     'apps.inspage',
     'apps.sab',

@@ -22,11 +22,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('userHome/',include('apps.userHome.urls', namespace='userHome')),
 
-    path('article/', include('apps.fondamental.article.urls',namespace='article')),
+    path('article/', include('apps.fundamental.article.urls', namespace='article')),
 
     #测试用
-    path('storage/', include('apps.fondamental.storage.urls', namespace='storage')),
-    path('comment/', include('apps.fondamental.comment.urls', namespace='comment')),
+    path('storage/', include('apps.fundamental.storage.urls', namespace='storage')),
+    path('comment/', include('apps.fundamental.comment.urls', namespace='comment')),
 ]
 
 if settings.DEBUG: # new
