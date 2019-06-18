@@ -5,6 +5,7 @@ from django.db.models.signals import post_save
 
 GENDER_CHOICES = ( ('male', "男"),('female', "女"))
 
+
 class POS(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='extension')
     name = models.CharField(max_length = 32, verbose_name="姓名")
@@ -13,6 +14,7 @@ class POS(models.Model):
     gender = models.CharField(max_length=6, choices=GENDER_CHOICES, verbose_name="性别")
     email = models.EmailField(verbose_name="邮箱")
     phone = models.CharField(max_length = 20, verbose_name="电话")
+
 
 class Teach(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='extension2')
@@ -27,6 +29,7 @@ class Teach(models.Model):
     phone = models.CharField(max_length = 20, verbose_name="电话")
     brief = models.CharField(max_length = 40, verbose_name="简介")
 
+
 class Inst(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='extension3')
     id_num = models.CharField(max_length = 18, verbose_name="标识码")
@@ -36,6 +39,7 @@ class Inst(models.Model):
     email = models.EmailField(verbose_name="邮箱")
     phone = models.CharField(max_length = 20, verbose_name="电话")
     brief = models.CharField(max_length = 40, verbose_name="简介")
+
 
 class Admin(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='extension4')
