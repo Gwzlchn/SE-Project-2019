@@ -26,23 +26,23 @@ class Course(models.Model):
     weeks_choice = [(12,"一季"),(26,"半年"),(52,"一年"),(104,"两年")]
     course_duration_of_week = models.IntegerField(choices=weeks_choice)
 
-    course_price = models.IntegerField(max_length=10,default=0,verbose_name='课程价格')
+    course_price = models.IntegerField(default=0,verbose_name='课程价格')
     course_homework = models.TextField(max_length=500,verbose_name='课程作业')
 
 
 # ForeignKey,ManyToManyField与OneToOneField分别在Model中定义多对一，多对多，一对一关系。
 class Course_Institution(models.Model):
     course_id = models.ForeignKey(Course,on_delete=models.CASCADE,\
-                                  related_name='Course',verbose_name='机构所授课程',null=False)
+                                  related_name='Course_by_Ins',verbose_name='机构所授课程',null=False)
     course_ins = models.ManyToManyField(Institution,\
-                                        related_name='Ins',verbose_name='机构名称',null=False)
+                                        related_name='Ins_for_Course',verbose_name='机构名称',null=False)
 
 
 class Course_Teacher(models.Model):
     course_id = models.ForeignKey(Course,on_delete=models.CASCADE,\
-                                  related_name='Course',verbose_name='教师所授课程',null=False)
+                                  related_name='Course_by_Teacher',verbose_name='教师所授课程')
     course_ins = models.ManyToManyField(Institution,\
-                                        related_name='Teacher',verbose_name='教师名称',null=False)
+                                        related_name='Teacher_for_course',verbose_name='教师名称')
 
 
 
