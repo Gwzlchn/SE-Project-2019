@@ -5,7 +5,8 @@
     <title>修改信息</title>
 </head>
 <body>
-    <form>
+    <form method="post">
+        {%csrf_token%}
         {% for a,b in teacher %}
             {{ a }}:
             <input type="text" value = "{{ b }}" name = "{{ a }}" ><br>
