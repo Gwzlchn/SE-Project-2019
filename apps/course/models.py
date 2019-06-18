@@ -32,16 +32,16 @@ class Course(models.Model):
 
 # ForeignKey,ManyToManyField与OneToOneField分别在Model中定义多对一，多对多，一对一关系。
 class Course_Institution(models.Model):
-    course_id = models.ForeignKey(Course,on_delete=models.CASCADE,\
+    course_id = models.OneToOneField(Course,on_delete=models.CASCADE,\
                                   related_name='Course_by_Ins',verbose_name='机构所授课程',null=False)
     course_ins = models.ManyToManyField(Institution,\
-                                        related_name='Ins_for_Course',verbose_name='机构名称',null=False)
+                                        related_name='Ins_for_Course',verbose_name='机构名称')
 
 
 class Course_Teacher(models.Model):
-    course_id = models.ForeignKey(Course,on_delete=models.CASCADE,\
+    course_id = models.OneToOneField(Course,on_delete=models.CASCADE,\
                                   related_name='Course_by_Teacher',verbose_name='教师所授课程')
-    course_ins = models.ManyToManyField(Institution,\
+    course_teacher = models.ManyToManyField(Teacher,\
                                         related_name='Teacher_for_course',verbose_name='教师名称')
 
 

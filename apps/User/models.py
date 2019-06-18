@@ -25,7 +25,7 @@ Age_Choice=(
 )
 
 class Parent(models.Model):
-    Pid = models.IntegerField(primary_key=True)
+    #Pid = models.IntegerField(primary_key=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='POS')
     PName=models.CharField(max_length=30)
     KName=models.CharField(max_length=30)
@@ -39,7 +39,7 @@ class Parent(models.Model):
     Wallet=models.FloatField(default=0)
 
 class Teacher(models.Model):
-    Tid = models.IntegerField(primary_key=True)
+    #Tid = models.IntegerField(primary_key=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='Tea')
     Name = models.CharField(max_length = 32)
     Age  = models.IntegerField(default=0)
@@ -53,7 +53,7 @@ class Teacher(models.Model):
     Wallet=models.FloatField(default=0)
 
 class Institution(models.Model):
-    Iid =  models.IntegerField(primary_key=True)
+    #Iid =  models.IntegerField(primary_key=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='Ins')
     Id_num = models.CharField(max_length = 18)
     Address = models.CharField(max_length = 64)
@@ -64,6 +64,6 @@ class Institution(models.Model):
     Wallet=models.FloatField(default=0)
 
 class Admin(models.Model):
-    Aid =  models.IntegerField(primary_key=True)
+    #Aid =  models.IntegerField(primary_key=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='Adm')
 
