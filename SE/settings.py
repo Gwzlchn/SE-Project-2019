@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'apps.fundamental.storage',
     'apps.fundamental.comment',
     'apps.fundamental.article',
+    'apps.fundamental.CHINA_LOCATION',
     'apps.homepage',
     'apps.inspage',
     'apps.sab',

@@ -70,3 +70,4 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 SE/__pycache__/
 __pycache__/
+SE.iml
