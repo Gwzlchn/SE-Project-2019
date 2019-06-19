@@ -1,5 +1,8 @@
 from django.db import models
 
+# Create your models here.
+from django.db import models
+
 
 # Create your models here.
 class ChinaLocation(models.Model):
@@ -9,6 +12,3 @@ class ChinaLocation(models.Model):
     level = models.SmallIntegerField(null=False,choices=[(1,'省/直辖市'),(2,'市'),(3,'辖区')])
     class Meta:
         db_table = 'CHINA_LOCATION'
-
-
-
