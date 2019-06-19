@@ -22,7 +22,7 @@ def change_t_info(request):
     if request.method == 'POST':
         dict = {}
         dict['name'] = request.POST.get('name')
-        trans
+        trans.trans_teach_info()
     else :
         dict = trans.display_Teach_info(user)
         return render(request,'userHome/tChangeInfo.html',dict)

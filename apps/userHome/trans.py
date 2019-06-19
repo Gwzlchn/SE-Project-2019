@@ -9,5 +9,5 @@ def display_Teach_info(user):
     dict['name'] = teacher.name
     return dict
 
-def trans_teach_info(user):
+def change_teach_info(user):
     return
