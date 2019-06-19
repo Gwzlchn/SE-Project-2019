@@ -1,0 +1,68 @@
+
+<meta charset="UTF-8">
+<body>
+<select id="province" >
+    <option value="">请选择省份</option>
+</select>
+<select id="city">
+    <option value="">请选择城市</option>
+</select>
+<select id="district">
+    <option value="">请选择区/县</option>
+</select>
+
+
+<script type="text/javascript" src="/static/jquery/jquery-3.4.1.js"></script>
+<script>
+
+$(function(){
+
+// 获取省份
+$.get('/loc/getProvince/',function(data){
+for(var i = 0,len = data.provinces.length; i<len ;i++){
+    $new = $("<option value="+data.provinces[i][0] +">"+  data.provinces[i][1]  +"</option>" );
+    $("#province").append( $new );
+}
+
+});
+
+
+//改变省份后
+$("#province").change(function(){
+//清空市和区
+$("#city").empty().append('<option value="">请选择城市</option>');
+$("#district").empty().append('<option value="">请选择区/县</option>');
+$.ajax({
+    url:'/loc/getCity/',
+    type:'get',
+
+    data:{"city_id":$(this).val()}
+}).done(function(data){
+    for(var i = 0,len = data.cities.length; i<len ;i++){
+        $new = $( "<option value="+data.cities[i][0] +">"+  data.cities[i][1]  +"</option>" );
+        $("#city").append( $new );
+    }
+});
+});
+
+//改变城市后
+$("#city").change(function(){
+//清空市和区
+$("#district").empty().append('<option value="">请选择区/县</option>');
+$.ajax({
+    url:'/loc/getDistrict/',
+    type:'get',
+    data:{"district_id":$(this).val()}
+}).done(function(data){
+    for(var i = 0,len = data.district.length; i<len ;i++){
+        $new = $( "<option value="+data.district[i][0] +">"+  data.district[i][1]  +"</option>" );
+        $("#district").append($new );
+    }
+});
+});
+
+})
+
+</script>
+
+</body>

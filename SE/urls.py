@@ -27,6 +27,8 @@ urlpatterns = [
     #测试用
     path('storage/', include('apps.fundamental.storage.urls', namespace='storage')),
     path('comment/', include('apps.fundamental.comment.urls', namespace='comment')),
+
+    path('loc/',    include('apps.fundamental.CHINA_LOCATION.urls',namespace='CHINA_LOCATION')),
 ]
 
 if settings.DEBUG: # new
