@@ -16,14 +16,17 @@ def dispatch(request):
 
 @login_required(login_url='User/login')
 def change_t_info(request):
-    user = request.user
-    if not Um.Teach.objects.filter(user_id=user.id):
+    id = request.user.id
+    if not Um.Teacher.objects.filter(user_id=id):
         return render(request,'User/login')
     if request.method == 'POST':
         dict = {}
-        dict['name'] = request.POST.get('name')
+        dict['Age'] = request.POST.get('Age')
+        dict[''] = request.POST.get('Age')
+        dict['Age'] = request.POST.get('Age')
+        dict['Age'] = request.POST.get('Age')
+        dict['Age'] = request.POST.get('Age')
         trans.trans_teach_info()
-    else :
-        dict = trans.display_Teach_info(user)
-        return render(request,'userHome/tChangeInfo.html',dict)
+    dict = trans.display_Teach_info(user)
+    return render(request,'userHome/tChangeInfo.html',dict)
 
