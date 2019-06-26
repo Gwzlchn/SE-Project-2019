@@ -1,6 +1,33 @@
 from django.db import models
+from django.db.models.fields.related import ManyToManyField
+from django.db.models.fields import DateTimeField
 from ..User.models import Age_Choice,Lesson_Direction,Teacher,Institution,Branch
 from apps.fundamental.CHINA_LOCATION.models import ChinaLocation
+
+
+
+class PrintableModel(models.Model):
+    def __repr__(self):
+        return str(self.to_dict())
+
+    def to_dict(self):
+        opts = self._meta
+        data = {}
+        for f in opts.concrete_fields + opts.many_to_many:
+            if isinstance(f, ManyToManyField):
+                if self.pk is None:
+                    data[f.name] = []
+                else:
+                    data[f.name] = list(f.value_from_object(self).values_list('pk', flat=True))
+            else:
+                data[f.name] = f.value_from_object(self)
+        return data
+
+    class Meta:
+        abstract = True
+
+
+
 
 #假定所有课均是每周一次
 class Course_Base(models.Model):
@@ -40,6 +67,31 @@ class Course_Base(models.Model):
 
     class Meta:
         db_table = 'Course_Base'
+
+    def __repr__(self):
+        return str(self.to_dict())
+
+    def to_dict(self, fields=None, exclude=None):
+        data = {}
+        for f in self._meta.concrete_fields + self._meta.many_to_many:
+            value = f.value_from_object(self)
+
+            if fields and f.name not in fields:
+                continue
+
+            if exclude and f.name in exclude:
+                continue
+
+            if isinstance(f, ManyToManyField):
+                value = [i.id for i in value] if self.pk else None
+
+            if isinstance(f, DateTimeField):
+                print(value)
+                value = value.strftime('%Y-%m-%d %H:%M:%S') if value else None
+
+            data[f.name] = value
+
+        return data
 
 
 
