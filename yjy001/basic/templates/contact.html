@@ -1,0 +1,495 @@
+﻿{% load static %}
+<!doctype html>
+<html lang="zxx">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap Min CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/bootstrap.min.css" %}">
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/animate.min.css" %}">
+        <!-- IcoFont CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/icofont.min.css" %}">
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/owl.carousel.min.css" %}">
+        <!-- Owl Theme Default CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/owl.theme.default.min.css" %}">
+        <!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/magnific-popup.css" %}">
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/main.css" %}">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/responsive.css" %}">
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="{% static "assets/img/favicon.png" %}">
+        
+        <title>EduSplash - Education Responsive HTML Template</title>
+    </head>
+
+    <body>
+        <!-- Preloader -->
+        <div class="preloader">
+            <div class="loader">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- End Preloader -->
+        
+        <!-- Top header -->
+        <header class="top-header"> 
+            <div class="container"> 
+                <div class="row"> 
+                    <div class="col-md-6 col-lg-6"> 
+                        <ul class="top-info-links"> 
+                            <li><i class="icofont-clock-time"></i> 7.30 AM - 9.30 PM</li>
+                            <li><i class="icofont-phone-circle"></i> +44 485854789</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-6 text-right"> 
+                        <ul class="top-social-links"> 
+                            <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                            <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                            <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                            <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                        </ul>
+                        
+                        <ul class="login-regi-links"> 
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End top header -->
+  
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light edu-navbar header-sticky">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src=“{%static "assets/img/logo透明版本.png"%}" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Home
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="index.html">Home v1</a></li>
+                                <li><a class="dropdown-item" href="index-2.html">Home v2</a></li>
+                                <li><a class="dropdown-item" href="index-3.html">Home v3</a></li>
+                                <li><a class="dropdown-item" href="index-4.html">Home v4</a></li>
+                            </ul>
+                        </li>
+                     
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAbout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                About Us
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
+                                <li><a class="dropdown-item" href="about-us.html">About Us v1</a></li>
+                                <li><a class="dropdown-item" href="about-us-2.html">About Us v2</a></li>
+                            </ul>
+                        </li>
+ 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Pages
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownPages">
+                                <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
+                                <li><a class="dropdown-item" href="instructor.html">Instructor</a></li>
+                                <li><a class="dropdown-item" href="register.html">Register</a></li>
+                                <li><a class="dropdown-item" href="login.html">Login</a></li>
+                                <li><a class="dropdown-item active" href="contact.html">Contact</a></li>
+                                <li><a class="dropdown-item" href="404.html">404</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEvent" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Event
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownEvent">
+                                <li><a class="dropdown-item" href="event.html">Event</a></li>
+                                <li><a class="dropdown-item" href="single-event.html">Single Event</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Courses
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
+                                <li><a class="dropdown-item" href="courses.html">Courses</a></li>
+                                <li><a class="dropdown-item" href="single-courses.html">Single Courses</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownShop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Shop
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownShop">
+                                <li><a class="dropdown-item" href="shop.html">Shop</a></li>
+                                <li><a class="dropdown-item" href="shop-with-sidebar.html">Shop With Sidebar</a></li>
+                                <li><a class="dropdown-item" href="single-shop.html">Single Shop</a></li>
+                                <li><a class="dropdown-item" href="view-cart.html">View Cart</a></li>
+                                <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Blog
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownBlog">
+                                <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                                <li><a class="dropdown-item" href="blog-with-sidebar.html">Blog With Sidebar</a></li>
+                                <li><a class="dropdown-item" href="single-blog.html">Single Blog</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="nav-item active">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="#searchmodal" data-toggle="modal" data-target="#searchmodal"><i class="icofont-search"></i></a>
+                        </li>
+                        
+                        <li class="nav-item cart-item">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCart" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="icofont-cart-alt"></i>
+                                <span>2</span>
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownCart">
+                                <li>
+                                    <a href="#"><img src="{% static "assets/img/courses/react.png" %}" alt="React Logo"></a>
+                                    <div class="description">
+                                        <a href="#">React JS Course</a>
+                                        <span class="price">$199</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="{% static "assets/img/courses/meteor.png" %}" alt="React Logo"></a>
+                                    <div class="description">
+                                        <a href="#">Meteor JS Course</a>
+                                        <span class="price"><del>$200</del> $199</span>
+                                    </div>
+                                </li>
+                                <li><div class="total">Total: <strong>$398</strong></div></li>
+                                <li>
+                                    <a href="checkout.html" class="float-left checkout">Checkout</a>
+                                    <a href="view-cart.html" class="float-right view-cart">View Cart</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End navbar -->
+       
+        <!-- Search Modal -->
+        <div class="modal fade fade-scale searchmodal" id="searchmodal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form class="search-form">
+                            <input type="text" class="form-control" id="search" placeholder="Search...">
+                            <button type="submit" class="search-btn"><i class="icofont-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Search Modal -->
+        
+        <!-- Page Banner -->
+        <div class="page-banner banner-bg-one">
+            <div class="container"> 
+                <div class="banner-text"> 
+                    <h1>Contact Us</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Banner -->
+        
+        <!-- Contact us -->
+        <section class="contact-us-section ptb-100 white-bg">
+            <div class="container">
+                <div class="row"> 
+                    <div class="col-md-4 col-lg-4"> 
+                        <div class="contact-info">
+                            <i class="icofont-google-map"></i>
+                            <h3>Address</h3>
+                            <p>184 Collins Street West Victoria, United States</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 col-lg-4"> 
+                        <div class="contact-info">
+                            <i class="icofont-envelope"></i>
+                            <h3>Email</h3>
+                            <p>
+                                <a href="mailto:support@education.com">
+                                    support@education.com
+                                </a>
+                            </p>
+                            <p>
+                                <a href="mailto:info@education.com">
+                                    info@education.com
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 col-lg-4"> 
+                        <div class="contact-info">
+                            <i class="icofont-phone"></i>
+                            <h3>Phone</h3>
+                            <p>
+                                <a href="tel:info@education.com">
+                                    +44 44859 4875
+                                </a>
+                            </p>
+                            <p>
+                                <a href="tel:info@education.com">
+                                    +44 44859 4875
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-lg-6"> 
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" required data-error="Please enter your name">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6"> 
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required data-error="Please enter your email">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="msg_subject" placeholder="Subject" required data-error="Please enter your subject">
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" rows="5" placeholder="Message" data-error="Write your message" required></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" id="submit" class="btn default-btn mt-10">Send Message</button>
+                            <div id="msgSubmit" class="h4 text-center hidden"></div> 
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- End Contact us -->
+
+        <!-- Map Area -->
+        <div id="map">
+            <iframe src="http://www.google.cn/maps/embed?pb=!1m18!1m12!1m3!1d29624007.58460168!2d115.22979863156776!3d-24.992915938390176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b2bfd076787c5df%3A0x538267a1955b1352!2sAustralia!5e0!3m2!1sen!2sbd!4v1547009556393"></iframe>
+        </div>
+        <!-- End Map Area -->
+       
+        <!-- Footer Area -->
+        <footer class="footer-area ptb-100">
+            <div class="container">
+                <div class="contact-information-box">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="media single-box bor-right">
+                                <div class="align-self-center mr-3">
+                                    <i class="icofont-google-map"></i>
+                                </div>
+                                
+                                <div class="media-body">
+                                    <h3>Address</h3>
+                                    <p>184 Collins Street West Victoria, United States</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <div class="media single-box bor-right">
+                                <div class="align-self-center mr-3">
+                                    <i class="icofont-envelope"></i>
+                                </div>
+                                
+                                <div class="media-body">
+                                    <h3>Email</h3>
+                                    <p><a href="#">support@education.com</a></p>
+                                    <p><a href="#">info@education.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <div class="media single-box">
+                                <div class="align-self-center mr-3">
+                                    <i class="icofont-phone"></i>
+                                </div>
+                                
+                                <div class="media-body">
+                                    <h3>Phone</h3>
+                                    <p><a href="#">+44 44859 4875</a></p>
+                                    <p><a href="#">+44 44859 4875</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-7 col-md-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <h3>About Us</h3>
+                            <p>Lorem ipsum dolor, consectetur adipisicing sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Ut enim ad minim veniam, quis nostrud Svoluptatem.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-5 col-md-6 col-lg-3">
+                        <div class="single-footer-widget pl-30">
+                            <h3>Quick Menu</h3>
+                            <ul class="quick-menu">
+                                <li><a href="#"><i class="icofont-thin-double-right"></i> Home</a></li>
+                                <li><a href="#"><i class="icofont-thin-double-right"></i> About</a></li>
+                                <li><a href="#"><i class="icofont-thin-double-right"></i> Blog</a></li>
+                                <li><a href="#"><i class="icofont-thin-double-right"></i> Event</a></li>
+                                <li><a href="#"><i class="icofont-thin-double-right"></i> Shop</a></li>
+                                <li><a href="#"><i class="icofont-thin-double-right"></i> Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-md-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <h3>Instagram Feed</h3>
+                            <ul class="instagram-feed">
+                                <li><a href="#"><img src="assets/img/instagram-feed/1.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/2.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/3.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/4.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/5.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/6.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/5.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/2.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/1.jpg" alt="Instagram image"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-md-6 col-lg-3">
+                        <div class="single-footer-widget">
+                            <h3>Newsletter</h3>
+                            
+                            <div class="newsletter">
+                                <p>Lorem ipsum dolor, consectetur adipisicing sed do eiusmod tempor.</p>
+                                <p>Ut enim ad minim veniam, quis nostrud Svoluptatem.</p>
+                                <form>
+                                    <input type="text" placeholder="Enter Your Email" class="form-control">
+                                    <button type="submit" class="submit-btn"><i class="icofont-paper-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer Area -->
+        
+        <!-- Bottom footer -->
+        <div class="bottom-footer">
+            <div class="container"> 
+                <div class="row"> 
+                    <div class="col-md-6 col-lg-6"> 
+                        <p>© EduSplash 2019, All Rights Reserved by <a href="http://www.bootstrapmb.com/" target="_blank">EnvyTheme</a></p>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-6"> 
+                        <ul class="social-links">
+                            <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                            <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                            <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                            <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End bottom footer -->
+       
+    
+       
+        
+        <!-- JQuery Min JS -->
+        <script src="{% static "assets/js/jquery.1.12.4.min.js" %}"></script>
+        <!-- Popper Min JS -->
+        <script src="{% static "assets/js/popper.min.js"%}"></script>
+        <!-- Bootstrap Min JS -->
+        <script src="{% static "assets/js/bootstrap.min.js"%}"></script>
+        <!-- Owl Carousel JS -->
+        <script src="{% static "assets/js/owl.carousel.min.js" %}"></script>
+        <!-- Magnific Popup JS -->
+        <script src="{% static "assets/js/jquery.magnific-popup.min.js" %}"></script>
+        <!-- WayPonits JS -->
+        <script src="{% static "assets/js/waypoints.js" %}"></script>
+        <!-- CounterUp JS -->
+        <script src="{% static "assets/js/jquery.counterup.min.js" %}"></script>
+		<!-- Tilt JS -->
+        <script src="{% static "assets/js/tilt.jquery.min.js" %}"></script>
+        <!-- Form Validator JS FILES -->
+        <script src="{% static "assets/js/form-validator.min.js" %}"></script>
+        <!-- Contact Form JS -->
+        <script src="{% static "assets/js/contact-form-script.js" %}"></script>
+        <!-- Script JS -->
+        <script src="{% static "assets/js/script.js" %}"></script>
+    </body>
+</html>
