@@ -64,26 +64,23 @@ class Course_Base(models.Model):
 #         db_table = 'Course'
 
 
-
-
-
-
-class Course(models.Model):
-    course_base_id = models.ForeignKey(Course_Base,on_delete=models.CASCADE,null=False)
-
-    # 课程地点
-    course_location = models.CharField(max_length=20, default="UNKOWN LOCATION", \
-                                       null=False, verbose_name="上课地点")
-
-    #本次课时间由首次课时间，一周一节推算出来
-    course_time = models.DateTimeField(verbose_name="本次课时间")
-
-    course_homework = models.TextField(max_length=500,verbose_name='课程作业')
-
-
-    class Meta:
-        db_table = 'Course'
-
+#
+# class Course(models.Model):
+#     course_base_id = models.ForeignKey(Course_Base,on_delete=models.CASCADE,null=False)
+#
+#     # 课程地点
+#     course_location = models.CharField(max_length=20, default="UNKOWN LOCATION", \
+#                                        null=False, verbose_name="上课地点")
+#
+#     #本次课时间由首次课时间，一周一节推算出来
+#     course_time = models.DateTimeField(verbose_name="本次课时间")
+#
+#     course_homework = models.TextField(max_length=500,verbose_name='课程作业')
+#
+#
+#     class Meta:
+#         db_table = 'Course'
+#
 
 
 
@@ -110,9 +107,13 @@ class Course_Teacher(models.Model):
     class Meta:
         db_table = 'Course_Teacher'
 
-
-
-
+#课程评分
+class Course_Score(models.Model):
+    course_id = models.ForeignKey(Course_Base,on_delete=models.CASCADE,\
+                                  related_name='Course',verbose_name='被评分课程')
+    course_score = models.SmallIntegerField(verbose_name='课程评分')
+    class Meta:
+        db_table = 'Course_Score'
 
 
 

@@ -37,7 +37,6 @@ $("#district").empty().append('<option value="">请选择区/县</option>');
 $.ajax({
     url:'/loc/getCity/',
     type:'get',
-
     data:{"city_id":$(this).val()}
 }).done(function(data){
     for(var i = 0,len = data.cities.length; i<len ;i++){
