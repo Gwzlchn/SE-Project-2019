@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
+
+
 Gender_Choice=(
     ('Male','M'),
     ('Female','F')
@@ -70,6 +72,6 @@ class Branch(models.Model):
     PhoneNumber = models.CharField(max_length = 20)
 
 class Admin(models.Model):
-    #Aid =  models.IntegerField(primary_key=True)
+    Aid =  models.IntegerField(primary_key=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='Adm')
 
