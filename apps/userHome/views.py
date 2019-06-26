@@ -8,10 +8,9 @@ import apps.User.models as Um
 def TeacherInfo(request):
     return render(request,'userHome/TeacherInfomation.html')
 
-#@login_required()
 def dispatch(request):
-    #id = request.user.id
-    id = 2
+    id = request.user.id
+    print(id)
     if Um.Teacher.objects.filter(user_id=id):
         return render(request,'userHome/TeacherInfomation.html')
     if Um.Parent.objects.filter(user_id=id):
@@ -20,12 +19,12 @@ def dispatch(request):
         return render(request,'userHome/InstitutionInfomation.html')
     if Um.Admin.objects.filter(user_id=id):
         return render(request,'userHome/AdminInfomation.html')
-#@login_required()
+    return render(request,'User/login.html')
+
 def change_t_info(request):
-    #id = request.user.id
-    id = 2
+    id = request.user.id
     if not Um.Teacher.objects.filter(user_id=id):
-        return render(request,'User/login')
+        return render(request, 'User/login.html')
     if request.method == 'POST':
         dict = {}
         dict['Age'] = request.POST.get('Age')
@@ -40,12 +39,11 @@ def change_t_info(request):
         dict['res'] = 'success!'
     return render(request,'userHome/tChangeInfo.html',dict)
 
-#@login_required()
 def set_course(request):
-    #id = request.user.id
+    id = request.user.id
     id = 2
-    if not Um.Teacher.objects.filter(user_id=id):
-        return render(request,'User/login')
+    if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
+        return render(request,'login')
     if request.method == "POST":
         c_id = request.POST.get('id')
         trans.delete_course(c_id,id)
@@ -53,13 +51,11 @@ def set_course(request):
 
     return render(request,'userHome/SetCourse.html',dict)
 
-#@login_required()
 def add_course(request):
-    #id = request.user.id
-    id = 2
+    id = request.user.id
     dict = {}
-    if not Um.Teacher.objects.filter(user_id=id):
-        return render(request,'User/login')
+    if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
+        return render(request, 'User/login.html')
     if request.method == 'POST':
         dict['name'] = request.POST.get('name')
         dict['location_pro'] = request.POST.get('location_pro')
@@ -78,13 +74,18 @@ def add_course(request):
     return render(request,'userHome/AddCourse.html',dict)
 
 def add_announcement(request):
+
     return
 
 def update_announcement(request):
     return
 
 def show_announcement(request):
-    return
+    id = request.user.id
+    if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
+        return render(request, 'User/login.html')
+    dict = trans.display_all_course()
+    return render(request,'')
 
 def all_tlesson(request):
     return

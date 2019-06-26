@@ -22,7 +22,7 @@ from apps.User import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('userHome/',include('apps.userHome.urls', namespace='userHome')),
-
+    path('User/',include('apps.User.urls',namespace='User')),
     path('article/', include('apps.fundamental.article.urls', namespace='article')),
     path('UpdateInfo/', views.VisitUpdateInfo),
     path('UResult/', views.VisitUResult),

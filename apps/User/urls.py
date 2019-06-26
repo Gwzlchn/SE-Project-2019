@@ -3,13 +3,15 @@ from django.urls import path
 
 from apps.User import views
 
+app_name = 'User'
+
 urlpatterns = [
     #path('admin/',admin.site.urls),
-    path('home/', views.home),
-    path('register/', views.regChoice),
-    path('login/', views.Slogin),
-    path('POSreg/',views.POSreg),
-    path('Teareg/',views.Teareg),
-    path('Insreg/',views.Insreg),
-    path('Admreg/',views.Admreg),
+    path(r'home/', views.home),
+    path(r'register/', views.regChoice),
+    path(r'login/', views.Slogin),
+    path(r'POSreg/',views.POSreg),
+    path(r'Teareg/',views.Teareg),
+    path(r'Insreg/',views.Insreg),
+    path(r'Admreg/',views.Admreg),
 ]

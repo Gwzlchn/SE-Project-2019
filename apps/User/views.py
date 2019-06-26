@@ -5,7 +5,8 @@ from apps.User import models
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib import auth
-
+from apps.userHome.views import dispatch
+from django.http import HttpResponseRedirect
 
 def Slogin(request):
     #return HttpResponse("Register")
@@ -13,14 +14,15 @@ def Slogin(request):
         username = request.POST.get('username',None)
         password = request.POST.get('password',None)
         user = authenticate(request,username=username,password=password)
+        print("login")
         if user is not None and user.is_active:
             auth.login(request, user)
             #if user.first_name == "1":"2":"3":"4"
-            return render(request,"apps/userhome",)
+            return HttpResponseRedirect('/userHome/')
         else:
             print('用户名或密码错误!')
-    print("login")
-    return render(request,"login.html",)
+
+    return render(request, "User/login.html", )
 
 def home(request):
     #return HttpResponse("Home")
@@ -28,7 +30,7 @@ def home(request):
 
 def regChoice(request):
     #return HttpResponse("login")
-    return render(request,"register.html",)
+    return render(request, "User/register.html", )
 
 #家长学生注册完毕
 def POSreg(request):
@@ -49,8 +51,8 @@ def POSreg(request):
         new_user.Sex = gender
         new_user.PhoneNumber = phone
         new_user.save()
-        return render(request,"login.html",)
-    return render(request,"POSreg.html",)
+        return render(request, "User/login.html", )
+    return render(request, "User/POSreg.html", )
 
 def Teareg(request):
     if request.method == "POST":
@@ -80,8 +82,8 @@ def Teareg(request):
         new_user.Brief = Brief
         new_user.PhoneNumber = phone
         new_user.save()
-        return render(request,"login.html",)
-    return render(request,"Teareg.html",)
+        return render(request, "User/login.html", )
+    return render(request, "User/Teareg.html", )
 #教育机构注册完毕
 def Insreg(request):
     if request.method == "POST":
@@ -105,8 +107,8 @@ def Insreg(request):
         new_user.Brief = Brief
         new_user.PhoneNumber = phone
         new_user.save()
-        return render(request,"login.html",)
-    return render(request,"Insreg.html",)
+        return render(request, "User/login.html", )
+    return render(request, "User/Insreg.html", )
 
 def Admreg(request):
     if request.method == "POST":
@@ -115,7 +117,7 @@ def Admreg(request):
         email    = request.POST.get("email",None)
         authuser = User.objects.create_user(username,email,password,first_name = '4')
         new_user = models.Admin.objects.create(user = authuser)
-        return render(request,"login.html",)
+        return render(request, "User/login.html", )
     return render(request,"Admreg.html",)
 
 

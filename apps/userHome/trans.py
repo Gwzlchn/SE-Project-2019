@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 
 import apps.User.models as umodel
 from apps.course.models import Course_Base,Course_Institution,Course_Teacher
+from apps.fundamental.article.models import Announcement
 #@login_required()
 def display_Teach_info(id):
     dict = {}
@@ -54,7 +55,7 @@ def add_course(dict,id):
         Course_Institution.objects.create(course_ins=id,course_id=course)
     return
 
-def display_all_course(id):
+def display_all_course(id,b_id=None):
     dict = {}
     dict['courses'] = []
     if umodel.Teacher.objects.filter(user_id=id):
@@ -64,11 +65,18 @@ def display_all_course(id):
         for course in cc:
             dict['courses'].append(Course_Base.objects.get(id=course.course_id.id))
     else:
-        ins = umodel.Institution.objects.get(user_id=id)
-        cc = Course_Institution.objects.filter(course_ins=ins.id)
+        cc = Course_Institution.objects.filter(course_ins=b_id)
         i = 0
         for course in cc:
             dict['courses'].append(Course_Base.objects.get(id=course.course_id.id))
+    return dict
+
+def display_all_ann(id):
+    dict = {}
+    dict['res'] = []
+    anns = Announcement.objects.filter(author_id=id)
+    for ann in anns:
+        dict['res'].append(ann)
     return dict
 
 def delete_course(c_id,id,b_id=None):
@@ -79,5 +87,6 @@ def delete_course(c_id,id,b_id=None):
             Course_Base.objects.filter(id=c_id).delete()
         else:
             Course_Institution.objects.filter(course_id=c_id).filter(course_ins=b_id).delete()
-
+            Course_Base.objects.filter(id=c_id).delete()
     return
+

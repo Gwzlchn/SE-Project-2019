@@ -10,7 +10,7 @@ def hello(request):
 
 def login(request):
 
-    return render(request, 'login.html')
+    return render(request, 'User/login.html')
 
 
 def login_form(request):
@@ -93,7 +93,7 @@ def next_register(request):
 
 def register(request):
 
-    return render(request, 'register.html')
+    return render(request, 'User/register.html')
 
 
 def register2(request):
