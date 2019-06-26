@@ -63,7 +63,7 @@ class Institution(models.Model):
     Wallet=models.FloatField(default=0)
 
 class Branch(models.Model):
-    Ins = models.ForeignKey(Institution)
+    Ins = models.ForeignKey(Institution,on_delete=models.CASCADE)
     Address = models.CharField(max_length = 64)
     LDirection = models.CharField(max_length=15,choices=Lesson_Direction)
     Fitage =models.CharField(max_length=15,choices=Age_Choice)

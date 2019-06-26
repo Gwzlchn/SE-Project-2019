@@ -46,8 +46,10 @@ def add_course(dict,id):
                                course_age=dict['course_age'],course_time=dict['course_time'],
                                course_contains=dict['course_contains'],course_duration_of_week=dict['course_duration_time'])
     course.save()
+
     if umodel.Teacher.objects.filter(user_id=id):
-        Course_Teacher.objects.create(course_teacher=id,course_id=course)
+        teacher = umodel.Teacher.objects.get(user_id=id)
+        Course_Teacher.objects.create(course_teacher=teacher,course_id=course)
     else:
         Course_Institution.objects.create(course_ins=id,course_id=course)
     return
