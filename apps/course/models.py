@@ -9,7 +9,7 @@ class Course_Base(models.Model):
                                                  related_name='course_province',verbose_name="所在省份")
     course_location_city = models.ForeignKey(ChinaLocation,on_delete=models.CASCADE ,\
                                              related_name='course_city',verbose_name="所在城市")
-    course_location_area = models.ForeignKey(ChinaLocation,on_delete=models.CASCADE, \
+    course_location_distinct = models.ForeignKey(ChinaLocation,on_delete=models.CASCADE, \
                                              related_name='course_distinct',verbose_name="所在区")
 
     course_name=models.CharField(max_length=50,null=False,verbose_name="课程名称")
@@ -18,6 +18,7 @@ class Course_Base(models.Model):
     course_teacher = models.CharField(max_length=30, verbose_name='授课老师')
 
     course_subject = models.CharField(max_length=10,choices=Lesson_Direction,verbose_name="课程方向")
+
     course_age = models.CharField(max_length=10,choices=Age_Choice,verbose_name='课程适用年龄')
 
     course_contains = models.CharField(max_length=500, blank=True, verbose_name="课程内容")
