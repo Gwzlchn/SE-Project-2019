@@ -63,7 +63,7 @@ class Course_Base(models.Model):
 class Course_Institution(models.Model):
     course_id = models.OneToOneField(Course_Base,on_delete=models.CASCADE,\
                                   related_name='Course_by_Ins',verbose_name='机构所授课程',null=False)
-    course_ins = models.ManyToManyField(Institution,\
+    course_ins = models.ForeignKey(Institution,on_delete=models.CASCADE,\
                                         related_name='Ins_for_Course',verbose_name='机构名称')
 
     class Meta:
@@ -73,7 +73,7 @@ class Course_Institution(models.Model):
 class Course_Teacher(models.Model):
     course_id = models.OneToOneField(Course_Base,on_delete=models.CASCADE,\
                                   related_name='Course_by_Teacher',verbose_name='教师所授课程')
-    course_teacher = models.ManyToManyField(Teacher,\
+    course_teacher = models.ForeignKey(Teacher,on_delete=models.CASCADE,\
                                         related_name='Teacher_for_course',verbose_name='教师名称')
 
     class Meta:
