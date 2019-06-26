@@ -5,7 +5,9 @@ from . import views
 app_name = 'userHome'
 
 urlpatterns = [
-    path(r'userHome/',views.dispatch),
+    path(r'',views.dispatch),
     path(r'tChangeInfo',views.change_t_info),
+    path(r'SetCourse',views.set_course),
+    path(r'AddCourse',views.add_course),
 
 ]

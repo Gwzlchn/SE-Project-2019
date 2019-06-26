@@ -7,10 +7,22 @@
 <body>
     <form method="post">
         {%csrf_token%}
-        Name: <input type="text" name = "Name" value={{ Name }}>
-        Age: <input type="text" name= "Age" value={{ Age }}>
-
+        Name: <input type="text" name = "Name" value={{ Name }}><br>
+        Age: <input type="text" name= "Age" value={{ Age }}><br>
+        Sex: <input type="text" name= "Sex" value={{ Sex }}><br>
+        Id_Num: {{ Id_Num }}<br>
+        LDirection: <input type="text" name= "LDirection" value={{ LDirection }}><br>
+        Limyear: <input type="text" name= "Limyear" value={{ Limyear }}><br>
+        Fitage: <input type="text" name= "Fitage" value={{ Fitage }}><br>
+        PhoneNumber: <input type="text" name= "PhoneNumber" value={{ PhoneNumber }}><br>
+        Brief: <input type="text" name= "Brief" value={{ Brief }}><br>
+        Wallet:&nbsp; {{ Wallet }}<br>
         <input type="submit" value="提交修改" >
     </form>
+    <a href="/userHome"><button>返回</button></a><br>
+    {% if res %}
+        {{ res }}
+    {% endif %}
+
 </body>
 </html>
