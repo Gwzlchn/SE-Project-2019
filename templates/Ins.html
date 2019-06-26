@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ins</title>
+</head>
+<body>
+        <h1>欢迎登录Ins</h1>
+        <form action="/Inst/" method="post">{% csrf_token %}
+        <p>
+           <label for="">搜索：</label>
+           <input type="text" id="key" placeholder="请输入关键字" name="key" required >
+        </p>
+        <input type="submit" value="搜索">
+</body>
+</html>

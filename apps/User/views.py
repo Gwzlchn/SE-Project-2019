@@ -1,5 +1,5 @@
 
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 from . import Transaction
 from apps.User import models
 from django.contrib.auth import authenticate, login
@@ -7,6 +7,22 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from apps.userHome.views import dispatch
 from django.http import HttpResponseRedirect
+
+from functools import wraps
+
+def check_login(f):
+    @wraps(f)
+    def inner(request,*arg,**kwargs):
+        if request.session.get('is_login')=='1':
+            return f(request,*arg,**kwargs)
+        else:
+            return redirect('User/login/')
+    return inner
+
+def logout(request):
+     request.session['is_login']='0'
+     print(request.session['is_login'])
+     return render(request,"User/login.html")
 
 def Slogin(request):
     #return HttpResponse("Register")
@@ -17,16 +33,14 @@ def Slogin(request):
         print("login")
         if user is not None and user.is_active:
             auth.login(request, user)
+            request.session['is_login']='1'
+            request.session['user_id'] = user.id
             #if user.first_name == "1":"2":"3":"4"
             return HttpResponseRedirect('/userHome/')
         else:
             print('用户名或密码错误!')
 
     return render(request, "User/login.html", )
-
-def home(request):
-    #return HttpResponse("Home")
-    return render(request,"home.html",)
 
 def regChoice(request):
     #return HttpResponse("login")
@@ -118,7 +132,7 @@ def Admreg(request):
         authuser = User.objects.create_user(username,email,password,first_name = '4')
         new_user = models.Admin.objects.create(user = authuser)
         return render(request, "User/login.html", )
-    return render(request,"Admreg.html",)
+    return render(request,"User/Admreg.html",)
 
 
 # Create your views here.
@@ -156,5 +170,42 @@ def VisitATResult(request):
     Transaction.AddToCart(request)
     return render(request,'ATResult.html')
 
+check_login
+def Adm(request):
+   Cuid = request.session.get('user_id')
+   Utype = User.objects.get(id = Cuid)
+   if Utype is not None:
+       print(Cuid)
+       if(Utype.first_name != '4'):
+          return render(request,"User/login.html",)
+       print(request.session.get('user_id'))
+       return render(request,"User/Adm.html")
+   else:
+       return render(request,"User/login.html",)
 
+@check_login
+def POS(request):
+   Cuid = request.session.get('user_id')
+   Utype = User.objects.get(id = Cuid)
+   if Utype is not None:
+       print(Cuid)
+       if(Utype.first_name != '1'):
+          return render(request,"User/login.html",)
+       print(request.session.get('user_id'))
+       return render(request,"User/POS.html")
+   else:
+       return render(request,"User/login.html",)
+
+@check_login
+def Tea(request):
+   Cuid = request.session.get('user_id')
+   Utype = User.objects.get(id = Cuid)
+   if Utype is not None:
+       print(Cuid)
+       if(Utype.first_name != '2'):
+          return render(request,"User/login.html",)
+       print(request.session.get('user_id'))
+       return render(request,"User/Tea.html")
+   else:
+       return render(request,"User/login.html",)
 
