@@ -3,16 +3,12 @@ from ..User.models import Age_Choice,Lesson_Direction,Teacher,Institution
 
 
 #假定所有课均是每周一次
-class Course(models.Model):
-    # course_base_id = models.IntegerField(primary_key=True,serialize=False,verbose_name="课程ID")
+class Course_Base(models.Model):
 
     # 课程区域
     course_location_province = models.CharField(max_length=10, null=False, verbose_name="所在省份")
     course_location_city = models.CharField(max_length=20, null=False, verbose_name="所在城市")
     course_location_area = models.CharField(max_length=20, null=False, verbose_name="所在区")
-    # 课程地点
-    course_location = models.CharField(max_length=20, default="UNKOWN LOCATION",\
-                                       null=False, verbose_name="上课地点")
 
     course_teacher = models.CharField(max_length=30, verbose_name='授课老师')
 
@@ -21,28 +17,57 @@ class Course(models.Model):
 
     course_contains = models.CharField(max_length=500, blank=True, verbose_name="课程内容")
 
-    course_start_time = models.DateTimeField(verbose_name="首次课时间")
+    course_time = models.DateTimeField(verbose_name="首次课时间")
 
     weeks_choice = [(12,"一季"),(26,"半年"),(52,"一年"),(104,"两年")]
     course_duration_of_week = models.IntegerField(choices=weeks_choice)
 
     course_price = models.IntegerField(default=0,verbose_name='课程价格')
+
+    class Meta:
+        db_table = 'Course_Base'
+
+
+class Course(models.Model):
+    course_base_id = models.ForeignKey(Course_Base,on_delete=models.CASCADE,null=False)
+
+    # 课程地点
+    course_location = models.CharField(max_length=20, default="UNKOWN LOCATION", \
+                                       null=False, verbose_name="上课地点")
+
+    #本次课时间由首次课时间，一周一节推算出来
+    course_time = models.DateTimeField(verbose_name="本次课时间")
+
     course_homework = models.TextField(max_length=500,verbose_name='课程作业')
+
+    class Meta:
+        db_table = 'Course'
+
+
+
+
+
 
 
 # ForeignKey,ManyToManyField与OneToOneField分别在Model中定义多对一，多对多，一对一关系。
 class Course_Institution(models.Model):
-    course_id = models.OneToOneField(Course,on_delete=models.CASCADE,\
+    course_id = models.OneToOneField(Course_Base,on_delete=models.CASCADE,\
                                   related_name='Course_by_Ins',verbose_name='机构所授课程',null=False)
     course_ins = models.ManyToManyField(Institution,\
                                         related_name='Ins_for_Course',verbose_name='机构名称')
 
+    class Meta:
+        db_table = 'Course_Institution'
+
 
 class Course_Teacher(models.Model):
-    course_id = models.OneToOneField(Course,on_delete=models.CASCADE,\
+    course_id = models.OneToOneField(Course_Base,on_delete=models.CASCADE,\
                                   related_name='Course_by_Teacher',verbose_name='教师所授课程')
     course_teacher = models.ManyToManyField(Teacher,\
                                         related_name='Teacher_for_course',verbose_name='教师名称')
+
+    class Meta:
+        db_table = 'Course_Teacher'
 
 
 
