@@ -1,4 +1,5 @@
-﻿<!doctype html>
+﻿{% load static %}
+<!doctype html>
 <html lang="zxx">
     <head>
         <!-- Required meta tags -->
@@ -6,23 +7,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap Min CSS -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <!-- Animate CSS -->
-        <link rel="stylesheet" href="assets/css/animate.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/bootstrap.min.css" %}">
+        <!--Animate CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/animate.min.css"%}">
         <!-- IcoFont CSS -->
-        <link rel="stylesheet" href="assets/css/icofont.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/icofont.min.css" %}">
         <!-- Owl Carousel CSS -->
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/owl.carousel.min.css" %}">
         <!-- Owl Theme Default CSS -->
-        <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/owl.theme.default.min.css" %}">
         <!-- Magnific Popup CSS -->
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="{% static "assets/css/magnific-popup.css" %}">
         <!-- Main CSS -->
-        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="{% static "assets/css/main.css" %}">
         <!-- Responsive CSS -->
-        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="{% static "assets/css/responsive.css"  %}">
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+        <link rel="icon" type="image/png" href="{% static "assets/img/favicon.png" %}">
         
         <title>EduSplash - Education Responsive HTML Template</title>
     </head>
@@ -59,8 +60,8 @@
                         </ul>
                         
                         <ul class="login-regi-links"> 
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="register.html">Register</a></li>
+                            <li><a href="login.html">登陆</a></li>
+                            <li><a href="register.html">注册</a></li>
                         </ul>
                     </div>
                 </div>
@@ -72,7 +73,7 @@
         <nav class="navbar navbar-expand-lg navbar-light edu-navbar header-sticky">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/img/logo.png" alt="Logo">
+                    <img src="{%static "assets/img/logo透明版本.png"%}"  alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -82,7 +83,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Home
+                                主页
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -95,7 +96,7 @@
                      
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAbout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                About Us
+                                关于我们
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
@@ -110,48 +111,48 @@
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownPages">
-                                <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
-                                <li><a class="dropdown-item" href="instructor.html">Instructor</a></li>
-                                <li><a class="dropdown-item" href="register.html">Register</a></li>
-                                <li><a class="dropdown-item active" href="login.html">Login</a></li>
-                                <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+                                <li><a class="dropdown-item" href="about-us.html">关于我们</a></li>
+                                <li><a class="dropdown-item" href="instructor.html">老师|机构</a></li>
+                                <li><a class="dropdown-item" href="register.html">注册</a></li>
+                                <li><a class="dropdown-item active" href="login.html">登陆</a></li>
+                                <li><a class="dropdown-item" href="contact.html">联系我们</a></li>
                                 <li><a class="dropdown-item" href="404.html">404</a></li>
                             </ul>
                         </li>
                         
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEvent" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Event
+                                新闻
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownEvent">
-                                <li><a class="dropdown-item" href="event.html">Event</a></li>
-                                <li><a class="dropdown-item" href="single-event.html">Single Event</a></li>
+                                <li><a class="dropdown-item" href="event.html">近期新闻</a></li>
+                                <li><a class="dropdown-item" href="single-event.html">头条新闻</a></li>
                             </ul>
                         </li>
                         
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Courses
+                                课程
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
-                                <li><a class="dropdown-item" href="courses.html">Courses</a></li>
-                                <li><a class="dropdown-item" href="single-courses.html">Single Courses</a></li>
+                                <li><a class="dropdown-item" href="courses.html">课程总览</a></li>
+                                <li><a class="dropdown-item" href="single-courses.html">热门课程</a></li>
                             </ul>
                         </li>
                         
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownShop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Shop
+                                网上商城
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownShop">
-                                <li><a class="dropdown-item" href="shop.html">Shop</a></li>
-                                <li><a class="dropdown-item" href="shop-with-sidebar.html">Shop With Sidebar</a></li>
-                                <li><a class="dropdown-item" href="single-shop.html">Single Shop</a></li>
-                                <li><a class="dropdown-item" href="view-cart.html">View Cart</a></li>
-                                <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
+                                <li><a class="dropdown-item" href="shop.html">所有商品</a></li>
+                                <li><a class="dropdown-item" href="shop-with-sidebar.html">商品类别</a></li>
+                                <li><a class="dropdown-item" href="single-shop.html">推荐商品</a></li>
+                                <li><a class="dropdown-item" href="view-cart.html">我的购物车</a></li>
+                                <li><a class="dropdown-item" href="checkout.html">收银台</a></li>
                             </ul>
                         </li>
                         
@@ -161,14 +162,14 @@
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownBlog">
-                                <li><a class="dropdown-item" href="blog.html">Blog</a></li>
-                                <li><a class="dropdown-item" href="blog-with-sidebar.html">Blog With Sidebar</a></li>
-                                <li><a class="dropdown-item" href="single-blog.html">Single Blog</a></li>
+                                <li><a class="dropdown-item" href="blog.html">个人中心</a></li>
+                                <li><a class="dropdown-item" href="blog-with-sidebar.html">热门个站</a></li>
+                                <li><a class="dropdown-item" href="single-blog.html">推荐内容</a></li>
                             </ul>
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="contact.html">联系我们</a>
                         </li>
                         
                         <li class="nav-item">
@@ -183,23 +184,23 @@
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownCart">
                                 <li>
-                                    <a href="#"><img src="assets/img/courses/react.png" alt="React Logo"></a>
+                                    <a href="#"><img src="{% static "assets/img/courses/react.png" %}" alt="React Logo"></a>
                                     <div class="description">
-                                        <a href="#">React JS Course</a>
-                                        <span class="price">$199</span>
+                                        <a href="#">linux从入门到放弃</a>
+                                        <span class="price">199元</span>
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="assets/img/courses/meteor.png" alt="React Logo"></a>
+                                    <a href="#"><img src="{% static "assets/img/courses/meteor.png" %}" alt="React Logo"></a>
                                     <div class="description">
-                                        <a href="#">Meteor JS Course</a>
-                                        <span class="price"><del>$200</del> $199</span>
+                                        <a href="#">霸王生发膏</a>
+                                        <span class="price"><del>200元</del> 199元</span>
                                     </div>
                                 </li>
-                                <li><div class="total">Total: <strong>$398</strong></div></li>
+                                <li><div class="total">总计: <strong>398元</strong></div></li>
                                 <li>
-                                    <a href="checkout.html" class="float-left checkout">Checkout</a>
-                                    <a href="view-cart.html" class="float-right view-cart">View Cart</a>
+                                    <a href="checkout.html" class="float-left checkout">收银台</a>
+                                    <a href="view-cart.html" class="float-right view-cart">查看我的购物车</a>
                                 </li>
                             </ul>
                         </li>
@@ -236,8 +237,8 @@
                     <h1>Login</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Login</li>
+                            <li class="breadcrumb-item"><a href="#">回到首页</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">登陆</li>
                         </ol>
                     </nav>
                 </div>
@@ -249,20 +250,20 @@
         <section class="login-section pt-100 pb-180">
             <div class="container">
                 <div class="register-form box-content">
-                    <h3 class="title">Login Your Account</h3>
-                    <form>
+                    <h3 class="title">登陆您的账户</h3>
+                    <form action="login-form.html" method="post/get">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="id_username" placeholder="Username">
+                            <input type="text" class="form-control" id="id_username" placeholder="用户名">
                         </div>
 
                         <div class="form-group">
-                            <input type="password" class="form-control" id="id_password" placeholder="Password">
+                            <input type="password" class="form-control" id="id_password" placeholder="密码">
                         </div>
 
                         
                         <div class="form-foot"> 
-                            <button type="submit" class="btn default-btn">Login</button>
-                            <p>Don't have an account? <a href="register.html">Register Now</a></p>
+                            <button type="submit" class="btn default-btn">登陆</button>
+                            <p>还没有账户？ <a href="register.html">现在注册</a></p>
                         </div>
                     </form>
                 </div>
@@ -345,15 +346,15 @@
                         <div class="single-footer-widget">
                             <h3>Instagram Feed</h3>
                             <ul class="instagram-feed">
-                                <li><a href="#"><img src="assets/img/instagram-feed/1.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/2.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/3.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/4.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/5.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/6.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/5.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/2.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/1.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/1.jpg" %}" alt="Instagram image"> </a></li>
+                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/2.jpg" %}" alt="Instagram image"> </a></li>
+                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/3.jpg" %}" alt="Instagram image"> </a></li>
+                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/4.jpg" %}" alt="Instagram image"> </a></li>
+                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/5.jpg" %}" alt="Instagram image"> </a></li>
+                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/6.jpg" %}" alt="Instagram image"> </a></li>
+                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/5.jpg" %}" alt="Instagram image"> </a></li>
+                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/2.jpg" %}" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/1.jpg" %}" alt="Instagram image"></a></li>
                             </ul>
                         </div>
                     </div>
@@ -402,26 +403,26 @@
         
         
         <!-- JQuery Min JS -->
-        <script src="assets/js/jquery.1.12.4.min.js"></script>
+        <script src="{% static "assets/js/jquery.1.12.4.min.js" %}"></script>
         <!-- Popper Min JS -->
-        <script src="assets/js/popper.min.js"></script>
+        <script src="{% static "assets/js/popper.min.js" %}"></script>
         <!-- Bootstrap Min JS -->
-        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="{% static "assets/js/bootstrap.min.js" %}"></script>
         <!-- Owl Carousel JS -->
-        <script src="assets/js/owl.carousel.min.js"></script>
+        <script src="{% static "assets/js/owl.carousel.min.js" %}"></script>
         <!-- Magnific Popup JS -->
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="{% static "assets/js/jquery.magnific-popup.min.js" %}"></script>
         <!-- WayPonits JS -->
-        <script src="assets/js/waypoints.js"></script>
+        <script src="{% static "assets/js/waypoints.js" %}"></script>
         <!-- CounterUp JS -->
-        <script src="assets/js/jquery.counterup.min.js"></script>
+        <script src="{% static "assets/js/jquery.counterup.min.js" %}"></script>
 		<!-- Tilt JS -->
-        <script src="assets/js/tilt.jquery.min.js"></script>
+        <script src="{% static "assets/js/tilt.jquery.min.js" %}"></script>
         <!-- Form Validator JS FILES -->
-        <script src="assets/js/form-validator.min.js"></script>
+        <script src="{% static "assets/js/form-validator.min.js" %}"></script>
         <!-- Contact Form JS -->
-        <script src="assets/js/contact-form-script.js"></script>
+        <script src="{% static "assets/js/contact-form-script.js" %}"></script>
         <!-- Script JS -->
-        <script src="assets/js/script.js"></script>
+        <script src="{% static "assets/js/script.js" %}"></script>
     </body>
 </html>

@@ -1,4 +1,5 @@
-﻿<!doctype html>
+﻿{% load static %}
+<!doctype html>
 <html lang="zxx">
     <head>
         <!-- Required meta tags -->
@@ -6,23 +7,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap Min CSS -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/bootstrap.min.css" %}">
         <!-- Animate CSS -->
-        <link rel="stylesheet" href="assets/css/animate.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/animate.min.css" %}">
         <!-- IcoFont CSS -->
-        <link rel="stylesheet" href="assets/css/icofont.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/icofont.min.css" %}">
         <!-- Owl Carousel CSS -->
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/owl.carousel.min.css" %}">
         <!-- Owl Theme Default CSS -->
-        <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/owl.theme.default.min.css" %}">
         <!-- Magnific Popup CSS -->
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="{% static "assets/css/magnific-popup.css" %}">
         <!-- Main CSS -->
-        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="{% static "assets/css/main.css" %}">
         <!-- Responsive CSS -->
-        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="{% static "assets/css/responsive.css" %}">
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+        <link rel="icon" type="image/png" href="{% static "assets/img/favicon.png" %}">
         
         <title>EduSplash - Education Responsive HTML Template</title>
     </head>
@@ -183,14 +184,14 @@
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownCart">
                                 <li>
-                                    <a href="#"><img src="assets/img/courses/react.png" alt="React Logo"></a>
+                                    <a href="#"><img src="{% static "assets/img/courses/react.png" %}" alt="React Logo"></a>
                                     <div class="description">
                                         <a href="#">React JS Course</a>
                                         <span class="price">$199</span>
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="assets/img/courses/meteor.png" alt="React Logo"></a>
+                                    <a href="#"><img src="{% static "assets/img/courses/meteor.png" %}" alt="React Logo"></a>
                                     <div class="description">
                                         <a href="#">Meteor JS Course</a>
                                         <span class="price"><del>$200</del> $199</span>
@@ -257,7 +258,7 @@
                 <div class="row"> 
                     <div class="col-sm-6 col-md-6 col-lg-3"> 
                         <div class="single-tutor gray-border">
-                            <img src="assets/img/tutor/1.png" alt="tutor">
+                            <img src=“{%static "assets/img/tutor/1.png" %}" alt="tutor">
                             
                             <div class="tutor-title">
                                 <h3>Jason Statham</h3>
@@ -275,7 +276,7 @@
                     
                     <div class="col-sm-6 col-md-6 col-lg-3"> 
                         <div class="single-tutor gray-border">
-                            <img src="assets/img/tutor/2.png" alt="tutor">
+                            <img src=“{%static "assets/img/tutor/2.png" %}" alt="tutor">
                             
                             <div class="tutor-title">
                                 <h3>Olivia Lucy</h3>
@@ -293,7 +294,7 @@
                     
                     <div class="col-sm-6 col-md-6 col-lg-3"> 
                         <div class="single-tutor gray-border">
-                            <img src="assets/img/tutor/3.png" alt="tutor">
+                            <img src=“{%static "assets/img/tutor/3.png" %}" alt="tutor">
                             
                             <div class="tutor-title">
                                 <h3>David Warner</h3>
@@ -311,7 +312,7 @@
                     
                     <div class="col-sm-6 col-md-6 col-lg-3"> 
                         <div class="single-tutor gray-border">
-                            <img src="assets/img/tutor/4.png" alt="tutor">
+                            <img src=“{%static "assets/img/tutor/4.png" %}" alt="tutor">
                             
                             <div class="tutor-title">
                                 <h3>Smith Lucy</h3>
@@ -329,7 +330,7 @@
                     
                     <div class="col-sm-6 col-md-6 col-lg-3"> 
                         <div class="single-tutor gray-border">
-                            <img src="assets/img/tutor/5.png" alt="tutor">
+                            <img src=“{%static "assets/img/tutor/5.png" %}" alt="tutor">
                             
                             <div class="tutor-title">
                                 <h3>Suzan Lois</h3>
@@ -347,7 +348,7 @@
                     
                     <div class="col-sm-6 col-md-6 col-lg-3"> 
                         <div class="single-tutor gray-border">
-                            <img src="assets/img/tutor/6.png" alt="tutor">
+                            <img src=“{%static "assets/img/tutor/6.png" %}" alt="tutor">
                             
                             <div class="tutor-title">
                                 <h3>Aaron Rossi</h3>
@@ -365,7 +366,7 @@
                     
                     <div class="col-sm-6 col-md-6 col-lg-3"> 
                         <div class="single-tutor gray-border">
-                            <img src="assets/img/tutor/7.png" alt="tutor">
+                            <img src=“{%static "assets/img/tutor/7.png" %}" alt="tutor">
                             
                             <div class="tutor-title">
                                 <h3>Dora Caelan</h3>
@@ -561,26 +562,26 @@
         
         
         <!-- JQuery Min JS -->
-        <script src="assets/js/jquery.1.12.4.min.js"></script>
+        <script src="{% static "assets/js/jquery.1.12.4.min.js" %}"></script>
         <!-- Popper Min JS -->
-        <script src="assets/js/popper.min.js"></script>
+        <script src="{% static "assets/js/popper.min.js"%}"></script>
         <!-- Bootstrap Min JS -->
-        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="{% static "assets/js/bootstrap.min.js"%}"></script>
         <!-- Owl Carousel JS -->
-        <script src="assets/js/owl.carousel.min.js"></script>
+        <script src="{% static "assets/js/owl.carousel.min.js" %}"></script>
         <!-- Magnific Popup JS -->
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="{% static "assets/js/jquery.magnific-popup.min.js" %}"></script>
         <!-- WayPonits JS -->
-        <script src="assets/js/waypoints.js"></script>
+        <script src="{% static "assets/js/waypoints.js" %}"></script>
         <!-- CounterUp JS -->
-        <script src="assets/js/jquery.counterup.min.js"></script>
+        <script src="{% static "assets/js/jquery.counterup.min.js" %}"></script>
 		<!-- Tilt JS -->
-        <script src="assets/js/tilt.jquery.min.js"></script>
+        <script src="{% static "assets/js/tilt.jquery.min.js" %}"></script>
         <!-- Form Validator JS FILES -->
-        <script src="assets/js/form-validator.min.js"></script>
+        <script src="{% static "assets/js/form-validator.min.js" %}"></script>
         <!-- Contact Form JS -->
-        <script src="assets/js/contact-form-script.js"></script>
+        <script src="{% static "assets/js/contact-form-script.js" %}"></script>
         <!-- Script JS -->
-        <script src="assets/js/script.js"></script>
+        <script src="{% static "assets/js/script.js" %}"></script>
     </body>
 </html>

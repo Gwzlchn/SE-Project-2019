@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="zxx">
     <head>
@@ -6,23 +7,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap Min CSS -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/bootstrap.min.css" %}">
         <!-- Animate CSS -->
-        <link rel="stylesheet" href="assets/css/animate.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/animate.min.css" %}">
         <!-- IcoFont CSS -->
-        <link rel="stylesheet" href="assets/css/icofont.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/icofont.min.css" %}">
         <!-- Owl Carousel CSS -->
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/owl.carousel.min.css" %}">
         <!-- Owl Theme Default CSS -->
-        <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/owl.theme.default.min.css" %}">
         <!-- Magnific Popup CSS -->
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="{% static "assets/css/magnific-popup.css" %}">
         <!-- Main CSS -->
-        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="{% static "assets/css/main.css" %}">
         <!-- Responsive CSS -->
-        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="{% static "assets/css/responsive.css" %}">
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+        <link rel="icon" type="image/png" href="{% static "assets/img/favicon.png" %}">
         
         <title>jluu - 软件工程课程设计 </title>
     </head>
@@ -184,14 +185,14 @@
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownCart">
                                 <li>
-                                    <a href="#"><img src="assets/img/courses/react.png" alt="React Logo"></a>
+                                    <a href="#"><img src="{% static "assets/img/courses/react.png" %}" alt="React Logo"></a>
                                     <div class="description">
                                         <a href="#">linux从入门到放弃</a>
                                         <span class="price">199元</span>
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="assets/img/courses/meteor.png" alt="React Logo"></a>
+                                    <a href="#"><img src="{% static "assets/img/courses/meteor.png" %}" alt="React Logo"></a>
                                     <div class="description">
                                         <a href="#">霸王生发膏</a>
                                         <span class="price"><del>200元</del> 199元</span>
@@ -314,7 +315,7 @@
                         </div>
                   
                         <div class="form-foot"> 
-                            <a href="next-register.html"><button type="submit" class="btn default-btn">下一步</a></button>
+                            <a href="next-register.html"><button type="submit" class="btn default-btn">下一步</button></a>
                             <p>已经拥有账号？<a href="login.html">点此登陆</a></p>
                         </div>
                     </form>
@@ -441,27 +442,27 @@
  
         
         <!-- JQuery Min JS -->
-        <script src="assets/js/jquery.1.12.4.min.js"></script>
+        <script src="{% static "assets/js/jquery.1.12.4.min.js" %}"></script>
         <!-- Popper Min JS -->
-        <script src="assets/js/popper.min.js"></script>
+        <script src="{% static "assets/js/popper.min.js"%}"></script>
         <!-- Bootstrap Min JS -->
-        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="{% static "assets/js/bootstrap.min.js"%}"></script>
         <!-- Owl Carousel JS -->
-        <script src="assets/js/owl.carousel.min.js"></script>
+        <script src="{% static "assets/js/owl.carousel.min.js" %}"></script>
         <!-- Magnific Popup JS -->
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="{% static "assets/js/jquery.magnific-popup.min.js" %}"></script>
         <!-- WayPonits JS -->
-        <script src="assets/js/waypoints.js"></script>
+        <script src="{% static "assets/js/waypoints.js" %}"></script>
         <!-- CounterUp JS -->
-        <script src="assets/js/jquery.counterup.min.js"></script>
+        <script src="{% static "assets/js/jquery.counterup.min.js" %}"></script>
 		<!-- Tilt JS -->
-        <script src="assets/js/tilt.jquery.min.js"></script>
+        <script src="{% static "assets/js/tilt.jquery.min.js" %}"></script>
         <!-- Form Validator JS FILES -->
-        <script src="assets/js/form-validator.min.js"></script>
+        <script src="{% static "assets/js/form-validator.min.js" %}"></script>
         <!-- Contact Form JS -->
-        <script src="assets/js/contact-form-script.js"></script>
+        <script src="{% static "assets/js/contact-form-script.js" %}"></script>
         <!-- Script JS -->
-        <script src="assets/js/script.js"></script>
+        <script src="{% static "assets/js/script.js" %}"></script>
     </body>
 </html>
 

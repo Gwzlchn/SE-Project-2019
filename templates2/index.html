@@ -1,4 +1,5 @@
-﻿<!doctype html>
+﻿{% load static %}
+<!doctype html>
 <html lang="zxx">
     <head>
         <!-- Required meta tags -->
@@ -6,23 +7,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap Min CSS -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/bootstrap.min.css" %}">
         <!-- Animate CSS -->
-        <link rel="stylesheet" href="assets/css/animate.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/animate.min.css" %}">
         <!-- IcoFont CSS -->
-        <link rel="stylesheet" href="assets/css/icofont.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/icofont.min.css" %}">
         <!-- Owl Carousel CSS -->
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/owl.carousel.min.css" %}">
         <!-- Owl Theme Default CSS -->
-        <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="{% static "assets/css/owl.theme.default.min.css" %}">
         <!-- Magnific Popup CSS -->
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="{% static "assets/css/magnific-popup.css" %}">
         <!-- Main CSS -->
-        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="{% static "assets/css/main.css" %}">
         <!-- Responsive CSS -->
-        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="{% static "assets/css/responsive.css" %}">
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+        <link rel="icon" type="image/png" href="{% static "assets/img/favicon.png" %}">
 
         <title>jluu-软件工程课程设计</title>
     </head>
@@ -72,7 +73,7 @@
         <nav class="navbar navbar-expand-lg navbar-light edu-navbar header-sticky">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/img/logo.png" alt="Logo">
+                    <img src="assets/img/logo透明.png" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -749,7 +750,7 @@
                 <div class="row"> 
                     <div class="col-sm-6 col-md-6 col-lg-3"> 
                         <div class="single-tutor" data-tilt>
-                            <img src="assets/img/tutor/1.png" alt="tutor">
+                            <img src=“{%static "assets/img/tutor/1.png" %}" alt="tutor">
                             
                             <div class="tutor-title">
                                 <h3>机构a</h3>
@@ -767,7 +768,7 @@
                     
                     <div class="col-sm-6 col-md-6 col-lg-3"> 
                         <div class="single-tutor st-active-hover" data-tilt>
-                            <img src="assets/img/tutor/2.png" alt="tutor">
+                            <img src=“{%static "assets/img/tutor/2.png" %}" alt="tutor">
                             
                             <div class="tutor-title">
                                 <h3>机构b</h3>
@@ -785,7 +786,7 @@
                     
                     <div class="col-sm-6 col-md-6 col-lg-3"> 
                         <div class="single-tutor" data-tilt>
-                            <img src="assets/img/tutor/3.png" alt="tutor">
+                            <img src=“{%static "assets/img/tutor/3.png" %}" alt="tutor">
                             
                             <div class="tutor-title">
                                 <h3>机构c</h3>
@@ -803,7 +804,7 @@
                     
                     <div class="col-sm-6 col-md-6 col-lg-3"> 
                         <div class="single-tutor" data-tilt>
-                            <img src="assets/img/tutor/4.png" alt="tutor">
+                            <img src=“{%static "assets/img/tutor/4.png" %}" alt="tutor">
                             
                             <div class="tutor-title">
                                 <h3>机构d</h3>
@@ -1029,7 +1030,7 @@
                 <div class="news-carosel owl-carousel owl-theme owl-theme-s2">
                     <!-- Blog Post #1 -->
                     <div class="single-blog-post">
-                        <a href="#"><img src="assets/img/blog/1.jpg" alt="Blog Image"></a>
+                        <a href="#"><img src=“{%static "assets/img/blog/1.jpg"%}" alt="Blog Image"></a>
                         
                         <div class="blog-post-content">
                             <span><i class="icofont-ui-calendar"></i> 18 Jan 2019</span>
@@ -1040,7 +1041,7 @@
                     
                     <!-- Blog Post #2 -->
                     <div class="single-blog-post">
-                        <a href="#"><img src="assets/img/blog/2.jpg" alt="Blog Image"></a>
+                        <a href="#"><img src=“{%static "assets/img/blog/2.jpg"%}" alt="Blog Image"></a>
                         
                         <div class="blog-post-content">
                             <span><i class="icofont-ui-calendar"></i> 18 Jan 2019</span>
@@ -1051,7 +1052,7 @@
                     
                     <!-- Blog Post #3 -->
                     <div class="single-blog-post">
-                        <a href="#"><img src="assets/img/blog/3.jpg" alt="Blog Image"></a>
+                        <a href="#"><img src=“{%static "assets/img/blog/3.jpg"%}" alt="Blog Image"></a>
                         
                         <div class="blog-post-content">
                             <span><i class="icofont-ui-calendar"></i> 18 Jan 2019</span>
@@ -1062,7 +1063,7 @@
                     
                     <!-- Blog Post #4 -->
                     <div class="single-blog-post">
-                        <a href="#"><img src="assets/img/blog/1.jpg" alt="Blog Image"></a>
+                        <a href="#"><img src=“{%static "assets/img/blog/1.jpg"%}" alt="Blog Image"></a>
                         
                         <div class="blog-post-content">
                             <span><i class="icofont-ui-calendar"></i> 18 Jan 2019</span>
@@ -1073,7 +1074,7 @@
                     
                     <!-- Blog Post #5 -->
                     <div class="single-blog-post">
-                        <a href="#"><img src="assets/img/blog/2.jpg" alt="Blog Image"></a>
+                        <a href="#"><img src=“{%static "assets/img/blog/2.jpg"%}" alt="Blog Image"></a>
                         
                         <div class="blog-post-content">
                             <span><i class="icofont-ui-calendar"></i> 18 Jan 2019</span>
@@ -1084,7 +1085,7 @@
                     
                     <!-- Blog Post #6 -->
                     <div class="single-blog-post">
-                        <a href="#"><img src="assets/img/blog/3.jpg" alt="Blog Image"></a>
+                        <a href="#"><img src=“{%static "assets/img/blog/3.jpg"%}" alt="Blog Image"></a>
                         
                         <div class="blog-post-content">
                             <span><i class="icofont-ui-calendar"></i> 18 Jan 2019</span>
@@ -1118,7 +1119,7 @@
                             <span>Founder at WHDF</span>
                         </div>
                         
-                        <img src="assets/img/quote.png" class="quote-icon" alt="quote">
+                        <img src=“{%static "assets/img/quote.png"%}" class="quote-icon" alt="quote">
                     </div>
                     
                     <!-- Feedback #2 -->
@@ -1132,7 +1133,7 @@
                             <span>Founder at WHDF</span>
                         </div>
                         
-                        <img src="assets/img/quote.png" class="quote-icon" alt="quote">
+                        <img src=“{%static "assets/img/quote.png"%}” class="quote-icon" alt="quote">
                     </div>
                     
                     <!-- Feedback #3 -->
@@ -1146,7 +1147,7 @@
                             <span>Founder at WHDF</span>
                         </div>
                         
-                        <img src="assets/img/quote.png" class="quote-icon" alt="quote">
+                        <img src=“{%static "assets/img/quote.png"%}” class="quote-icon" alt="quote">
                     </div>
                     
                     <!-- Feedback #4 -->
@@ -1160,7 +1161,7 @@
                             <span>Founder at WHDF</span>
                         </div>
                         
-                        <img src="assets/img/quote.png" class="quote-icon" alt="quote">
+                        <img src=“{%static "assets/img/quote.png"%}” class="quote-icon" alt="quote">
                     </div>
                     
                     <!-- Feedback #5 -->
@@ -1174,7 +1175,7 @@
                             <span>Founder at WHDF</span>
                         </div>
                         
-                        <img src="assets/img/quote.png" class="quote-icon" alt="quote">
+                        <img src=“{%static "assets/img/quote.png"%}” class="quote-icon" alt="quote">
                     </div>
                 </div>
             </div>
@@ -1187,52 +1188,52 @@
                <div class="partner-carosel owl-carousel owl-theme owl-theme-s2">
                     <!-- Partner #1 -->
                     <div class="single-partner">
-                       <a href="#"><img src="assets/img/partner/1.png" alt="partner"></a>
+                       <a href="#"><img src=“{%static "assets/img/partner/1.png"%}” alt="partner"></a>
                     </div>
                     
                     <!-- Partner #2 -->
                     <div class="single-partner">
-                       <a href="#"><img src="assets/img/partner/2.png" alt="partner"></a>
+                       <a href="#"><img src=“{%static "assets/img/partner/2.png"%}” alt="partner"></a>
                     </div>
                     
                     <!-- Partner #3 -->
                     <div class="single-partner">
-                       <a href="#"><img src="assets/img/partner/3.png" alt="partner"></a>
+                       <a href="#"><img src=“{%static "assets/img/partner/3.png"%}” alt="partner"></a>
                     </div>
                     
                     <!-- Partner #4 -->
                     <div class="single-partner">
-                       <a href="#"><img src="assets/img/partner/4.png" alt="partner"></a>
+                       <a href="#"><img src=“{%static "assets/img/partner/4.png"%}” alt="partner"></a>
                     </div>
                     
                     <!-- Partner #5 -->
                     <div class="single-partner">
-                       <a href="#"><img src="assets/img/partner/5.png" alt="partner"></a>
+                       <a href="#"><img src=“{%static "assets/img/partner/5.png"%}” alt="partner"></a>
                     </div>
                     
                     <!-- Partner #6 -->
                     <div class="single-partner">
-                       <a href="#"><img src="assets/img/partner/1.png" alt="partner"></a>
+                       <a href="#"><img src=“{%static "assets/img/partner/1.png"%}” alt="partner"></a>
                     </div>
                     
                     <!-- Partner #7 -->
                     <div class="single-partner">
-                       <a href="#"><img src="assets/img/partner/2.png" alt="partner"></a>
+                       <a href="#"><img src=“{%static "assets/img/partner/2.png"%}” alt="partner"></a>
                     </div>
                     
                     <!-- Partner #8 -->
                     <div class="single-partner">
-                       <a href="#"><img src="assets/img/partner/3.png" alt="partner"></a>
+                       <a href="#"><img src=“{%static "assets/img/partner/3.png"%}” alt="partner"></a>
                     </div>
                     
                     <!-- Partner #9 -->
                     <div class="single-partner">
-                       <a href="#"><img src="assets/img/partner/4.png" alt="partner"></a>
+                       <a href="#"><img src=“{%static "assets/img/partner/4.png”%}” alt="partner"></a>
                     </div>
                     
                     <!-- Partner #10 -->
                     <div class="single-partner">
-                       <a href="#"><img src="assets/img/partner/5.png" alt="partner"></a>
+                       <a href="#"><img src=“{%static "assets/img/partner/5.png”%}” alt="partner"></a>
                     </div>
                </div>
            </div>
@@ -1371,26 +1372,26 @@
        
  
         <!-- JQuery Min JS -->
-        <script src="assets/js/jquery.1.12.4.min.js"></script>
+        <script src="{% static "assets/js/jquery.1.12.4.min.js" %}"></script>
         <!-- Popper Min JS -->
-        <script src="assets/js/popper.min.js"></script>
+        <script src="{% static "assets/js/popper.min.js"%}"></script>
         <!-- Bootstrap Min JS -->
-        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="{% static "assets/js/bootstrap.min.js"%}"></script>
         <!-- Owl Carousel JS -->
-        <script src="assets/js/owl.carousel.min.js"></script>
+        <script src="{% static "assets/js/owl.carousel.min.js" %}"></script>
         <!-- Magnific Popup JS -->
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="{% static "assets/js/jquery.magnific-popup.min.js" %}"></script>
         <!-- WayPonits JS -->
-        <script src="assets/js/waypoints.js"></script>
+        <script src="{% static "assets/js/waypoints.js" %}"></script>
         <!-- CounterUp JS -->
-        <script src="assets/js/jquery.counterup.min.js"></script>
+        <script src="{% static "assets/js/jquery.counterup.min.js" %}"></script>
 		<!-- Tilt JS -->
-        <script src="assets/js/tilt.jquery.min.js"></script>
+        <script src="{% static "assets/js/tilt.jquery.min.js" %}"></script>
         <!-- Form Validator JS FILES -->
-        <script src="assets/js/form-validator.min.js"></script>
+        <script src="{% static "assets/js/form-validator.min.js" %}"></script>
         <!-- Contact Form JS -->
-        <script src="assets/js/contact-form-script.js"></script>
+        <script src="{% static "assets/js/contact-form-script.js" %}"></script>
         <!-- Script JS -->
-        <script src="assets/js/script.js"></script>
+        <script src="{% static "assets/js/script.js" %}"></script>
     </body>
 </html>
