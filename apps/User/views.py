@@ -1,5 +1,6 @@
-from django.shortcuts import render,HttpResponse
 
+from django.shortcuts import render,HttpResponse
+from . import Transaction
 from apps.User import models
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
@@ -119,4 +120,39 @@ def Admreg(request):
 
 
 # Create your views here.
+
+
+
+def VisitUpdateInfo(request):
+    return render(request,"UpdateInfo.html")
+
+def VisitUResult(request):
+    Transaction.UpdateInfo(request)
+    return render(request,'UResult.html')
+
+def VisitRecharge(request):
+    return render(request,'Recharge.html')
+
+def VisitRResult(request):
+    Transaction.Recharge(request)
+    return render(request,'RResult.html')
+
+def VisitApplyAudi(request):
+    return render(request,'ApplyAudi.html')
+
+def VisitAResult(request):
+    if Transaction.ApplyAudi(request):
+        return render(request,'AResultS.html')
+
+
+    return render(request,'AResultF.html')
+
+def VisitAddToCart(request):
+    return render(request,'AddToCart.html')
+
+def VisitATResult(request):
+    Transaction.AddToCart(request)
+    return render(request,'ATResult.html')
+
+
 
