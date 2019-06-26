@@ -5,9 +5,6 @@ from apps.fundamental.CHINA_LOCATION.models import ChinaLocation
 #假定所有课均是每周一次
 class Course_Base(models.Model):
 
-    course_name = models.CharField(max_length=20,verbose_name='课程名称')
-    # 课程区域
-
     course_location_province = models.ForeignKey(ChinaLocation,on_delete=models.CASCADE, \
                                                  related_name='course_province',verbose_name="所在省份")
     course_location_city = models.ForeignKey(ChinaLocation,on_delete=models.CASCADE ,\
