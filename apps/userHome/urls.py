@@ -12,5 +12,5 @@ urlpatterns = [
     path(r'announcement',views.show_announcement),
     path(r'Addannouncement',views.add_announcement),
     path(r'Updateannouncement',views.update_announcement),
-
+    path(r'AddCourse',views.add_course)
 ]

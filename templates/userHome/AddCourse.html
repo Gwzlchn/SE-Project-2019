@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>添加课程</title>
 </head>
 <body>
-
+    <form method="post">
+        {%csrf_token%}
+        省:<input type="text" name="location_pro" value=""><br>
+        市:<input type="text" name="location_city" value=""><br>
+        区、县:<input type="text" name="location_area" value=""><br>
+        课程教师:<input type="text" name="course_teacher" value=""><br>
+        课程方向:<input type="text" name="course_subject" value=""><br>
+        适合年龄:<input type="text" name="course_age" value=""><br>
+        课程内容:<input type="text" name="course_contains" value=""><br>
+        首次上课时间:<input type="date" name="course_time" value=""><br>
+        课程长度:<input type="text" name="course_duration_time"><br>
+        课程价格:<input type="text" name="course_price"><br>
+        <input type="submit" value="添加课程">
+    </form>
 </body>
 </html>
