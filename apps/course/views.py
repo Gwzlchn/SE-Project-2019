@@ -6,7 +6,8 @@ def Course_Index(request):
     return render(request,"courses.html")
 
 def Single_Course_Index(request,course_id):
+
+    return render(request,"single_course.html")
+
+def Scoring_Course(request):
     pass
-#     print(course_id)
-#     course_obj =
-#     return render(request,"single_course.html")
