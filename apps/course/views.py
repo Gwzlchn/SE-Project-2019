@@ -14,10 +14,12 @@ def Single_Course_Index(request,course_id):
     return render(request,"single_course.html")
 
 #todo: 时间未处理！！！
+
 def Single_Course_Teacher(request,course_id):
     course_obj = Course_Base.objects.get(id=course_id)
     dict_obj = course_obj.to_dict()
 
+    #增加几对key-value
     dict_obj['province_name'] = ChinaLocation.objects.get(id=dict_obj['course_location_province']).name
     dict_obj['city_name'] = ChinaLocation.objects.get(id=dict_obj['course_location_city']).name
     dict_obj['distinct_name'] = ChinaLocation.objects.get(id=dict_obj['course_location_distinct']).name
