@@ -29,6 +29,8 @@ urlpatterns = [
     path('comment/', include('apps.fundamental.comment.urls', namespace='comment')),
 
     path('loc/',    include('apps.fundamental.CHINA_LOCATION.urls',namespace='CHINA_LOCATION')),
+
+    path('course/', include('apps.course.urls', namespace='Course')),
 ]
 
 if settings.DEBUG: # new
