@@ -257,21 +257,18 @@
                 <div class="row"> 
                     <div class="col-lg-8">
                         <div class="single-course-header">
-                            <h2>Become a Mobile App Developer</h2>
+                            <h2>%course_name%</h2>
                             
                             <ul class="course-meta">
                                 <li class="author">
                                     <div class="thumb">
                                         <img src=“{%static "/assets/img/tutor/7.png" %}" alt="image">
                                     </div>
-
-                                    <div id="Teacher" class="text">
-                                        <a href="#">%TEACHER%</a>
+                                        <a href="#">%course_teacher%</a>
                                         <p>Teacher</p>
-                                    </div>
                                 </li>
                                 <li class="categories">
-                                    <a href="#" class="course-name">React.js</a>
+                                    <a href="#" class="course-name">%course_subject%</a>
                                     <p>Categories</p>
                                 </li>
                                 <div id="star"></div>
@@ -285,7 +282,7 @@
 {#                                </li>#}
                             </ul>
                             
-                            <span class="free-course">Free</span>
+{#                            <span class="free-course">Free</span>#}
                         </div>
                        
                         <div class="single-preview-img">
@@ -293,10 +290,13 @@
                         </div>
                        
                         <div class="single-event-description">
-                            <h3>Course Description</h3>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p> 
+                            <h3>课程内容</h3>
+                            <p>%course_contains%</p>
+                        </div>
 
-                            <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <div class="single-event-description">
+                            <h3>课程作业</h3>
+                            <p>%course_homework%</p>
                         </div>
 
                         <div class="row mb-30">
@@ -732,48 +732,38 @@
                             <ul>
                                 <li>
                                     <i class="icofont-check-alt"></i>
-                                    <span class="label">Lectures</span>
-                                    <span class="date">40</span>
+                                    <span class="label">Weeks</span>
+                                    <span class="date">%course_duration_of_week%</span>
                                 </li>
                                 <li>
                                     <i class="icofont-check-alt"></i>
-                                    <span class="label">Video</span>
-                                    <span class="date">200</span>
+                                    <span class="label">所在省份</span>
+                                    <span class="date">%province_name%</span>
                                 </li>
                                 <li>
                                     <i class="icofont-check-alt"></i>
-                                    <span class="label">Duration</span>
-                                    <span class="date">30 Hours</span>
+                                    <span class="label">所在城市</span>
+                                    <span class="date">%city_name%</span>
                                 </li>
                                 <li>
                                     <i class="icofont-check-alt"></i>
-                                    <span class="label">Language</span>
-                                    <span class="date">English</span>
+                                    <span class="label">所在区县</span>
+                                    <span class="date">%distinct_name%</span>
                                 </li>
                                 <li>
                                     <i class="icofont-check-alt"></i>
-                                    <span class="label">Students</span>
-                                    <span class="date">500</span>
+                                    <span class="label">地点</span>
+                                    <span class="date">%course_location%</span>
                                 </li>
                                 <li>
                                     <i class="icofont-check-alt"></i>
-                                    <span class="label">Captions</span>
-                                    <span class="date">Yes</span>
-                                </li>
-                                <li>
-                                    <i class="icofont-check-alt"></i>
-                                    <span class="label">Assessments</span>
-                                    <span class="date">Yes</span>
-                                </li>
-                                <li>
-                                    <i class="icofont-check-alt"></i>
-                                    <span class="label">Skill level</span>
-                                    <span class="date">All level</span>
+                                    <span class="label">适用年龄</span>
+                                    <span class="date">%course_age%</span>
                                 </li>
                             </ul>
-                        
+
                             <div class="se-info-foot">
-                                <div class="price">$149</div>
+                                <div class="price">%course_price%</div>
                                 <a href="#" class="default-btn">Enroll</a>
                             </div>
                         </div>
@@ -963,8 +953,19 @@
                 //console.log(json)
                 var template = document.getElementById("single_course_template").innerHTML;
                 var html = template
-                        .replace(/%TEACHER%/, json_data['Teacher']);
-                //console.log(html)
+                            .replace(/%course_teacher%/, json_data['course_teacher'])
+                            .replace(/%course_name%/, json_data['course_name'])
+                            .replace(/%course_subject%/, json_data['course_subject'])
+                            .replace(/%course_age%/, json_data['course_age'])
+                            .replace(/%course_contains%/, json_data['course_contains'])
+                            .replace(/%course_duration_of_week%/, json_data['course_duration_of_week'])
+                            .replace(/%course_price%/, json_data['course_price'])
+                            .replace(/%course_location%/, json_data['course_location'])
+                            .replace(/%province_name%/, json_data['province_name'])
+                            .replace(/%city_name%/, json_data['city_name'])
+                            .replace(/%distinct_name%/, json_data['distinct_name'])
+                            .replace(/%course_homework%/, json_data['course_homework']);
+
                 document.getElementById('to_fill').innerHTML = html;
             });
         })
