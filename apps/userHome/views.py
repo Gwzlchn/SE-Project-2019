@@ -46,6 +46,12 @@ def set_course(request):
     id = 2
     if not Um.Teacher.objects.filter(user_id=id):
         return render(request,'User/login')
+    if request.method == "POST":
+        c_id = request.POST.get('id')
+        trans.delete_course(c_id,id)
+    dict = trans.display_all_course(id)
+
+    return render(request,'userHome/SetCourse.html',dict)
 
 #@login_required()
 def add_course(request):

@@ -38,16 +38,38 @@ def change_teach_info(id,dict):
 
 #@login_required()
 def add_course(dict,id):
-    course = Course_Base(course_location_province=dict['course_location_pro'],
-                               course_location_city=dict['course_location_city'],
-                               course_location_area=dict['course_location_area'],
+    course = Course_Base(course_location_province=dict['location_pro'],
+                               course_location_city=dict['location_city'],
+                               course_location_area=dict['location_area'],
                                course_teacher=dict['course_teacher'],
                                course_subject=dict['course_subject'],course_price=dict['course_price'],
                                course_age=dict['course_age'],course_time=dict['course_time'],
                                course_contains=dict['course_contains'],course_duration_of_week=dict['course_duration_time'])
     course.save()
-    if umodel.Teacher.object.filter(user_id=id):
-        Course_Teacher.objects.create(course_teacher=id,course_id=course.id)
+    if umodel.Teacher.objects.filter(user_id=id):
+        Course_Teacher.objects.create(course_teacher=id,course_id=course)
     else:
-        Course_Institution.objects.create(course_ins=id,course_id=course.id)
+        Course_Institution.objects.create(course_ins=id,course_id=course)
+    return
+
+def display_all_course(id):
+    dict = {}
+    dict['courses'] = []
+    if umodel.Teacher.objects.filter(user_id=id):
+        teacher = umodel.Teacher.objects.get(user_id=id)
+        cc = Course_Teacher.objects.filter(course_teacher=teacher.id)
+        i = 0
+        for course in cc:
+            dict['courses'].append(Course_Base.objects.get(id=course.course_id))
+    else:
+        ins = umodel.Institution.objects.get(user_id=id)
+        cc = Course_Institution.objects.filter(course_ins=ins.id)
+        i = 0
+        for course in cc:
+            dict['courses'].append(Course_Base.objects.get(id=course.course_id))
+    return dict
+
+def delete_course(c_id,id):
+    if not Course_Base.objects.filter(id=c_id):
+        Course_Base.objects.filter(id=c_id).delete()
     return
