@@ -1,4 +1,9 @@
 ﻿{% load static %}
+
+
+
+
+
 <!doctype html>
 <html lang="zxx">
     <head>
@@ -29,6 +34,7 @@
     </head>
 
     <body>
+
         <!-- Preloader -->
         <div class="preloader">
             <div class="loader">
@@ -260,8 +266,8 @@
                                         <img src=“{%static "/assets/img/tutor/7.png" %}" alt="image">
                                     </div>
 
-                                    <div class="text">
-                                        <a href="#">Dora Caelan</a>
+                                    <div id="Teacher" class="text">
+                                        <a href="#">%TEACHER%</a>
                                         <p>Teacher</p>
                                     </div>
                                 </li>
@@ -952,8 +958,21 @@
         <script src="{% static "assets/js/contact-form-script.js" %}"></script>
         <!-- Script JS -->
         <script src="{% static "assets/js/script.js" %}"></script>
-        <script>
-        $('#star').raty();
+        <script>$(function(){
+            $.get('getinfo',function (json) {
+                console.log(json)
+                var techer =  document.getElementById("Teacher").innerHTML;
+                var html = techer.replace(/%TEACHER%/, json['Teacher']);
+                console.log(html)
+            })
+
+            {#var template = document.getElementById("res").innerHTML;#}
+            {#var html = template#}
+            {#.replace(/%name%/, data['name'])#}
+            {#.replace(/%value%/, data['value']);#}
+        });
+
         </script>
+
     </body>
 </html>
