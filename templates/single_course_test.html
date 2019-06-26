@@ -74,7 +74,7 @@
         <script src="{% static "assets/js/script.js" %}"></script>
 
         <script>$(function(){
-            $.get('getinfo',function (json) {
+            $.get('getAllInfo',function (json) {
                 console.log(json)
                 var techer =  document.getElementById("my-template").innerHTML;
                 var html = techer.replace(/%TEACHER%/, json['Teacher']);
