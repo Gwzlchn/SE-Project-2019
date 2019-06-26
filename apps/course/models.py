@@ -1,5 +1,5 @@
 from django.db import models
-from ..User.models import Age_Choice,Lesson_Direction,Teacher,Institution
+from ..User.models import Age_Choice,Lesson_Direction,Teacher,Institution,Branch
 from apps.fundamental.CHINA_LOCATION.models import ChinaLocation
 
 #假定所有课均是每周一次
@@ -89,9 +89,9 @@ class Course_Base(models.Model):
 
 # ForeignKey,ManyToManyField与OneToOneField分别在Model中定义多对一，多对多，一对一关系。
 class Course_Institution(models.Model):
-    course_id = models.OneToOneField(Course_Base,on_delete=models.CASCADE,\
+    course_id = models.ForeignKey(Course_Base,on_delete=models.CASCADE,\
                                   related_name='Course_by_Ins',verbose_name='机构所授课程',null=False)
-    course_ins = models.ForeignKey(Institution,on_delete=models.CASCADE,\
+    course_ins = models.ForeignKey(Branch,on_delete=models.CASCADE,\
                                         related_name='Ins_for_Course',verbose_name='机构名称')
 
     class Meta:
@@ -99,7 +99,7 @@ class Course_Institution(models.Model):
 
 
 class Course_Teacher(models.Model):
-    course_id = models.OneToOneField(Course_Base,on_delete=models.CASCADE,\
+    course_id = models.ForeignKey(Course_Base,on_delete=models.CASCADE,\
                                   related_name='Course_by_Teacher',verbose_name='教师所授课程')
     course_teacher = models.ForeignKey(Teacher,on_delete=models.CASCADE,\
                                         related_name='Teacher_for_course',verbose_name='教师名称')

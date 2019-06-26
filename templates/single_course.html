@@ -23,7 +23,7 @@
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="{% static "assets/css/responsive.css" %}">
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="{% static "assets/img/favicon.png" %}">
+        <link rel="icon" type="image/png" href="{% static "/static/assets/img/favicon.png" %}">
         
         <title>EduSplash - Education Responsive HTML Template</title>
     </head>
@@ -73,7 +73,7 @@
         <nav class="navbar navbar-expand-lg navbar-light edu-navbar header-sticky">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src=“{%static "assets/img/logo.png"%}" alt="Logo">
+                    <img src=“{%static "/static/assets/img/logo.png"%}" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -184,14 +184,14 @@
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownCart">
                                 <li>
-                                    <a href="#"><img src="{% static "assets/img/courses/react.png" %}" alt="React Logo"></a>
+                                    <a href="#"><img src="{% static "/static/assets/img/courses/react.png" %}" alt="React Logo"></a>
                                     <div class="description">
                                         <a href="#">React JS Course</a>
                                         <span class="price">$199</span>
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{% static "assets/img/courses/meteor.png" %}" alt="React Logo"></a>
+                                    <a href="#"><img src="{% static "/static/assets/img/courses/meteor.png" %}" alt="React Logo"></a>
                                     <div class="description">
                                         <a href="#">Meteor JS Course</a>
                                         <span class="price"><del>$200</del> $199</span>
@@ -257,7 +257,7 @@
                             <ul class="course-meta">
                                 <li class="author">
                                     <div class="thumb">
-                                        <img src=“{%static "assets/img/tutor/7.png" %}" alt="image">
+                                        <img src=“{%static "/assets/img/tutor/7.png" %}" alt="image">
                                     </div>
 
                                     <div class="text">
@@ -270,21 +270,21 @@
                                     <p>Categories</p>
                                 </li>
                                 <div id="star"></div>
-                                <li class="review-stars">
-                                    <i class="icofont-star"></i>
-                                    <i class="icofont-star"></i>
-                                    <i class="icofont-star"></i>
-                                    <i class="icofont-star"></i>
-                                    <i class="icofont-star-shape"></i>
-                                    <p>Reviews (5)</p>
-                                </li>
+{#                                <li class="review-stars">#}
+{#                                    <i class="icofont-star"></i>#}
+{#                                    <i class="icofont-star"></i>#}
+{#                                    <i class="icofont-star"></i>#}
+{#                                    <i class="icofont-star"></i>#}
+{#                                    <i class="icofont-star-shape"></i>#}
+{#                                    <p>Reviews (5)</p>#}
+{#                                </li>#}
                             </ul>
                             
                             <span class="free-course">Free</span>
                         </div>
                        
                         <div class="single-preview-img">
-                            <img src="assets/img/courses/courses-details.jpg" alt="Event Image">
+                            <img src="/static/assets/img/courses/courses-details.jpg" alt="Event Image">
                         </div>
                        
                         <div class="single-event-description">
@@ -610,7 +610,7 @@
                         <div class="about-instructor mt-30">
                             <h3 class="title">About Instructor</h3>
                             <div class="about-instructor-content">
-                                <img src=“{%static "assets/img/tutor/7.png" %}" alt="">
+                                <img src=“{%static "/static/assets/img/tutor/7.png" %}" alt="">
                                 <h6><a href="#">Dora Caelan</a></h6>
                                 <p>React JS Developer</p>
                                 
@@ -650,7 +650,7 @@
                             <h3 class="title">(3) Comments</h3>
                             
                             <div class="media">
-                                <img class="mr-3" src=“{%static "assets/img/tutor/4.png" %}" alt="">
+                                <img class="mr-3" src=“{%static "/static/assets/img/tutor/4.png" %}" alt="">
                                 <div class="media-body">
                                     <h5 class="mt-0">Author Name</h5>
                                     <span class="date"> 20 December 2018</span>
@@ -661,7 +661,7 @@
 
                                     <div class="media">
                                         <a class="pr-3" href="#">
-                                            <img src=“{%static "assets/img/tutor/5.png" %}" alt="Generic placeholder image">
+                                            <img src=“{%static "/static/assets/img/tutor/5.png" %}" alt="Generic placeholder image">
                                         </a>
                                         <div class="media-body">
                                             <h5 class="mt-0">Author Name</h5>
@@ -677,7 +677,7 @@
                             </div>
                             
                             <div class="media">
-                                <img class="align-self-start mr-3" src=“{%static "assets/img/tutor/6.png" %}"  alt="">
+                                <img class="align-self-start mr-3" src=“{%static "/static/assets/img/tutor/6.png" %}"  alt="">
                                 <div class="media-body">
                                     <h5 class="mt-0">Author Name</h5>
                                     <span class="date"> 22 December 2018</span>
@@ -874,15 +874,15 @@
                         <div class="single-footer-widget">
                             <h3>Instagram Feed</h3>
                             <ul class="instagram-feed">
-                                <li><a href="#"><img src="assets/img/instagram-feed/1.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/2.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/3.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/4.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/5.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/6.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/5.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/2.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="assets/img/instagram-feed/1.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="/static/assets/img/instagram-feed/1.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="/static/assets/img/instagram-feed/2.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="/static/assets/img/instagram-feed/3.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="/static/assets/img/instagram-feed/4.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="/static/assets/img/instagram-feed/5.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="/static/assets/img/instagram-feed/6.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="/static/assets/img/instagram-feed/5.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="/static/assets/img/instagram-feed/2.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="/static/assets/img/instagram-feed/1.jpg" alt="Instagram image"></a></li>
                             </ul>
                         </div>
                     </div>
