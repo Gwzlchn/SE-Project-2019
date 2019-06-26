@@ -63,6 +63,16 @@ $.ajax({
 });
 });
 
+//改变区域后
+$("#district").change(function(){
+
+$.ajax({
+    url:'/loc/getAll/',
+    type:'get',
+    data:{"province_id":$("#province").val(),"city_id":$("#city").val(),"district_id":$(this).val()}
+});
+});
+
 }
 
 

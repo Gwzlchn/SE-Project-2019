@@ -32,3 +32,17 @@ def getDistrict(request):
     for i in cities:
         res.append([i.id, i.name])
     return JsonResponse({'district': res})
+
+
+def getAll(request):
+    province_id =  request.GET.get('province_id')
+    city_id = request.GET.get('city_id')
+    district_id = request.GET.get('district_id')
+
+    province_name = ChinaLocation.objects.get(id= province_id).name
+    city_name = ChinaLocation.objects.get(id=city_id).name
+    district_name = ChinaLocation.objects.get(id= district_id).name
+    res = {province_id:province_name,city_id:city_name,district_id:district_name}
+    print(res)
+    return JsonResponse(res,safe=False)
+

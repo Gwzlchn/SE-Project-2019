@@ -9,4 +9,5 @@ urlpatterns = [
     path('getProvince/',views.getProvince,name='loc_province'),
     path('getCity/',views.getCity,name='loc_city'),
     path('getDistrict/',views.getDistrict,name='loc_distinct'),
+    path('getAll/',     views.getAll,name = 'loc_all'),
 ]
