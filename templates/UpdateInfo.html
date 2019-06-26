@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Alter Personal Information</title>
+</head>
+<body>
+    <form action="/UResult/" method="post">
+        {% csrf_token %}
+        PName<input type="text" name="PName"><br></br>
+        KName<input type="text" name="KName"><br></br>
+        Age<input type="text" name="Age"><br></br>
+        Sex<input type="text" name="Sex"><br></br>
+        PhoneNumber<input type="text" name="PhoneNumber"><br></br>
+        Email<input type="text" name="Email"><br></br>
+        Birthday<input type="text" name="Birthday"><br></br>
+        LDirection<input type="text" name="LDirection"><br></br>
+        FeeRange<input type="text" name="FeeRange"><br></br>
+        Area<input type="text" name="Area"><br></br>
+        Wallet<input type="text" name="Wallet"><br></br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

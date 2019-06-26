@@ -5,11 +5,21 @@ from apps.fundamental.CHINA_LOCATION.models import ChinaLocation
 #假定所有课均是每周一次
 class Course_Base(models.Model):
 
-
+    course_name = models.CharField(max_length=20,verbose_name='课程名称')
     # 课程区域
+
+    course_location_province = models.ForeignKey(ChinaLocation,on_delete=models.CASCADE, \
+                                                 related_name='course_province',verbose_name="所在省份")
+    course_location_city = models.ForeignKey(ChinaLocation,on_delete=models.CASCADE ,\
+                                             related_name='course_city',verbose_name="所在城市")
+    course_location_area = models.ForeignKey(ChinaLocation,on_delete=models.CASCADE, \
+                                             related_name='course_distinct',verbose_name="所在区")
+
+    course_name=models.CharField(max_length=50,null=False,verbose_name="课程名称")
     course_location_province = models.CharField(max_length=10, null=False, verbose_name="所在省份")
     course_location_city = models.CharField(max_length=20, null=False, verbose_name="所在城市")
     course_location_area = models.CharField(max_length=20, null=False, verbose_name="所在区")
+
 
     course_teacher = models.CharField(max_length=30, verbose_name='授课老师')
 
@@ -25,14 +35,17 @@ class Course_Base(models.Model):
 
     course_price = models.IntegerField(default=0,verbose_name='课程价格')
 
+
     # 课程地点
     course_location = models.CharField(max_length=20, default="UNKOWN LOCATION", \
                                        null=False, verbose_name="上课地点")
 
-    course_homework = models.TextField(max_length=500,verbose_name='课程作业')
+    course_homework = models.TextField(max_length=500,blank=True,verbose_name='课程作业')
+
 
     class Meta:
         db_table = 'Course_Base'
+
 
 
 # class Course(models.Model):
@@ -49,6 +62,27 @@ class Course_Base(models.Model):
 #
 #     class Meta:
 #         db_table = 'Course'
+
+
+
+
+
+
+class Course(models.Model):
+    course_base_id = models.ForeignKey(Course_Base,on_delete=models.CASCADE,null=False)
+
+    # 课程地点
+    course_location = models.CharField(max_length=20, default="UNKOWN LOCATION", \
+                                       null=False, verbose_name="上课地点")
+
+    #本次课时间由首次课时间，一周一节推算出来
+    course_time = models.DateTimeField(verbose_name="本次课时间")
+
+    course_homework = models.TextField(max_length=500,verbose_name='课程作业')
+
+
+    class Meta:
+        db_table = 'Course'
 
 
 
@@ -75,6 +109,8 @@ class Course_Teacher(models.Model):
 
     class Meta:
         db_table = 'Course_Teacher'
+
+
 
 
 
