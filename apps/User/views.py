@@ -14,14 +14,8 @@ def Slogin(request):
         user = authenticate(request,username=username,password=password)
         if user is not None and user.is_active:
             auth.login(request, user)
-            if user.first_name == "1":
-                return render(request,"POS.html",)
-            if user.first_name == "2":
-                return render(request,"Tea.html",)
-            if user.first_name == "3":
-                return render(request,"Ins.html",)
-            if user.first_name == "4":
-                return render(request,"Adm.html",)
+            #if user.first_name == "1":"2":"3":"4"
+            return render(request,"apps/userhome",)
         else:
             print('用户名或密码错误!')
     print("login")
