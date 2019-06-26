@@ -1,11 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
-from ..article.models import Article
+from ..article.models import News
 
 # 博文的评论
 class Comment(models.Model):
-    article = models.ForeignKey(
-        Article,
+    News = models.ForeignKey(
+        News,
         on_delete=models.CASCADE,
         related_name='comments'
     )

@@ -4,14 +4,14 @@ from django.http import HttpResponse
 
 import markdown
 
-from .models import Article
+from .models import News
 from .forms import ArticlePostForm
 from ..comment.models import Comment
 
 
 def article_list(request):
     # 取出所有博客文章
-    articles = Article.objects.all()
+    articles = News.objects.all()
     # 需要传递给模板（templates）的对象
     context = { 'articles': articles }
     # render函数：载入模板，并返回context对象
@@ -19,7 +19,7 @@ def article_list(request):
 
 
 def article_detail(request, id):
-    article = Article.objects.get(id=id)
+    article = News.objects.get(id=id)
     # 取出文章评论
     comments = Comment.objects.filter(article=id)
     # 将markdown语法渲染成html样式
@@ -71,7 +71,7 @@ def article_create(request):
 # 删文章
 def article_delete(request, id):
     # 根据 id 获取需要删除的文章
-    article = Article.objects.get(id=id)
+    article = News.objects.get(id=id)
     # 调用.delete()方法删除文章
     article.delete()
     # 完成删除后返回文章列表
@@ -88,7 +88,7 @@ def article_update(request, id):
     """
 
     # 获取需要修改的具体文章对象
-    article = Article.objects.get(id=id)
+    article = News.objects.get(id=id)
     # 判断用户是否为 POST 提交表单数据
     if request.method == "POST":
         # 将提交的数据赋值到表单实例中

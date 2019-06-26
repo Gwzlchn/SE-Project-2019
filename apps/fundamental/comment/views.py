@@ -2,13 +2,13 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
-from ..article.models import Article
+from ..article.models import News
 from .forms import CommentForm
 
 # 文章评论
 @login_required(login_url='/userprofile/login/')
 def post_comment(request, article_id):
-    article = get_object_or_404(Article, id=article_id)
+    article = get_object_or_404(News, id=article_id)
 
     # 处理 POST 请求
     if request.method == 'POST':
