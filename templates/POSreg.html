@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>学生家长注册</title>
+</head>
+<body>
+    <h1>学生家长注册</h1>
+    <form action="/POSreg/" method="post">{% csrf_token %}
+        <p>
+            <label for="username">用户名：</label>
+            <input type="text" id="username" name="username"  autofocus required />
+        </p>
+        <p>
+            <label for="password">密码 ：</label>
+            <input type="password" id="password"  name="password" required >
+        </p>
+        <p>
+                <label for="stuname">学生姓名：</label>
+                <input type="text" id="stuname"  name="stuname" required >
+        </p>
+        <p>
+                <label for="parname">家长姓名：</label>
+                <input type="text" id="parname"  name="parname" required >
+        </p>
+        <p>
+                <label for="age">年龄：</label>
+                <input type="number" id="age"  name="age" required >
+        </p>
+        <p>
+                <label for="gender">性别（男/女）：</label>
+                <input type="text" id="gender"  name="gender" required >
+        </p>
+        <p>
+                <label for="phone">电话：</label>
+                <input type="text" id="phone"  name="phone" required >
+        </p>
+        <p>
+                <label for="email">邮箱：</label>
+                <input type="email" id="email"  name="email" required >
+        </p>
+        <input type="submit" value="提交">
+    </form>
+   
+    <script src="/static/JS/jquery-3.4.1.js"></script>
+</body>
+</html>

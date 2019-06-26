@@ -7,10 +7,7 @@
 <body>
     <form method="post">
         {%csrf_token%}
-        {% for a,b in teacher %}
-            {{ a }}:
-            <input type="text" value = "{{ b }}" name = "{{ a }}" ><br>
-        {% endfor %}
+
         <input type="submit" value="提交修改" >
     </form>
 </body>

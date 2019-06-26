@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>教育机构注册</title>
+</head>
+<body>
+    <h1>管理员注册</h1>
+    <form action="/Admreg/" method="post">{% csrf_token %}
+        <p>
+            <label for="id_username">用户名：</label>
+            <input type="text" id="id_username" name="username" placeholder="用户名" autofocus required />
+        </p>
+        <p>
+            <label for="id_password">密码  ：</label>
+            <input type="password" id="id_password" placeholder="密码" name="password" required >
+        </p>
+        <p>
+            <label for="email">邮箱：</label>
+            <input type="email" id="email"  name="email" required >
+    </p>
+        <input type="submit" value="submit">
+    </form>
+   
+    <script src="/static/JS/jquery-3.4.1.js"></script>
+</body>
+</html>
