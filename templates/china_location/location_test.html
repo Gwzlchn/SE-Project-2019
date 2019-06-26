@@ -30,6 +30,8 @@ for(var i = 0,len = data.provinces.length; i<len ;i++){
 //改变省份后
 $("#province").change(function(){
 //清空市和区
+    console.log($("#province").val())
+    ;
 $("#city").empty().append('<option value="">请选择城市</option>');
 $("#district").empty().append('<option value="">请选择区/县</option>');
 $.ajax({
@@ -61,7 +63,12 @@ $.ajax({
 });
 });
 
-})
+}
+
+
+)
+
+
 
 </script>
 
