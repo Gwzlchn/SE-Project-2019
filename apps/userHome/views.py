@@ -61,6 +61,7 @@ def add_course(request):
     if not Um.Teacher.objects.filter(user_id=id):
         return render(request,'User/login')
     if request.method == 'POST':
+        dict['name'] = request.POST.get('name')
         dict['location_pro'] = request.POST.get('location_pro')
         dict['location_city'] = request.POST.get('location_city')
         dict['location_area'] = request.POST.get('location_area')

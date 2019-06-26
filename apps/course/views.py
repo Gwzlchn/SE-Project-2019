@@ -7,10 +7,11 @@ def Course_Index(request):
     return render(request,"courses.html")
 
 def Single_Course_Index(request,course_id):
-    return render(request,"single_course_test.html")
+    return render(request,"single_course.html")
 
 def Single_Course_Teacher(request,course_id):
-    return JsonResponse({'Teacher':'AAAAA'})
+
+    return JsonResponse({'Teacher':'my_teacher_name'})
 
 def Scoring_Course(request):
     pass

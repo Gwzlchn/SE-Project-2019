@@ -38,7 +38,7 @@ def change_teach_info(id,dict):
 
 #@login_required()
 def add_course(dict,id):
-    course = Course_Base(course_location_province=dict['location_pro'],
+    course = Course_Base(course_location_province=dict['location_pro'],course_name=dict['name'],
                                course_location_city=dict['location_city'],
                                course_location_area=dict['location_area'],
                                course_teacher=dict['course_teacher'],
@@ -62,16 +62,22 @@ def display_all_course(id):
         cc = Course_Teacher.objects.filter(course_teacher=teacher.id)
         i = 0
         for course in cc:
-            dict['courses'].append(Course_Base.objects.get(id=course.course_id))
+            dict['courses'].append(Course_Base.objects.get(id=course.course_id.id))
     else:
         ins = umodel.Institution.objects.get(user_id=id)
         cc = Course_Institution.objects.filter(course_ins=ins.id)
         i = 0
         for course in cc:
-            dict['courses'].append(Course_Base.objects.get(id=course.course_id))
+            dict['courses'].append(Course_Base.objects.get(id=course.course_id.id))
     return dict
 
-def delete_course(c_id,id):
+def delete_course(c_id,id,b_id=None):
     if not Course_Base.objects.filter(id=c_id):
-        Course_Base.objects.filter(id=c_id).delete()
+        if umodel.Teacher.objects.filter(user_id=id):
+            teacher = umodel.Teacher.objects.get(user_id=id)
+            Course_Teacher.objects.filter(course_id=c_id).filter(course_teacher=teacher.id).delete()
+            Course_Base.objects.filter(id=c_id).delete()
+        else:
+            Course_Institution.objects.filter(course_id=c_id).filter(course_ins=b_id).delete()
+
     return
