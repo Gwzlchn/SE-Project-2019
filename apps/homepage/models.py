@@ -7,22 +7,22 @@ from apps.course.models import Course_Base
 # Create your models here.
 #新闻顺序表
 class News_Order(models.Model):
-    NO_id=models.ForeignKey(News,on_delete=models.CASCADE)
+    NO=models.ForeignKey(News,on_delete=models.CASCADE)
     Order=models.IntegerField()
 
 class Video_Order(models.Model):
-    VO_id=models.ForeignKey(Video,on_delete=models.CASCADE)
+    VO=models.ForeignKey(Video,on_delete=models.CASCADE)
     Order=models.IntegerField()
 
 class Teacher_Order(models.Model):
-    TO_id=models.ForeignKey(Teacher,on_delete=models.CASCADE)
+    TO=models.ForeignKey(Teacher,on_delete=models.CASCADE)
     Order=models.IntegerField()
 
 class Insti_Order(models.Model):
-    IO_id=models.ForeignKey(Institution,on_delete=models.CASCADE)
+    IO=models.ForeignKey(Institution,on_delete=models.CASCADE)
     Order=models.IntegerField()
 
 class Course_Order(models.Model):
-    CO_id=models.ForeignKey(Course_Base,on_delete=models.CASCADE)
+    CO=models.ForeignKey(Course_Base,on_delete=models.CASCADE)
     Order=models.IntegerField()
     
