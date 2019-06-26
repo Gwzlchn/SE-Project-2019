@@ -24,13 +24,14 @@ def logout(request):
      print(request.session['is_login'])
      return render(request,"User/login.html")
 
-def Slogin(request):
-    #return HttpResponse("Register")
+def realogin(request):
+    print("reallogin")
     if request.method == 'POST':
         username = request.POST.get('username',None)
         password = request.POST.get('password',None)
+        print(username,password)
         user = authenticate(request,username=username,password=password)
-        print("login")
+        print("tlogin")
         if user is not None and user.is_active:
             auth.login(request, user)
             request.session['is_login']='1'
@@ -40,7 +41,28 @@ def Slogin(request):
         else:
             print('用户名或密码错误!')
 
-    return render(request, "User/login.html", )
+    return render(request, "login.html", )
+
+def Slogin(request):
+    #return HttpResponse("Register")
+    print("Slogin_used")
+    '''
+    if request.method == 'POST':
+        username = request.POST.get('username',None)
+        password = request.POST.get('password',None)
+        print(username,password)
+        user = authenticate(request,username=username,password=password)
+        print("Slogin")
+        if user is not None and user.is_active:
+            auth.login(request, user)
+            request.session['is_login']='1'
+            request.session['user_id'] = user.id
+            #if user.first_name == "1":"2":"3":"4"
+            return HttpResponseRedirect('/userHome/')
+        else:
+            print('用户名或密码错误!')
+    '''
+    return render(request, "login.html", )
 
 def regChoice(request):
     #return HttpResponse("login")
