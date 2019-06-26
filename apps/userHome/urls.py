@@ -5,7 +5,6 @@ from . import views
 app_name = 'userHome'
 
 urlpatterns = [
-    path(r'TeacherInfomation/',views.TeacherInfo),
     path(r'userHome/',views.dispatch),
     path(r'tChangeInfo',views.change_t_info),
 
