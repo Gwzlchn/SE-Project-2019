@@ -180,7 +180,8 @@ def change_i_info(request,bid):
         dict['PhoneNumber'] = request.POST.get('PhoneNumber')
         dict['LDirection'] = request.POST.get('LDirection')
         dict['Fitage'] = request.POST.get('Fitage')
-        trans.change_teach_info(id,dict)
+        dict['Brief'] = request.POST.get('Brief')
+        trans.change_Ins_info(id,bid,dict)
     dict = trans.display_Ins_info(id,bid)
     if request.method == 'POST':
         dict['res'] = 'success!'

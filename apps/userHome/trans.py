@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 import apps.User.models as umodel
 from apps.course.models import Course_Base,Course_Institution,Course_Teacher,Branch
 from apps.fundamental.article.models import Announcement
+from apps.fundamental.CHINA_LOCATION.models import ChinaLocation
 from apps.userHome.models import Temp_Lesson
 
 from django.db.models import Q
@@ -148,6 +149,9 @@ def allow_tl(id):
 def add_branch(dict,id):
     ins = umodel.Institution.objects.get(user_id=id)
     dict['Ins'] = ins
+    dict['branch_province'] = ChinaLocation.objects.get(name = dict['branch_province'])
+    dict['branch_city'] = ChinaLocation.objects.get(name = dict['branch_city'])
+    dict['branch_distinct'] = ChinaLocation.objects.get(name = dict['branch_distinct'])
     b = Branch(**dict)
     b.save()
     return
@@ -158,10 +162,36 @@ def display_Ins_info(id,bid):
     dict = {}
     dict['name'] = ins.name
     dict['PhoneNumber'] = branch.PhoneNumber
-    dict['branch_province'] = branch.branch_province
-    dict['branch_city'] = branch.branch_city
-    dict['branch_distinct'] = branch.branch_distinct
+    dict['branch_province'] = branch.branch_province.name
+    dict['branch_city'] = branch.branch_city.name
+    dict['branch_distinct'] = branch.branch_distinct.name
     dict['LDirection'] = branch.LDirection
     dict['Fitage'] = branch.Fitage
     dict['Address'] = branch.Address
+    dict['Brief'] = ins.Brief
     return dict
+
+def change_Ins_info(id,bid,dict):
+    branch = Branch.objects.get(id = bid)
+    ins = umodel.Institution.objects.get(user_id = id)
+    if ins.name != dict['name']:
+        ins.name = dict['name']
+    if branch.PhoneNumber != dict['PhoneNumber']:
+        branch.PhoneNumber = dict['PhoneNumber']
+    if branch.branch_province.name != dict['branch_province']:
+        branch.branch_province = ChinaLocation.objects.get(name=dict['branch_province'])
+    if branch.branch_city.name != dict['branch_city']:
+        branch.branch_city = ChinaLocation.objects.get(name=dict['branch_city'])
+    if branch.branch_distinct.name != dict['branch_distinct']:
+        branch.branch_distinct = ChinaLocation.objects.get(name=dict['branch_distinct'])
+    if ins.Brief != dict['Brief']:
+        ins.Brief = dict['Brief']
+    if dict['LDirection'] != branch.LDirection:
+        branch.LDirection = dict['LDirection']
+    if dict['Fitage'] != branch.Fitage:
+        branch.Fitage = dict['Fitage']
+    if dict['Address'] != branch.Address:
+        branch.Address = dict['Address']
+    ins.save()
+    branch.save()
+    return
