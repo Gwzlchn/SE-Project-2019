@@ -32,8 +32,8 @@ def Slogin(request):
         user = authenticate(request,username=username,password=password)
         if user is not None and user.is_active:
             auth.login(request, user)
-            request.session['is_login']='1'
-            request.session['user_id'] = user.id
+            #request.session['is_login']='1'
+            #request.session['user_id'] = user.id
             #if user.first_name == "1":"2":"3":"4"
             print('there')
             return HttpResponseRedirect('/userHome/')
