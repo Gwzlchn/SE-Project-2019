@@ -130,9 +130,9 @@ def add_ann(dict):
 
 def update_ann(dict):
     ann = Announcement.objects.get(id=dict['id'])
-    if ann.title != dict['title']:
+    if ann.title != dict['title'] and dict['title']!='':
         ann.title = dict['title']
-    if ann.body != dict['body']:
+    if ann.body != dict['body'] and dict['body']!='':
         ann.body = dict['body']
     ann.save()
     return
@@ -176,18 +176,23 @@ def add_branch(dict,id):
     return
 
 def display_Ins_info(id,bid):
-    branch = Branch.objects.get(id = bid)
-    ins = umodel.Institution.objects.get(user_id = id)
     dict = {}
-    dict['name'] = ins.name
-    dict['PhoneNumber'] = branch.PhoneNumber
-    dict['branch_province'] = branch.branch_province.name
-    dict['branch_city'] = branch.branch_city.name
-    dict['branch_distinct'] = branch.branch_distinct.name
-    dict['LDirection'] = branch.LDirection
-    dict['Fitage'] = branch.Fitage
-    dict['Address'] = branch.Address
-    dict['Brief'] = ins.Brief
+    if bid != 0:
+        branch = Branch.objects.get(id = bid)
+        ins = umodel.Institution.objects.get(user_id = id)
+        dict['name'] = ins.name
+        dict['PhoneNumber'] = branch.PhoneNumber
+        dict['branch_province'] = branch.branch_province.name
+        dict['branch_city'] = branch.branch_city.name
+        dict['branch_distinct'] = branch.branch_distinct.name
+        dict['LDirection'] = branch.LDirection
+        dict['Fitage'] = branch.Fitage
+        dict['Address'] = branch.Address
+        dict['Brief'] = ins.Brief
+    else:
+        ins = umodel.Institution.objects.get(user_id = id)
+        dict['name'] = ins.name
+        dict['Brief'] = ins.Brief
     return dict
 
 def change_Ins_info(id,bid,dict):
