@@ -14,7 +14,8 @@ def Single_Course_Index(request,course_id):
     return render(request,"single_course.html")
 
 #todo: 时间未处理！！！
-def Single_Course_Teacher(request,course_id):
+
+def Single_Course_Info(request,course_id):
     course_obj = Course_Base.objects.get(id=course_id)
     dict_obj = course_obj.to_dict()
 
@@ -24,6 +25,16 @@ def Single_Course_Teacher(request,course_id):
 
     print(dict_obj)
     return JsonResponse(dict_obj)
+
+
+def All_Course_Info(request):
+    course_obj = Course_Base.objects.all()
+    dict_obj =[]
+    for i in course_obj:
+        dict_obj.append( i.to_dict())
+
+    print(dict_obj)
+    return JsonResponse({'course_all':dict_obj})
 
 def Scoring_Course(request):
     pass

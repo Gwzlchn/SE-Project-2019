@@ -23,13 +23,12 @@
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="{% static "assets/css/responsive.css" %}">
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="{% static "/static/assets/img/favicon.png" %}">
+        <link rel="icon" type="image/png" href="{% static "assets/img/favicon.png" %}">
         
         <title>EduSplash - Education Responsive HTML Template</title>
     </head>
 
-
-    <script id="all_courses_template" type="text/x-custom-template">
+    <body>
         <!-- Preloader -->
         <div class="preloader">
             <div class="loader">
@@ -61,8 +60,8 @@
                         </ul>
                         
                         <ul class="login-regi-links"> 
-                            <li><a href="User/login.html">Login</a></li>
-                            <li><a href="User/register.html">Register</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="register.html">Register</a></li>
                         </ul>
                     </div>
                 </div>
@@ -74,7 +73,7 @@
         <nav class="navbar navbar-expand-lg navbar-light edu-navbar header-sticky">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src=“{%static "assets/img/logo.png"%}" alt="Logo">
+                    <img src="assets/img/logo.png" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -106,16 +105,16 @@
                             </ul>
                         </li>
  
-                        <li class="nav-item dropdown">
+                        <li class="nav-item active dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Pages
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownPages">
                                 <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
-                                <li><a class="dropdown-item" href="instructor.html">Instructor</a></li>
-                                <li><a class="dropdown-item" href="User/register.html">Register</a></li>
-                                <li><a class="dropdown-item" href="User/login.html">Login</a></li>
+                                <li><a class="dropdown-item active" href="instructor.html">Instructor</a></li>
+                                <li><a class="dropdown-item" href="register.html">Register</a></li>
+                                <li><a class="dropdown-item" href="login.html">Login</a></li>
                                 <li><a class="dropdown-item" href="contact.html">Contact</a></li>
                                 <li><a class="dropdown-item" href="404.html">404</a></li>
                             </ul>
@@ -132,13 +131,13 @@
                             </ul>
                         </li>
                         
-                        <li class="nav-item active dropdown">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Courses
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
-                                <li><a class="dropdown-item active" href="courses.html">Courses</a></li>
+                                <li><a class="dropdown-item" href="courses.html">Courses</a></li>
                                 <li><a class="dropdown-item" href="single-courses.html">Single Courses</a></li>
                             </ul>
                         </li>
@@ -185,14 +184,14 @@
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownCart">
                                 <li>
-                                    <a href="#"><img src="{% static "/static/assets/img/courses/react.png" %}" alt="React Logo"></a>
+                                    <a href="#"><img src="{% static "assets/img/courses/react.png" %}" alt="React Logo"></a>
                                     <div class="description">
                                         <a href="#">React JS Course</a>
                                         <span class="price">$199</span>
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="{% static "/static/assets/img/courses/meteor.png" %}" alt="React Logo"></a>
+                                    <a href="#"><img src="{% static "assets/img/courses/meteor.png" %}" alt="React Logo"></a>
                                     <div class="description">
                                         <a href="#">Meteor JS Course</a>
                                         <span class="price"><del>$200</del> $199</span>
@@ -235,11 +234,11 @@
         <div class="page-banner banner-bg-one">
             <div class="container"> 
                 <div class="banner-text"> 
-                    <h1>Our Courses</h1>
+                    <h1>Instructor</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Our Courses</li>
+                            <li class="breadcrumb-item active" aria-current="page">Instructor</li>
                         </ol>
                     </nav>
                 </div>
@@ -247,44 +246,189 @@
         </div>
         <!-- End Page Banner -->
  
-        <!-- Popular courses -->
-        <section class="popular-courses pt-100 pb-180 white-bg">
+        <!-- Our Experienced Tutor -->
+        <section class="experienced-tutor pt-100 pb-180 white-bg">
             <div class="container">
-                <div class="row" >
-
-                    %COURSES%
-
-                </div>>
-
+                <div class="section-header">
+                    <i class="icofont-education"></i>
+                    <h2>Our Experienced Tutor</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod  labore et dolore magna aliqua.</p>
+                </div>
                 
-{#                <!-- Pagination -->#}
-{#                <nav class="pagination-outer" aria-label="Page navigation">#}
-{#                    <ul class="pagination">#}
-{#                        <li class="page-item">#}
-{#                            <a href="#" class="page-link" aria-label="Previous">#}
-{#                                <i class="icofont-swoosh-left"></i>#}
-{#                            </a>#}
-{#                        </li>#}
-{#                        <li class="page-item active">#}
-{#                            <a class="page-link" href="#">1</a>#}
-{#                        </li>#}
-{#                        <li class="page-item">#}
-{#                            <a class="page-link" href="#">2</a>#}
-{#                        </li>#}
-{#                        <li class="page-item">#}
-{#                            <a class="page-link" href="#">3</a>#}
-{#                        </li>#}
-{#                        <li class="page-item">#}
-{#                            <a href="#" class="page-link" aria-label="Next">#}
-{#                                <i class="icofont-swoosh-right"></i>#}
-{#                            </a>#}
-{#                        </li>#}
-{#                    </ul>#}
-{#                </nav>#}
-{#                <!-- End Pagination -->#}
-            </div> 
+                <div class="row"> 
+                    <div class="col-sm-6 col-md-6 col-lg-3"> 
+                        <div class="single-tutor gray-border">
+                            <img src=“{%static "assets/img/tutor/1.png" %}" alt="tutor">
+                            
+                            <div class="tutor-title">
+                                <h3>Jason Statham</h3>
+                                <p>Ruby on Rails Teacher</p>
+                            </div>
+                            <p class="email-link"><a href="#">jason@gmail.com</a></p>
+                            <ul> 
+                                <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                                <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-md-6 col-lg-3"> 
+                        <div class="single-tutor gray-border">
+                            <img src=“{%static "assets/img/tutor/2.png" %}" alt="tutor">
+                            
+                            <div class="tutor-title">
+                                <h3>Olivia Lucy</h3>
+                                <p>JavaScript Teacher</p>
+                            </div>
+                            <p class="email-link"><a href="#">olivialucy@gmail.com</a></p>
+                            <ul> 
+                                <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                                <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-md-6 col-lg-3"> 
+                        <div class="single-tutor gray-border">
+                            <img src=“{%static "assets/img/tutor/3.png" %}" alt="tutor">
+                            
+                            <div class="tutor-title">
+                                <h3>David Warner</h3>
+                                <p>ReactJS Teacher</p>
+                            </div>
+                            <p class="email-link"><a href="#">warner@gmail.com</a></p>
+                            <ul> 
+                                <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                                <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-md-6 col-lg-3"> 
+                        <div class="single-tutor gray-border">
+                            <img src=“{%static "assets/img/tutor/4.png" %}" alt="tutor">
+                            
+                            <div class="tutor-title">
+                                <h3>Smith Lucy</h3>
+                                <p>PHP Teacher</p>
+                            </div>
+                            <p class="email-link"><a href="#">smithlucy@gmail.com</a></p>
+                            <ul> 
+                                <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                                <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-md-6 col-lg-3"> 
+                        <div class="single-tutor gray-border">
+                            <img src=“{%static "assets/img/tutor/5.png" %}" alt="tutor">
+                            
+                            <div class="tutor-title">
+                                <h3>Suzan Lois</h3>
+                                <p>Django Teacher</p>
+                            </div>
+                            <p class="email-link"><a href="#">smithlucy@gmail.com</a></p>
+                            <ul> 
+                                <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                                <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-md-6 col-lg-3"> 
+                        <div class="single-tutor gray-border">
+                            <img src=“{%static "assets/img/tutor/6.png" %}" alt="tutor">
+                            
+                            <div class="tutor-title">
+                                <h3>Aaron Rossi</h3>
+                                <p>Mteor JS Teacher</p>
+                            </div>
+                            <p class="email-link"><a href="#">smithlucy@gmail.com</a></p>
+                            <ul> 
+                                <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                                <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-md-6 col-lg-3"> 
+                        <div class="single-tutor gray-border">
+                            <img src=“{%static "assets/img/tutor/7.png" %}" alt="tutor">
+                            
+                            <div class="tutor-title">
+                                <h3>Dora Caelan</h3>
+                                <p>Express Teacher</p>
+                            </div>
+                            <p class="email-link"><a href="#">smithlucy@gmail.com</a></p>
+                            <ul> 
+                                <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                                <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-md-6 col-lg-3"> 
+                        <div class="single-tutor gray-border">
+                            <img src="assets/img/tutor/8.png" alt="tutor">
+                            
+                            <div class="tutor-title">
+                                <h3>Brad Joe</h3>
+                                <p>Vue JS Teacher</p>
+                            </div>
+                            <p class="email-link"><a href="#">smithlucy@gmail.com</a></p>
+                            <ul> 
+                                <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                                <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <nav class="pagination-outer" aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a href="#" class="page-link" aria-label="Previous">
+                                <i class="icofont-swoosh-left"></i>
+                            </a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a href="#" class="page-link" aria-label="Next">
+                                <i class="icofont-swoosh-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Pagination -->
+            </div>
         </section>
-        <!-- End Popular courses -->
+        <!-- End Our Experienced Tutor -->
   
         <!-- Footer Area -->
         <footer class="footer-area ptb-100">
@@ -361,15 +505,15 @@
                         <div class="single-footer-widget">
                             <h3>Instagram Feed</h3>
                             <ul class="instagram-feed">
-                                <li><a href="#"><img src="/static/assets/img/instagram-feed/1.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="/static/assets/img/instagram-feed/2.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="/static/assets/img/instagram-feed/3.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="/static/assets/img/instagram-feed/4.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="/static/assets/img/instagram-feed/5.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="/static/assets/img/instagram-feed/6.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="/static/assets/img/instagram-feed/5.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="/static/assets/img/instagram-feed/2.jpg" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="/static/assets/img/instagram-feed/1.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/1.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/2.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/3.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/4.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/5.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/6.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/5.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/2.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/1.jpg" alt="Instagram image"></a></li>
                             </ul>
                         </div>
                     </div>
@@ -413,34 +557,10 @@
             </div>
         </div>
         <!-- End bottom footer -->
-    </script>>
-
-
-    <script id="single_course_templete" type="text/x-custom-template">
-        <div class="col-md-6 col-lg-4">
-                        <div class="single-course mb-30">
-                            <a href="#" class="thumb-img">
-                                <span class="overly"></span>
-                                <img src="/static/assets/img/courses/1.jpg" alt="Course Image">
-                            </a>
-
-                            <div class="course-caption">
-                                <h3><a href="%course_id%">%course_name%</a></h3>
-                                <p>%course_contains%</p>
-
-                                <div class="course-foot">
-{#{                                  <img src="/static//static/assets/img/instruction/sm1.jpg" alt="instruction">#}
-                                    <a href="#">%course_teacher%</a>
-                                    <p class="price">%course_price%</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    </script>
-
        
-       
-    <body>
+    
+        
+        
         <!-- JQuery Min JS -->
         <script src="{% static "assets/js/jquery.1.12.4.min.js" %}"></script>
         <!-- Popper Min JS -->
@@ -463,49 +583,5 @@
         <script src="{% static "assets/js/contact-form-script.js" %}"></script>
         <!-- Script JS -->
         <script src="{% static "assets/js/script.js" %}"></script>
-        <script>$(function() {
-            $.get('getAllInfo', function (json_data) {
-                //console.log(json)
-                var template = document.getElementById("single_course_templete").innerHTML;
-
-                console.log(json_data)
-                var html=" "
-                for(var i = 0, l = json_data.course_all.length; i < l; i++) {
-
-                    var json_one = json_data.course_all[i]
-                    console.log(json_one)
-                    html += template
-                        .replace(/%course_id%/, json_one['id'])
-                        .replace(/%course_teacher%/, json_one['course_teacher'])
-                        .replace(/%course_name%/, json_one['course_name'])
-                        .replace(/%course_subject%/, json_one['course_subject'])
-                        .replace(/%course_age%/, json_one['course_age'])
-                        .replace(/%course_contains%/, json_one['course_contains'])
-                        .replace(/%course_duration_of_week%/, json_one['course_duration_of_week'])
-                        .replace(/%course_price%/, json_one['course_price'])
-                        .replace(/%course_location%/, json_one['course_location'])
-                        .replace(/%province_name%/, json_one['province_name'])
-                        .replace(/%city_name%/, json_one['city_name'])
-                        .replace(/%distinct_name%/, json_one['distinct_name'])
-                        .replace(/%course_homework%/, json_one['course_homework']);
-                    console.log(html)
-
-                    {#console.log(json_one)#}
-                }
-                 {#document.getElementById('to_fill').innerHTML = html;#}
-
-
-                var all_template = document.getElementById("all_courses_template").innerHTML;
-                 document.getElementById('to_fill').innerHTML = all_template.replace(/%COURSES%/,html);
-            });
-        })
-        </script>
-
-    <div class="to_fill" id="to_fill">
-
-
-    </div>
-
-
     </body>
 </html>
