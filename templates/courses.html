@@ -222,7 +222,15 @@
                             </button>
                         </div>
                         <form class="search-form">
-                            <input type="text" class="form-control" id="search" placeholder="Search...">
+                           <select id="province" >
+    <option value="">请选择省份</option>
+</select>
+<select id="city">
+    <option value="">请选择城市</option>
+</select>
+<select id="district">
+    <option value="">请选择区/县</option>
+</select>
                             <button type="submit" class="search-btn"><i class="icofont-search"></i></button>
                         </form>
                     </div>
@@ -252,25 +260,7 @@
             <div class="container">
                 <div class="row" >
 
-                          <div class="col-md-6 col-lg-4">
-                        <div class="single-course mb-30">
-                            <a href="#" class="thumb-img">
-                                <span class="overly"></span>
-                                <img src="/static/assets/img/courses/1.jpg" alt="Course Image">
-                            </a>
-
-                            <div class="course-caption">
-                                <h3><a href="%course_id%">%course_name%</a></h3>
-                                <p>%course_contains%</p>
-
-                                <div class="course-foot">
-{#{                                  <img src="/static//static/assets/img/instruction/sm1.jpg" alt="instruction">#}
-                                    <a href="#">%course_teacher%</a>
-                                    <p class="price">%course_price%</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="course_contents"></div>
 
                 </div>
 
@@ -463,40 +453,93 @@
         <script src="{% static "assets/js/script.js" %}"></script>
         <script>$(function() {
             $.get('getAllInfo', function (json_data) {
-                //console.log(json)
-                var template = document.getElementById("single_course_templete").innerHTML;
 
-                console.log(json_data)
-                var html=" "
-                for(var i = 0, l = json_data.course_all.length; i < l; i++) {
+            var html ='';
+            for(var i = 0, l = json_data.course_all.length; i < l; i++) {
 
-                    var json_one = json_data.course_all[i]
-                    console.log(json_one)
-                    html += template
-                        .replace(/%course_id%/, json_one['id'])
-                        .replace(/%course_teacher%/, json_one['course_teacher'])
-                        .replace(/%course_name%/, json_one['course_name'])
-                        .replace(/%course_subject%/, json_one['course_subject'])
-                        .replace(/%course_age%/, json_one['course_age'])
-                        .replace(/%course_contains%/, json_one['course_contains'])
-                        .replace(/%course_duration_of_week%/, json_one['course_duration_of_week'])
-                        .replace(/%course_price%/, json_one['course_price'])
-                        .replace(/%course_location%/, json_one['course_location'])
-                        .replace(/%province_name%/, json_one['province_name'])
-                        .replace(/%city_name%/, json_one['city_name'])
-                        .replace(/%distinct_name%/, json_one['distinct_name'])
-                        .replace(/%course_homework%/, json_one['course_homework']);
-                    console.log(html)
+                var json_one = json_data.course_all[i];
+               html+='<div class="col-md-6col-lg-4">'+
+                    '<div class="single-course mb-30">' +
+                    '<a href="#" class="thumb-img">' +
+                    '<span class="overly"></span>' +
+                    '<img src="/static/assets/img/courses/1.jpg" alt="Course Image">' +
+                    '</a>' +
+                    '<div class="course-caption">' +
+                    '<h3><a href="'+
+                    json_one['id'] +
+                    '"> '+json_one['course_name']+
+                    '</a></h3>' +
+                    '<p>'+json_one['course_contains']+'</p>' +
+                    '<div class="course-foot">' +
+                    '<a href="#">'+json_one['course_teacher']+'</a>' +
+                    '<p class="price">'+json_one['course_price']+'</p>' +
+                    '</div></div></div></div>';
 
-                    {#console.log(json_one)#}
-                }
-                 {#document.getElementById('to_fill').innerHTML = html;#}
-
-
-                var all_template = document.getElementById("all_courses_template").innerHTML;
-                 document.getElementById('to_fill').innerHTML = all_template.replace(/%COURSES%/,html);
+            }
+             $('#course_contents').html(html);
             });
-        })
+
+
+            // 获取省份
+$.get('/loc/getProvince/',function(data){
+
+for(var i = 0,len = data.provinces.length; i<len ;i++){
+    $new = $("<option value="+data.provinces[i][0] +">"+  data.provinces[i][1]  +"</option>" );
+    $("#province").append( $new );
+}
+
+});
+
+
+//改变省份后
+$("#province").change(function(){
+//清空市和区
+    console.log($("#province").val())
+    ;
+$("#city").empty().append('<option value="">请选择城市</option>');
+$("#district").empty().append('<option value="">请选择区/县</option>');
+$.ajax({
+    url:'/loc/getCity/',
+    type:'get',
+    data:{"city_id":$(this).val()}
+}).done(function(data){
+    for(var i = 0,len = data.cities.length; i<len ;i++){
+        $new = $( "<option value="+data.cities[i][0] +">"+  data.cities[i][1]  +"</option>" );
+        $("#city").append( $new );
+    }
+});
+});
+
+//改变城市后
+$("#city").change(function(){
+//清空市和区
+$("#district").empty().append('<option value="">请选择区/县</option>');
+$.ajax({
+    url:'/loc/getDistrict/',
+    type:'get',
+    data:{"district_id":$(this).val()}
+}).done(function(data){
+    for(var i = 0,len = data.district.length; i<len ;i++){
+        $new = $( "<option value="+data.district[i][0] +">"+  data.district[i][1]  +"</option>" );
+        $("#district").append($new );
+    }
+});
+});
+
+//改变区域后
+$("#district").change(function(){
+
+$.ajax({
+    url:'/loc/getAll/',
+    type:'get',
+    data:{"province_id":$("#province").val(),"city_id":$("#city").val(),"district_id":$(this).val()}
+});
+});
+
+}
+
+
+)
         </script>
 
 
