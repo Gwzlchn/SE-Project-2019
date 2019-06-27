@@ -26,7 +26,7 @@ urlpatterns = [
     path(r'userHome/',include('apps.userHome.urls', namespace='userHome')),
     path('User/',include('apps.User.urls',namespace='User')),
     path('article/', include('apps.fundamental.article.urls', namespace='article')),
-    path('inspage/',include('apps.inspage.urls',namespace='inspage')),
+    path('ins/',include('apps.inspage.urls',namespace='inspage')),
     path('UpdateInfo/', views.VisitUpdateInfo),
     path('UResult/', views.VisitUResult),
     path('Recharge/', views.VisitRecharge),
