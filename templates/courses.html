@@ -29,7 +29,7 @@
     </head>
 
 
-    <script id="all_courses_template" type="text/x-custom-template">
+<body>
         <!-- Preloader -->
         <div class="preloader">
             <div class="loader">
@@ -252,9 +252,27 @@
             <div class="container">
                 <div class="row" >
 
-                    %COURSES%
+                          <div class="col-md-6 col-lg-4">
+                        <div class="single-course mb-30">
+                            <a href="#" class="thumb-img">
+                                <span class="overly"></span>
+                                <img src="/static/assets/img/courses/1.jpg" alt="Course Image">
+                            </a>
 
-                </div>>
+                            <div class="course-caption">
+                                <h3><a href="%course_id%">%course_name%</a></h3>
+                                <p>%course_contains%</p>
+
+                                <div class="course-foot">
+{#{                                  <img src="/static//static/assets/img/instruction/sm1.jpg" alt="instruction">#}
+                                    <a href="#">%course_teacher%</a>
+                                    <p class="price">%course_price%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
 
                 
 {#                <!-- Pagination -->#}
@@ -413,34 +431,14 @@
             </div>
         </div>
         <!-- End bottom footer -->
-    </script>>
 
 
-    <script id="single_course_templete" type="text/x-custom-template">
-        <div class="col-md-6 col-lg-4">
-                        <div class="single-course mb-30">
-                            <a href="#" class="thumb-img">
-                                <span class="overly"></span>
-                                <img src="/static/assets/img/courses/1.jpg" alt="Course Image">
-                            </a>
 
-                            <div class="course-caption">
-                                <h3><a href="%course_id%">%course_name%</a></h3>
-                                <p>%course_contains%</p>
 
-                                <div class="course-foot">
-{#{                                  <img src="/static//static/assets/img/instruction/sm1.jpg" alt="instruction">#}
-                                    <a href="#">%course_teacher%</a>
-                                    <p class="price">%course_price%</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    </script>
 
        
        
-    <body>
+
         <!-- JQuery Min JS -->
         <script src="{% static "assets/js/jquery.1.12.4.min.js" %}"></script>
         <!-- Popper Min JS -->
@@ -501,10 +499,6 @@
         })
         </script>
 
-    <div class="to_fill" id="to_fill">
-
-
-    </div>
 
 
     </body>
