@@ -13,6 +13,23 @@ def Course_Index(request):
 def Single_Course_Index(request,course_id):
     return render(request,"single_course.html")
 
+def Search_Course(request):
+    print(request)
+    province_id =  request.GET.get('province_id')
+    city_id = request.GET.get('city_id')
+    district_id = request.GET.get('district_id')
+    course_obj = Course_Base.objects.filter(course_location_province_id=province_id,
+                                            course_location_city_id=city_id,
+                                            course_location_distinct_id = district_id)
+
+
+    dict_obj = []
+    for i in course_obj:
+        dict_obj.append(i.to_dict())
+
+    print(dict_obj)
+
+    return render(request,"courses.html",{'course_all': dict_obj})
 #todo: 时间未处理！！！
 
 def Single_Course_Info(request,course_id):
@@ -35,6 +52,15 @@ def All_Course_Info(request):
 
     print(dict_obj)
     return JsonResponse({'course_all':dict_obj})
+
+
+
+
+
+
+
+
+
 
 def Scoring_Course(request):
     pass
