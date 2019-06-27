@@ -23,6 +23,9 @@ def logout(request):
      request.session['is_login']='0'
      print(request.session['is_login'])
      return render(request,"User/login.html")
+    
+def login(request):
+    return render(request, "User/login.html", )
 
 def Slogin(request):
     #return HttpResponse("Register")
