@@ -11,6 +11,7 @@ def TeacherInfo(request):
     return render(request,'userHome/TeacherInfomation.html')
 
 def dispatch(request):
+    print('here')
     id = request.user.id
     print(id)
     if Um.Teacher.objects.filter(user_id=id):
@@ -21,12 +22,12 @@ def dispatch(request):
         return HttpResponseRedirect('/userHome/InstitutionInfo/0/')
     if Um.Admin.objects.filter(user_id=id):
         return render(request,'userHome/AdminInfomation.html')
-    return render(request,'User/login.html')
+    return HttpResponseRedirect('/User/login')
 
 def change_t_info(request):
     id = request.user.id
     if not Um.Teacher.objects.filter(user_id=id):
-        return render(request, 'User/login.html')
+        return HttpResponseRedirect('/User/login')
     if request.method == 'POST':
         dict = {}
         dict['Age'] = request.POST.get('Age')
@@ -65,7 +66,7 @@ def update_course(request,cid,bid=None):
     id = request.user.id
     dict = {}
     if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
-        return render(request, 'User/login.html')
+        return HttpResponseRedirect('/User/login')
     if request.method == 'POST':
         dict['teacher'] = request.POST.get('teacher')
         dict['price'] = request.POST.get('price')
@@ -79,7 +80,7 @@ def add_course(request,bid=None):
     id = request.user.id
     dict = {}
     if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
-        return render(request, 'User/login.html')
+        return HttpResponseRedirect('/User/login')
     if request.method == 'POST':
         dict['name'] = request.POST.get('name')
         dict['location_pro'] = request.POST.get('location_pro')
@@ -101,7 +102,7 @@ def add_announcement(request,bid=None):
     id = request.user.id
     dict = {}
     if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
-        return render(request, 'User/login.html')
+        return HttpResponseRedirect('/User/login')
     if request.method == "POST":
         dict['title'] = request.POST.get('title')
         dict['body'] = request.POST.get('body')
@@ -112,7 +113,7 @@ def add_announcement(request,bid=None):
 def update_announcement(request,bid=None):
     id = request.user.id
     if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
-        return render(request, 'User/login.html')
+        return HttpResponseRedirect('/User/login')
     dict = {}
     if request.method == "POST":
         dict['id'] = request.POST.get('id')
@@ -125,17 +126,17 @@ def update_announcement(request,bid=None):
 def show_announcement(request,bid=None):
     id = request.user.id
     if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
-        return render(request, 'User/login.html')
+        return HttpResponseRedirect('/User/login')
     if request.method == "POST":
         aid = request.POST.get('id')
-        Announcement.objects.filter(id=id).delete()
+        Announcement.objects.filter(id=aid).delete()
     dict = trans.display_all_ann(id)
     return render(request,'userHome/announcement.html',dict)
 
 def all_tlesson(request,bid = None):
     id = request.user.id
     if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
-        return render(request, 'User/login.html')
+        return HttpResponseRedirect('/User/login')
     if request.method == "POST":
         if request.POST.get('deny'):
             did = request.POST.get('did')
@@ -150,7 +151,7 @@ def all_tlesson(request,bid = None):
 def insinfo(request,bid):
     id = request.user.id
     if not Um.Institution.objects.filter(user_id=id):
-        return render(request, 'User/login.html')
+        return HttpResponseRedirect('/User/login')
     dict = {}
     dict['bid'] = bid
     return render(request,'userHome/InstitutionInfomation.html',dict)
@@ -158,7 +159,7 @@ def insinfo(request,bid):
 def choosebranch(request,bid):
     id = request.user.id
     if not Um.Institution.objects.filter(user_id=id):
-        return render(request, 'User/login.html')
+        return HttpResponseRedirect('/User/login')
     dict={}
     if request.method == 'POST':
         dict['bid'] = request.POST.get('bid')
@@ -171,7 +172,7 @@ def choosebranch(request,bid):
 def addbranch(request,bid):
     id = request.user.id
     if not Um.Institution.objects.filter(user_id=id):
-        return render(request, 'User/login.html')
+        return HttpResponseRedirect('/User/login')
     dict={}
     if request.method == 'POST':
         dict['branch_province'] = request.POST.get('branch_province')
@@ -187,7 +188,7 @@ def change_i_info(request,bid):
     dict = {}
     id = request.user.id
     if not Um.Institution.objects.filter(user_id=id):
-        return render(request, 'User/login.html')
+        return HttpResponseRedirect('/User/login')
     if request.method == 'POST':
         dict={}
         dict['name'] = request.POST.get('name')
