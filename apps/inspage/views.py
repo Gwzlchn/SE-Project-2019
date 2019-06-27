@@ -42,6 +42,7 @@ def Inst(request):
     #课程信息模块
     CoF = insmodels.Course_Institution.objects.filter(course_ins = inst.id)
     recorder = []
+    dict = {"course":[]}
     num = 1
     print("InstCourseinfo")
     for CofI in CoF:
@@ -49,11 +50,12 @@ def Inst(request):
        num +=1
        course = insmodels.Course_Base.objects.get(id = CofI.course_id.id)
        recorder.append(CofI.course_id.id)
+       dict.get("course").append(course)
        print(course.id,course.course_subject,course.course_age,course.course_teacher)
-    
-    print(recorder)
 
     if request.method == 'POST':
+       dict.clear()
+       dict = {"course":[]}
        key = request.POST.get("key",None)
        print("looking for",key)
        course_list = insmodels.Course_Base.objects.filter(Q(id__in =  recorder)&Q(course_age = key))
