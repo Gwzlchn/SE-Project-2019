@@ -213,9 +213,8 @@ def POS(request):
    Cuid = request.session.get('user_id')
    Utype = User.objects.get(id = Cuid)
    if Utype is not None:
-       print(Cuid)
        if(Utype.first_name != '1'):
-          return render(request,"User/login.html",)
+          return render(request,"User/POS.html",)
        print(request.session.get('user_id'))
        return render(request,"User/POS.html")
    else:
@@ -226,7 +225,6 @@ def Tea(request):
    Cuid = request.session.get('user_id')
    Utype = User.objects.get(id = Cuid)
    if Utype is not None:
-       print(Cuid)
        if(Utype.first_name != '2'):
           return render(request,"User/login.html",)
        print(request.session.get('user_id'))
