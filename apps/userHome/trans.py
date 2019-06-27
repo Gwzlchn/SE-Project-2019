@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 import apps.User.models as umodel
 from apps.course.models import Course_Base,Course_Institution,Course_Teacher,Branch
 from apps.fundamental.article.models import Announcement
+from apps.fundamental.CHINA_LOCATION.models import ChinaLocation
 from apps.userHome.models import Temp_Lesson
 
 from django.db.models import Q
@@ -41,10 +42,10 @@ def change_teach_info(id,dict):
     return
 
 #@login_required()
-def add_course(dict,id):
+def add_course(dict,id,bid):
     course = Course_Base(course_location_province=dict['location_pro'],course_name=dict['name'],
                                course_location_city=dict['location_city'],
-                               course_location_area=dict['location_area'],
+                               course_location_distinct=dict['location_area'],
                                course_teacher=dict['course_teacher'],
                                course_subject=dict['course_subject'],course_price=dict['course_price'],
                                course_age=dict['course_age'],course_time=dict['course_time'],
@@ -55,7 +56,8 @@ def add_course(dict,id):
         teacher = umodel.Teacher.objects.get(user_id=id)
         Course_Teacher.objects.create(course_teacher=teacher,course_id=course)
     else:
-        Course_Institution.objects.create(course_ins=id,course_id=course)
+        branch = Branch.objects.get(id=bid)
+        Course_Institution.objects.create(course_ins=branch,course_id=course)
     return
 
 def display_all_course(id,b_id=None):
@@ -142,4 +144,54 @@ def deny_tl(id):
 
 def allow_tl(id):
     Temp_Lesson.objects.filter(id=id).update(state='已通过')
+    return
+
+def add_branch(dict,id):
+    ins = umodel.Institution.objects.get(user_id=id)
+    dict['Ins'] = ins
+    dict['branch_province'] = ChinaLocation.objects.get(name = dict['branch_province'])
+    dict['branch_city'] = ChinaLocation.objects.get(name = dict['branch_city'])
+    dict['branch_distinct'] = ChinaLocation.objects.get(name = dict['branch_distinct'])
+    b = Branch(**dict)
+    b.save()
+    return
+
+def display_Ins_info(id,bid):
+    branch = Branch.objects.get(id = bid)
+    ins = umodel.Institution.objects.get(user_id = id)
+    dict = {}
+    dict['name'] = ins.name
+    dict['PhoneNumber'] = branch.PhoneNumber
+    dict['branch_province'] = branch.branch_province.name
+    dict['branch_city'] = branch.branch_city.name
+    dict['branch_distinct'] = branch.branch_distinct.name
+    dict['LDirection'] = branch.LDirection
+    dict['Fitage'] = branch.Fitage
+    dict['Address'] = branch.Address
+    dict['Brief'] = ins.Brief
+    return dict
+
+def change_Ins_info(id,bid,dict):
+    branch = Branch.objects.get(id = bid)
+    ins = umodel.Institution.objects.get(user_id = id)
+    if ins.name != dict['name']:
+        ins.name = dict['name']
+    if branch.PhoneNumber != dict['PhoneNumber']:
+        branch.PhoneNumber = dict['PhoneNumber']
+    if branch.branch_province.name != dict['branch_province']:
+        branch.branch_province = ChinaLocation.objects.get(name=dict['branch_province'])
+    if branch.branch_city.name != dict['branch_city']:
+        branch.branch_city = ChinaLocation.objects.get(name=dict['branch_city'])
+    if branch.branch_distinct.name != dict['branch_distinct']:
+        branch.branch_distinct = ChinaLocation.objects.get(name=dict['branch_distinct'])
+    if ins.Brief != dict['Brief']:
+        ins.Brief = dict['Brief']
+    if dict['LDirection'] != branch.LDirection:
+        branch.LDirection = dict['LDirection']
+    if dict['Fitage'] != branch.Fitage:
+        branch.Fitage = dict['Fitage']
+    if dict['Address'] != branch.Address:
+        branch.Address = dict['Address']
+    ins.save()
+    branch.save()
     return
