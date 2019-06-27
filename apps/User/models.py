@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from apps.fundamental.CHINA_LOCATION.models import ChinaLocation
 # Create your models here.
 
 
@@ -66,7 +67,13 @@ class Institution(models.Model):
 
 class Branch(models.Model):
     Ins = models.ForeignKey(Institution,on_delete=models.CASCADE)
-    Address = models.CharField(max_length = 64)
+    branch_province = models.ForeignKey(ChinaLocation,on_delete=models.CASCADE, \
+                                                 related_name='branch_province',verbose_name="所在省份")
+    branch_city = models.ForeignKey(ChinaLocation,on_delete=models.CASCADE , \
+                                             related_name='branch_city',verbose_name="所在城市")
+    branch_distinct = models.ForeignKey(ChinaLocation,on_delete=models.CASCADE, \
+                                                 related_name='branch_distinct',verbose_name="所在区")
+    Address = models.CharField(max_length=50,default=None)
     LDirection = models.CharField(max_length=15,choices=Lesson_Direction)
     Fitage =models.CharField(max_length=15,choices=Age_Choice)
     PhoneNumber = models.CharField(max_length = 20)

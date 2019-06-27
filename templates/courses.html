@@ -28,7 +28,8 @@
         <title>EduSplash - Education Responsive HTML Template</title>
     </head>
 
-    <body>
+
+    <script id="all_courses_template" type="text/x-custom-template">
         <!-- Preloader -->
         <div class="preloader">
             <div class="loader">
@@ -250,152 +251,37 @@
         <section class="popular-courses pt-100 pb-180 white-bg">
             <div class="container">
                 <div class="row" >
-                    <div class="col-md-6 col-lg-4">
-                        <div class="single-course mb-30">
-                            <a href="#" class="thumb-img">
-                                <span class="overly"></span>
-                                <img src="/static/assets/img/courses/1.jpg" alt="Course Image">
-                            </a>
 
-                            <div class="course-caption">
-                                <h3><a href="#">Computer Science & Engineering</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                    %COURSES%
 
-                                <div class="course-foot">
-                                    <img src="/static//static/assets/img/instruction/sm1.jpg" alt="instruction">
-                                    <a href="#">Alister Cook</a>
-                                    <p class="price">$149</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 col-lg-4">
-                        <div class="single-course mb-30">
-                            <a href="#" class="thumb-img">
-                                <span class="overly"></span>
-                                <img src="/static/assets/img/courses/2.jpg" alt="Course Image">
-                            </a>
-                            
-                            <div class="course-caption">
-                                <h3><a href="#">Electrical Engineering</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                </div>>
 
-                                <div class="course-foot">
-                                    <img src="/static/assets/img/instruction/sm2.jpg" alt="instruction">
-                                    <a href="#">David Warner</a>
-                                    <span class="free-course">Free</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 col-lg-4">
-                        <div class="single-course mb-30">
-                            <a href="#" class="thumb-img">
-                                <span class="overly"></span>
-                                <img src="/static/assets/img/courses/3.jpg" alt="Course Image">
-                            </a>
-
-                            <div class="course-caption">
-                                <h3><a href="#">Mechanical Engineering</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-
-                                <div class="course-foot">
-                                    <img src="/static/assets/img/instruction/sm3.jpg" alt="instruction">
-                                    <a href="#">John Smith</a>
-                                    <p class="price">$149</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 col-lg-4">
-                        <div class="single-course mb-30">
-                            <a href="#" class="thumb-img">
-                                <span class="overly"></span>
-                                <img src="/static/assets/img/courses/4.jpg" alt="Course Image">
-                            </a>
-
-                            <div class="course-caption">
-                                <h3><a href="#">Become a Mobile App Developer</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-
-                                <div class="course-foot">
-                                    <img src="/static/assets/img/instruction/sm3.jpg" alt="instruction">
-                                    <a href="#">John Smith</a>
-                                    <span class="free-course">Free</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 col-lg-4">
-                        <div class="single-course mb-30">
-                            <a href="#" class="thumb-img">
-                                <span class="overly"></span>
-                                <img src="/static/assets/img/courses/5.jpg" alt="Course Image">
-                            </a>
-
-                            <div class="course-caption">
-                                <h3><a href="/single-courses.html">Website Development</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-
-                                <div class="course-foot">
-                                    <img src="/static/assets/img/instruction/sm3.jpg" alt="instruction">
-                                    <a href="#">John Smith</a>
-                                    <p class="price"><del>$200</del> $149</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 col-lg-4">
-                        <div class="single-course mb-30">
-                            <a href="#" class="thumb-img">
-                                <span class="overly"></span>
-                                <img src="/static/assets/img/courses/6.jpg" alt="Course Image">
-                            </a>
-
-                            <div class="course-caption">
-                                <h3><a href="#">Web & Graphics Technologies</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-
-                                <div class="course-foot">
-                                    <img src="/static/assets/img/instruction/sm3.jpg" alt="instruction">
-                                    <a href="#">John Smith</a>
-                                    <span class="free-course">Free</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 
-                <!-- Pagination -->
-                <nav class="pagination-outer" aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a href="#" class="page-link" aria-label="Previous">
-                                <i class="icofont-swoosh-left"></i>
-                            </a>
-                        </li>
-                        <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a href="#" class="page-link" aria-label="Next">
-                                <i class="icofont-swoosh-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- End Pagination -->
+{#                <!-- Pagination -->#}
+{#                <nav class="pagination-outer" aria-label="Page navigation">#}
+{#                    <ul class="pagination">#}
+{#                        <li class="page-item">#}
+{#                            <a href="#" class="page-link" aria-label="Previous">#}
+{#                                <i class="icofont-swoosh-left"></i>#}
+{#                            </a>#}
+{#                        </li>#}
+{#                        <li class="page-item active">#}
+{#                            <a class="page-link" href="#">1</a>#}
+{#                        </li>#}
+{#                        <li class="page-item">#}
+{#                            <a class="page-link" href="#">2</a>#}
+{#                        </li>#}
+{#                        <li class="page-item">#}
+{#                            <a class="page-link" href="#">3</a>#}
+{#                        </li>#}
+{#                        <li class="page-item">#}
+{#                            <a href="#" class="page-link" aria-label="Next">#}
+{#                                <i class="icofont-swoosh-right"></i>#}
+{#                            </a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </nav>#}
+{#                <!-- End Pagination -->#}
             </div> 
         </section>
         <!-- End Popular courses -->
@@ -527,11 +413,34 @@
             </div>
         </div>
         <!-- End bottom footer -->
+    </script>>
+
+
+    <script id="single_course_templete" type="text/x-custom-template">
+        <div class="col-md-6 col-lg-4">
+                        <div class="single-course mb-30">
+                            <a href="#" class="thumb-img">
+                                <span class="overly"></span>
+                                <img src="/static/assets/img/courses/1.jpg" alt="Course Image">
+                            </a>
+
+                            <div class="course-caption">
+                                <h3><a href="%course_id%">%course_name%</a></h3>
+                                <p>%course_contains%</p>
+
+                                <div class="course-foot">
+{#{                                  <img src="/static//static/assets/img/instruction/sm1.jpg" alt="instruction">#}
+                                    <a href="#">%course_teacher%</a>
+                                    <p class="price">%course_price%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    </script>
+
        
-    
        
-       
-        
+    <body>
         <!-- JQuery Min JS -->
         <script src="{% static "assets/js/jquery.1.12.4.min.js" %}"></script>
         <!-- Popper Min JS -->
@@ -554,5 +463,49 @@
         <script src="{% static "assets/js/contact-form-script.js" %}"></script>
         <!-- Script JS -->
         <script src="{% static "assets/js/script.js" %}"></script>
+        <script>$(function() {
+            $.get('getAllInfo', function (json_data) {
+                //console.log(json)
+                var template = document.getElementById("single_course_templete").innerHTML;
+
+                console.log(json_data)
+                var html=" "
+                for(var i = 0, l = json_data.course_all.length; i < l; i++) {
+
+                    var json_one = json_data.course_all[i]
+                    console.log(json_one)
+                    html += template
+                        .replace(/%course_id%/, json_one['id'])
+                        .replace(/%course_teacher%/, json_one['course_teacher'])
+                        .replace(/%course_name%/, json_one['course_name'])
+                        .replace(/%course_subject%/, json_one['course_subject'])
+                        .replace(/%course_age%/, json_one['course_age'])
+                        .replace(/%course_contains%/, json_one['course_contains'])
+                        .replace(/%course_duration_of_week%/, json_one['course_duration_of_week'])
+                        .replace(/%course_price%/, json_one['course_price'])
+                        .replace(/%course_location%/, json_one['course_location'])
+                        .replace(/%province_name%/, json_one['province_name'])
+                        .replace(/%city_name%/, json_one['city_name'])
+                        .replace(/%distinct_name%/, json_one['distinct_name'])
+                        .replace(/%course_homework%/, json_one['course_homework']);
+                    console.log(html)
+
+                    {#console.log(json_one)#}
+                }
+                 {#document.getElementById('to_fill').innerHTML = html;#}
+
+
+                var all_template = document.getElementById("all_courses_template").innerHTML;
+                 document.getElementById('to_fill').innerHTML = all_template.replace(/%COURSES%/,html);
+            });
+        })
+        </script>
+
+    <div class="to_fill" id="to_fill">
+
+
+    </div>
+
+
     </body>
 </html>

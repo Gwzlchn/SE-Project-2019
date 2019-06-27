@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>修改公告</title>
 </head>
 <body>
-
+<form method="post">
+    {%csrf_token%}
+    公告id:<input type="text" name="id" value=""><br>
+    公告标题:<input type="text" name="title" value=""><br>
+    公告内容:<input type="text" name="body" value=""><br>
+    <input type="submit" value="修改公告公告" >
+</form>
+<a href="announcement"><button>返回</button></a>
 </body>
 </html>
