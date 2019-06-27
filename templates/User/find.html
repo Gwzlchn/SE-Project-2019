@@ -1,4 +1,4 @@
-﻿{% load static %}
+{% load static %}
 <!doctype html>
 <html lang="zxx">
     <head>
@@ -250,24 +250,29 @@
         <section class="login-section pt-100 pb-180">
             <div class="container">
                 <div class="register-form box-content">
-                    <h3 class="title">登陆您的账户</h3>
-                    <form action="login-form.html" method="post">
+                    <h3 class="title">找回密码</h3>
+                    <form action="/User/find/" method="post">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="id_username" name="username" placeholder="用户名">
+                            <input type="text" class="form-control" id="id_phone" name="phone" placeholder="电话">
                         </div>
 
                         <div class="form-group">
-                            <input type="password" class="form-control" id="id_password"  name="password" placeholder="密码">
+                            <input type="email" class="form-control" id="id_eamil"  name="email" placeholder="邮箱">
                         </div>
 
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="id_code"  name="code" placeholder="新密码">
+                        </div>
                         
                         <div class="form-foot"> 
-                            <button type="submit" class="btn default-btn">登陆</button>
-                            <p><a href="/User/register">找回密码</a></p>
+                            <button type="submit" class="btn default-btn">重设</button>
                             <p>还没有账户？ <a href="/User/register">现在注册</a></p>
                         </div>
                     </form>
                 </div>
+                {% for n in field.items %}
+                {{ n }}
+                {% endfor %}
             </div>
         </section>
         <!-- End Login -->
