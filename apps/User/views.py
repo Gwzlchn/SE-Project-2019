@@ -35,7 +35,7 @@ def Slogin(request):
             #request.session['is_login']='1'
             #request.session['user_id'] = user.id
             #if user.first_name == "1":"2":"3":"4"
-            print('there')
+            print(request.user.id)
             return HttpResponseRedirect('/userHome/')
         else:
             print('用户名或密码错误!')
