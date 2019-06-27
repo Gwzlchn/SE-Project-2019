@@ -47,8 +47,12 @@ def set_course(request,bid=None):
         return render(request,'login')
     if bid:
         if request.method == "POST":
-            c_id = request.POST.get('id')
-            trans.delete_course(c_id,id,bid)
+            if request.POST.get('delete'):
+                c_id = request.POST.get('course_id')
+                trans.delete_course(c_id,id,bid)
+            else:
+                c_id = request.POST.get('id')
+                return HttpResponseRedirect('../UpdateCourse'+str(c_id)+'/')
         dict = trans.display_all_course(id,bid)
     else:
         if request.method == "POST":
@@ -56,6 +60,20 @@ def set_course(request,bid=None):
             trans.delete_course(c_id,id)
         dict = trans.display_all_course(id)
     return render(request,'userHome/SetCourse.html',dict)
+
+def update_course(request,cid,bid=None):
+    id = request.user.id
+    dict = {}
+    if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
+        return render(request, 'User/login.html')
+    if request.method == 'POST':
+        dict['teacher'] = request.POST.get('teacher')
+        dict['price'] = request.POST.get('price')
+        dict['Address'] = request.POST.get('Address')
+        dict['homework'] = request.POST.get('homework')
+        trans.update_course(cid,dict)
+    dict = trans.display_one_course(cid)
+    return render()
 
 def add_course(request,bid=None):
     id = request.user.id
@@ -79,7 +97,7 @@ def add_course(request,bid=None):
         dict['res'] = 'success!'
     return render(request,'userHome/AddCourse.html',dict)
 
-def add_announcement(request):
+def add_announcement(request,bid=None):
     id = request.user.id
     dict = {}
     if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
@@ -104,7 +122,7 @@ def update_announcement(request):
     dict['res'] = '修改成功'
     return render(request,'userHome/Updateannouncement.html',dict)
 
-def show_announcement(request):
+def show_announcement(request,bid=None):
     id = request.user.id
     if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
         return render(request, 'User/login.html')
@@ -114,7 +132,7 @@ def show_announcement(request):
     dict = trans.display_all_ann(id)
     return render(request,'userHome/announcement.html',dict)
 
-def all_tlesson(request):
+def all_tlesson(request,bid = None):
     id = request.user.id
     if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
         return render(request, 'User/login.html')
@@ -125,7 +143,7 @@ def all_tlesson(request):
         else:
             tid = request.POST.get('tid')
             trans.allow_tl(tid)
-    dict = trans.display_all_tlesson(id)
+    dict = trans.display_all_tlesson(id,bid)
 
     return render(request,'userHome/tlesson.html',dict)
 

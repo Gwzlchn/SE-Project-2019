@@ -8,8 +8,13 @@
     <a href="AddCourse"><button>添加课程</button></a><br>
     <form method="post">
         {%csrf_token%}
-        要删除的课程ID: <input type="text",name="course_id",value=""><br>
-        <input type="submit"value = "删除">
+        要删除的课程ID: <input type="text" name="course_id" value=""><br>
+        <input type="submit" name="delete" value = "删除"><br>
+    </form>
+    <form method="post">
+        {%csrf_token%}
+        要修改的课程ID:<input type="text" name="id"><br>
+        <input type="submit" name="update" value = "删除">
     </form>
     <a href = "./"><button>返回</button></a>
     <table border="1">

@@ -41,11 +41,32 @@ def change_teach_info(id,dict):
         tc.update(LDirection = dict['LDirection'])
     return
 
+def update_course(cid,dict):
+    course = Course_Base.objects.get(id = cid)
+    if course.course_location != dict['Address']:
+        course.course_location = dict['Address']
+    if course.course_homework !=dict['homework']:
+        course.course_homework =dict['homework']
+    if course.course_price != dict['price']:
+        course.course_price = dict['price']
+    if course.course_teacher != dict['teacher']:
+        course.course_teacher = dict['teacher']
+    course.save()
+    return
+
+def display_one_course(cid):
+    dict = {}
+    course = Course_Base.objects.get(id=cid)
+    temp = [course,course.course_location_province.name,course.course_location_city.name,
+            course.course_location_distinct.name]
+    dict['course']=temp
+    return dict
 #@login_required()
 def add_course(dict,id,bid):
-    course = Course_Base(course_location_province=dict['location_pro'],course_name=dict['name'],
-                               course_location_city=dict['location_city'],
-                               course_location_distinct=dict['location_area'],
+    course = Course_Base(course_location_province=ChinaLocation.objects.get(name=dict['location_pro']),
+                         course_name=dict['name'],
+                               course_location_city=ChinaLocation.objects.get(name=dict['location_city']),
+                               course_location_distinct=ChinaLocation.objects.get(name=dict['location_area']),
                                course_teacher=dict['course_teacher'],
                                course_subject=dict['course_subject'],course_price=dict['course_price'],
                                course_age=dict['course_age'],course_time=dict['course_time'],
@@ -116,7 +137,7 @@ def update_ann(dict):
     ann.save()
     return
 
-def display_all_tlesson(id):
+def display_all_tlesson(id,bid=None):
     dict = {}
     dict['res'] = []
     if umodel.Teacher.objects.filter(user_id=id):
@@ -127,15 +148,13 @@ def display_all_tlesson(id):
             for tl in tls:
                 dict['res'].append([tl.id,tl.person.PName,tl.lesson.course_name,tl.state])
     else:
-        ins = umodel.Institution.objects.get(user_id=id)
-        bs = Branch.objects.filter(Ins=ins.id)
-        for b in bs:
-            lls = Course_Institution.objects.filter(course_ins=b.id)
-            for ll in lls:
-                course = ll.course_id
-                tls = Temp_Lesson.objects.filter(lesson=course.id).filter(state='待审核')
-                for tl in tls:
-                    dict['res'].append([tl.id,tl.person.Pname,tl.lesson.course_name,tl.state])
+        bs = Branch.objects.get(id = bid)
+        lls = Course_Institution.objects.filter(course_ins=bs.id)
+        for ll in lls:
+            course = ll.course_id
+            tls = Temp_Lesson.objects.filter(lesson=course.id).filter(state='待审核')
+            for tl in tls:
+                dict['res'].append([tl.id,tl.person.Pname,tl.lesson.course_name,tl.state])
     return dict
 
 def deny_tl(id):
