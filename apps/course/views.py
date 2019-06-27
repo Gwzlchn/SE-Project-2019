@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
 from django.core import serializers
 from django.forms.models import model_to_dict
-from .models import Course_Base
+from .models import Course_Base,Course_Comment,Parent
 from apps.fundamental.CHINA_LOCATION.models import ChinaLocation
 import json
 
@@ -23,7 +23,7 @@ def Single_Course_Info(request,course_id):
     dict_obj['city_name'] = ChinaLocation.objects.get(id=dict_obj['course_location_city']).name
     dict_obj['distinct_name'] = ChinaLocation.objects.get(id=dict_obj['course_location_distinct']).name
 
-    print(dict_obj)
+    #print(dict_obj)
     return JsonResponse(dict_obj)
 
 
@@ -38,3 +38,17 @@ def All_Course_Info(request):
 
 def Scoring_Course(request):
     pass
+
+
+def Single_Course_Comment(request,course_id):
+    comment_set = Course_Comment.objects.filter(course_id=course_id)
+    print(comment_set[0].created)
+    dict_obj = []
+    for i in comment_set:
+        i_dict_temp = i.to_dict()
+        print(i.comment_parent)
+        i_dict_temp['Parent_Name'] = i.comment_parent.PName
+        #print(i_dict_temp)
+        dict_obj.append(i_dict_temp)
+
+    return JsonResponse({'comment': dict_obj})

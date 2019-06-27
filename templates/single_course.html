@@ -33,6 +33,7 @@
         <title>EduSplash - Education Responsive HTML Template</title>
     </head>
 
+
     <script id="single_course_template" type="text/x-custom-template">
         <!-- Preloader -->
         <div class="preloader">
@@ -652,47 +653,10 @@
                         </div>
                         
                         <div class="comment-area mt-30">
-                            <h3 class="title">(3) Comments</h3>
-                            
-                            <div class="media">
-                                <img class="mr-3" src=“{%static "/static/assets/img/tutor/4.png" %}" alt="">
-                                <div class="media-body">
-                                    <h5 class="mt-0">Author Name</h5>
-                                    <span class="date"> 20 December 2018</span>
-                                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum</p>
-                                    <a href="#" class="reply">
-                                        <i class="icofont-reply-all"></i> Reply
-                                    </a>
+                            <h3 class="title">Comments</h3>
 
-                                    <div class="media">
-                                        <a class="pr-3" href="#">
-                                            <img src=“{%static "/static/assets/img/tutor/5.png" %}" alt="Generic placeholder image">
-                                        </a>
-                                        <div class="media-body">
-                                            <h5 class="mt-0">Author Name</h5>
-                                            <span class="date"> 21 December 2018</span>
-                                            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</p>
-                                            
-                                            <a href="#" class="reply">
-                                                <i class="icofont-reply-all"></i> Reply
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="media">
-                                <img class="align-self-start mr-3" src=“{%static "/static/assets/img/tutor/6.png" %}"  alt="">
-                                <div class="media-body">
-                                    <h5 class="mt-0">Author Name</h5>
-                                    <span class="date"> 22 December 2018</span>
-                                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</p>
-                                    
-                                    <a href="#" class="reply">
-                                        <i class="icofont-reply-all"></i> Reply
-                                    </a>
-                                </div>
-                            </div>
+                            %Comment_Content%
+
                         </div>
                         
                         <div class="comment-form-area mt-30">
@@ -922,7 +886,10 @@
         </div>
         </script>
         <!-- End bottom footer -->
-       
+
+    <script id="comment_to_fill">
+
+    </script>
 
        <body>
         
@@ -948,6 +915,51 @@
         <script src="{% static "assets/js/contact-form-script.js" %}"></script>
         <!-- Script JS -->
         <script src="{% static "assets/js/script.js" %}"></script>
+
+
+        <script id="single_comment_template" type="text/x-custom-template">
+
+    <div class="media">
+    <img class="align-self-start mr-3" src=“{%static "assets/img/tutor/6.png" %}"  alt="">
+    <div class="media-body">
+    <h5 class="mt-0">%Parent_Name%</h5>
+    <span class="date">%Date_time%</span>
+    <p>%Comment_Body%</p>
+
+    </div>
+    </div>
+
+    </script>
+
+
+    <script>$(function() {
+            $.get('getcomment', function (json_data) {
+                //console.log(json)
+                var template = document.getElementById("single_comment_template").innerHTML;
+
+                console.log(json_data)
+                var html=" "
+                for(var i = 0, l = json_data.comment.length; i < l; i++) {
+
+                    var json_one = json_data.comment[i]
+
+                    html += template
+                        .replace(/%Parent_Name%/, json_one['Parent_Name'])
+                        .replace(/%Date_time%/, json_one['Date_time'])
+                        .replace(/%Comment_Body%/, json_one['body'])
+
+
+
+                    {#console.log(json_one)#}
+                }
+                 document.getElementById('comment_to_fill').innerHTML = html
+            });
+        })
+
+    </script>
+
+
+
         <script>$(function() {
             $.get('getinfo', function (json_data) {
                 //console.log(json)
@@ -966,7 +978,15 @@
                             .replace(/%distinct_name%/, json_data['distinct_name'])
                             .replace(/%course_homework%/, json_data['course_homework']);
 
-                document.getElementById('to_fill').innerHTML = html;
+
+
+                var all_comment = document.getElementById("comment_to_fill").innerHTML;
+
+                var to_fill_comment = html.replace(/%Comment_Content%/,all_comment);
+
+               document.getElementById('to_fill').innerHTML = to_fill_comment;
+
+
             });
         })
         </script>
