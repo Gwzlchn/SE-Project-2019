@@ -11,7 +11,7 @@ def TeacherInfo(request):
     return render(request,'userHome/TeacherInfomation.html')
 
 def dispatch(request):
-    id = request.user.id
+    id = request.sess.id
     print(id)
     if Um.Teacher.objects.filter(user_id=id):
         return render(request,'userHome/TeacherInfomation.html')
