@@ -109,7 +109,7 @@ def add_announcement(request,bid=None):
         trans.add_ann(dict)
     return render(request,'userHome/Addannouncement.html',dict)
 
-def update_announcement(request):
+def update_announcement(request,bid=None):
     id = request.user.id
     if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
         return render(request, 'User/login.html')

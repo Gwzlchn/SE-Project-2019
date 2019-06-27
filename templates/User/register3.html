@@ -25,7 +25,7 @@
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="{% static "assets/img/favicon.png" %}">
         
-        <title>jluu - 软件工程课程设计 </title>
+        <title>jluu- 软件工程课程设计 </title>
     </head>
 
     <body>
@@ -73,7 +73,7 @@
         <nav class="navbar navbar-expand-lg navbar-light edu-navbar header-sticky">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/img/logo.png" alt="Logo">
+                    <img src=“{%static "assets/img/logo透明版本.png"%}" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -239,7 +239,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">回到首页</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">个人教师</li>
+                            <li class="breadcrumb-item active" aria-current="page">教育机构</li>
                         </ol>
                     </nav>
                 </div>
@@ -251,72 +251,55 @@
         <section class="register-section pt-100 pb-180">
             <div class="container">
                 <div class="register-form box-content">
-                    <h3 class="title">注册|个人教师</h3>
-                    <form>
+                    <h3 class="title">注册|学生家长</h3>
+                    <form action="/User/register3/" method="post">
                         <div class="row"> 
                             <div class="col-lg-6"> 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="id_username" placeholder="姓名">
+                                    <input type="text" class="form-control" id="id_username" placeholder="孩子姓名" name="stuname">
                                 </div>
                             </div>
                             
                             <div class="col-lg-6"> 
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="id_contact" placeholder="性别">
+                                    <input type="text" class="form-control" id="id_contact" placeholder="孩子年龄" name="age">
                                 </div>
                             </div>
                         </div>
                         <div class="row"> 
                             <div class="col-lg-6"> 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="id_type" placeholder="年龄">
+                                    <input type="text" class="form-control" id="id_type" placeholder="孩子性别" name="gender">
                                 </div>
                             </div>
                             
                             <div class="col-lg-6"> 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="id_area" placeholder="教育领域">
+                                    <input type="text" class="form-control" id="id_age" placeholder="家长姓名" name="parname">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row"> 
+
                             <div class="col-lg-6"> 
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="id_experience" placeholder="从教年限">
-                                </div>
-                            </div>
-                            
-                            <div class="col-lg-6"> 
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="id_age" placeholder="教育适合年龄">
-                                </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="id_contact" placeholder="联系邮箱" name="email" required>
+                                    </div>
                             </div>
                         </div>
                
                         <div class="form-group">
-                            <input type="text" class="form-control" id="id_idnumber" placeholder="身份证号">
+                            <input type="text" class="form-control" id="id_phone_number" placeholder="联系电话" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="id_phone_number" placeholder="用户名" name="username">
                         </div>
                         
                         <div class="form-group">
-                            <input type="text" class="form-control" id="id_contact" placeholder="联系方式">
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="id_introduction" placeholder="个人简介">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="id_accountname" placeholder="用户名">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="id_password" placeholder="密码">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="id_repeat_password" placeholder="确认密码">
+                            <input type="password" class="form-control" id="id_password" placeholder="密码" name="password">
                         </div>
                   
                         <div class="form-foot"> 
-                            <a href="next-register.html"><button type="submit" class="btn default-btn">下一步</button></a>
-                            <p>已经拥有账号？<a href="login.html">点此登陆</a></p>
+                            <button type="submit" class="btn default-btn">注册</button></a>
+                            <p>已经拥有账号？<a href="/User/login">点此登陆</a></p>
                         </div>
                     </form>
                 </div>
@@ -465,4 +448,3 @@
         <script src="{% static "assets/js/script.js" %}"></script>
     </body>
 </html>
-

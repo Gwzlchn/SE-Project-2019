@@ -35,10 +35,9 @@ class Parent(models.Model):
     Age=models.IntegerField()
     Sex=models.CharField(max_length=6,choices=Gender_Choice)
     PhoneNumber=models.CharField(max_length=11)
-    Birthday = models.DateField()
-    LDirection=models.CharField(max_length=15,choices=Lesson_Direction)
-    FeeRange=models.IntegerField()
-    Area=models.CharField(max_length=10)
+    LDirection=models.CharField(max_length=15,choices=Lesson_Direction,default = "All")
+    FeeRange=models.IntegerField(default= 3000)
+    Area=models.CharField(max_length=10,default = "All")
     Wallet=models.FloatField(default=0)
 
 class Teacher(models.Model):
