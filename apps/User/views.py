@@ -16,7 +16,7 @@ def check_login(f):
         if request.session.get('is_login')=='1':
             return f(request,*arg,**kwargs)
         else:
-            return redirect('User/login/')
+            return redirect('User/login.html')
     return inner
 
 def logout(request):
@@ -41,12 +41,11 @@ def realogin(request):
         else:
             print('用户名或密码错误!')
 
-    return render(request, "login.html", )
+    return render(request, "User/login.html", )
 
 def Slogin(request):
     #return HttpResponse("Register")
     print("Slogin_used")
-    '''
     if request.method == 'POST':
         username = request.POST.get('username',None)
         password = request.POST.get('password',None)
@@ -61,8 +60,7 @@ def Slogin(request):
             return HttpResponseRedirect('/userHome/')
         else:
             print('用户名或密码错误!')
-    '''
-    return render(request, "login.html", )
+    return render(request, "User/login.html", )
 
 def regChoice(request):
     #return HttpResponse("login")
@@ -79,16 +77,17 @@ def POSreg(request):
         gender   = request.POST.get("gender",None)
         phone    = request.POST.get("phone",None)
         email    = request.POST.get("email",None)
+        #print (username,password,stuname,parname,age,gender)
+        #print (phone,email)
         authuser = User.objects.create_user(username,email,password,first_name = '1')
-        new_user = models.Parent.objects.create(user = authuser)
+        new_user = models.Parent.objects.create(user = authuser,Age = age)
         new_user.KName = stuname
         new_user.PName = parname
-        new_user.Age = age
         new_user.Sex = gender
         new_user.PhoneNumber = phone
         new_user.save()
-        return render(request, "User/login.html", )
-    return render(request, "User/POSreg.html", )
+        return render(request, "User/login.html", )  
+    return render(request, "User/register3.html", )
 
 def Teareg(request):
     if request.method == "POST":
@@ -119,10 +118,11 @@ def Teareg(request):
         new_user.PhoneNumber = phone
         new_user.save()
         return render(request, "User/login.html", )
-    return render(request, "User/Teareg.html", )
+    return render(request, "User/register2.html" )
 #教育机构注册完毕
 def Insreg(request):
     if request.method == "POST":
+        iname    = request.POST.get("iname",None)
         username = request.POST.get("username",None)
         password = request.POST.get("password",None)
         id_num   = request.POST.get("id_num",None)
@@ -132,8 +132,9 @@ def Insreg(request):
         phone    = request.POST.get("phone",None)
         email    = request.POST.get("email",None)
         Brief    = request.POST.get("Brief",None)
-        #print(username,password,id_num,address)
+        #print(username,password,iname,id_num,address)
         #print(Direction,Fitage,phone,email,Brief)
+        
         authuser = User.objects.create_user(username,email,password,first_name = '3')
         new_user = models.Institution.objects.create(user = authuser)
         new_user.Id_num = id_num
@@ -142,9 +143,11 @@ def Insreg(request):
         new_user.Fitage = Fitage
         new_user.Brief = Brief
         new_user.PhoneNumber = phone
+        new_user.name = iname
         new_user.save()
+        
         return render(request, "User/login.html", )
-    return render(request, "User/Insreg.html", )
+    return render(request,"User/register1.html", )
 
 def Admreg(request):
     if request.method == "POST":
