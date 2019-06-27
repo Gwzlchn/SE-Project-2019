@@ -15,5 +15,9 @@ urlpatterns = [
     path(r'AddCourse',views.add_course),
     path('InstitutionInfo/<int:bid>/',views.insinfo),
     path('InstitutionInfo/<int:bid>/ChooseBranch',views.choosebranch),
-    path('InstitutionInfo/<int:bid>/AddBranch',views.addbranch)
+    path('InstitutionInfo/<int:bid>/AddBranch',views.addbranch),
+    path('InstitutionInfo/<int:bid>/SetCourse',views.set_course),
+    path('InstitutionInfo/<int:bid>/AddCourse',views.add_course),
+    path('InstitutionInfo/<int:bid>/InsChangeInfo',views.change_i_info)
+
 ]

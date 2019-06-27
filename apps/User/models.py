@@ -64,6 +64,7 @@ class Institution(models.Model):
     PhoneNumber = models.CharField(max_length = 20)
     Brief = models.CharField(max_length = 80)
     Wallet=models.FloatField(default=0)
+    name = models.CharField(max_length=30,default='待填写')
 
 class Branch(models.Model):
     Ins = models.ForeignKey(Institution,on_delete=models.CASCADE)
@@ -73,7 +74,7 @@ class Branch(models.Model):
                                              related_name='branch_city',verbose_name="所在城市")
     branch_distinct = models.ForeignKey(ChinaLocation,on_delete=models.CASCADE, \
                                                  related_name='branch_distinct',verbose_name="所在区")
-
+    Address = models.CharField(max_length=50,default=None)
     LDirection = models.CharField(max_length=15,choices=Lesson_Direction)
     Fitage =models.CharField(max_length=15,choices=Age_Choice)
     PhoneNumber = models.CharField(max_length = 20)

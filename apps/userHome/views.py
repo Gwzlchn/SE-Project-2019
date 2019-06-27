@@ -41,19 +41,23 @@ def change_t_info(request):
         dict['res'] = 'success!'
     return render(request,'userHome/tChangeInfo.html',dict)
 
-def set_course(request):
+def set_course(request,bid=None):
     id = request.user.id
-    id = 2
     if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
         return render(request,'login')
-    if request.method == "POST":
-        c_id = request.POST.get('id')
-        trans.delete_course(c_id,id)
-    dict = trans.display_all_course(id)
-
+    if bid:
+        if request.method == "POST":
+            c_id = request.POST.get('id')
+            trans.delete_course(c_id,id,bid)
+        dict = trans.display_all_course(id,bid)
+    else:
+        if request.method == "POST":
+            c_id = request.POST.get('id')
+            trans.delete_course(c_id,id)
+        dict = trans.display_all_course(id)
     return render(request,'userHome/SetCourse.html',dict)
 
-def add_course(request):
+def add_course(request,bid=None):
     id = request.user.id
     dict = {}
     if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
@@ -70,7 +74,7 @@ def add_course(request):
         dict['course_time'] = request.POST.get('course_time')
         dict['course_duration_time'] = request.POST.get('course_duration_time')
         dict['course_price'] = request.POST.get('course_price')
-        trans.add_course(dict,id)
+        trans.add_course(dict,id,bid)
         dict = {}
         dict['res'] = 'success!'
     return render(request,'userHome/AddCourse.html',dict)
@@ -152,4 +156,32 @@ def addbranch(request,bid):
         return render(request, 'User/login.html')
     dict={}
     if request.method == 'POST':
-        dict['']
+        dict['branch_province'] = request.POST.get('branch_province')
+        dict['branch_city'] = request.POST.get('branch_city')
+        dict['branch_distinct'] = request.POST.get('branch_distinct')
+        dict['PhoneNumber'] = request.POST.get('PhoneNumber')
+        dict['Address'] = request.POST.get('Address')
+        trans.add_branch(dict,id)
+        dict['res'] = '添加成功'
+    return render(request,'userHome/AddBranch.html',dict)
+
+def change_i_info(request,bid):
+    dict = {}
+    id = request.user.id
+    if not Um.Institution.objects.filter(user_id=id):
+        return render(request, 'User/login.html')
+    if request.method == 'POST':
+        dict={}
+        dict['name'] = request.POST.get('name')
+        dict['branch_province'] = request.POST.get('branch_province')
+        dict['branch_city'] = request.POST.get('branch_city')
+        dict['branch_distinct'] = request.POST.get('branch_distinct')
+        dict['Address'] = request.POST.get('Address')
+        dict['PhoneNumber'] = request.POST.get('PhoneNumber')
+        dict['LDirection'] = request.POST.get('LDirection')
+        dict['Fitage'] = request.POST.get('Fitage')
+        trans.change_teach_info(id,dict)
+    dict = trans.display_Ins_info(id,bid)
+    if request.method == 'POST':
+        dict['res'] = 'success!'
+    return render(request,'userHome/InsChangeInfo.html',dict)

@@ -8,19 +8,16 @@
     <a href="AddBranch"><button>添加店面</button></a>
     <form method="post">
         {%csrf_token%}
-        :<input type="text" name="name" value=""><br>
-        省:<input type="text" name="location_pro" value=""><br>
-        市:<input type="text" name="location_city" value=""><br>
-        区、县:<input type="text" name="location_area" value=""><br>
-        课程教师:<input type="text" name="course_teacher" value=""><br>
-        课程方向:<input type="text" name="course_subject" value=""><br>
-        适合年龄:<input type="text" name="course_age" value=""><br>
-        课程内容:<input type="text" name="course_contains" value=""><br>
-        首次上课时间:<input type="date" name="course_time" value=""><br>
-        课程长度:<input type="text" name="course_duration_time"><br>
-        课程价格:<input type="text" name="course_price"><br>
-        <input type="submit" value="添加课程" name="添加课程">
+        机构名称:<input type="text" name="name" value={{ name }}><br>
+        省:<input type="text" name="branch_province" value={{ branch_province }}><br>
+        市:<input type="text" name="branch_city" value={{ branch_city }}><br>
+        区、县:<input type="text" name="branch_distinct" value={{ branch_distinct }}><br>
+        地址:<input type="text" name="Address" value={{ Address }}><br>
+        课程方向:<input type="text" name="LDirection" value={{ LDirection }}><br>
+        适合年龄:<input type="text" name="Fitage" value={{ Fitage }}><br>
+        联系电话:<input type="text" name="PhoneNumber" value={{ PhoneNumber }}><br>
+        <input type="submit" value="修改">
     </form>
-    <a href="SetCourse"><button>返回</button></a>
+    <a href="./"><button>返回</button></a>
 </body>
 </html>

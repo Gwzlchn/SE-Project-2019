@@ -41,10 +41,10 @@ def change_teach_info(id,dict):
     return
 
 #@login_required()
-def add_course(dict,id):
+def add_course(dict,id,bid):
     course = Course_Base(course_location_province=dict['location_pro'],course_name=dict['name'],
                                course_location_city=dict['location_city'],
-                               course_location_area=dict['location_area'],
+                               course_location_distinct=dict['location_area'],
                                course_teacher=dict['course_teacher'],
                                course_subject=dict['course_subject'],course_price=dict['course_price'],
                                course_age=dict['course_age'],course_time=dict['course_time'],
@@ -55,7 +55,8 @@ def add_course(dict,id):
         teacher = umodel.Teacher.objects.get(user_id=id)
         Course_Teacher.objects.create(course_teacher=teacher,course_id=course)
     else:
-        Course_Institution.objects.create(course_ins=id,course_id=course)
+        branch = Branch.objects.get(id=bid)
+        Course_Institution.objects.create(course_ins=branch,course_id=course)
     return
 
 def display_all_course(id,b_id=None):
@@ -143,3 +144,24 @@ def deny_tl(id):
 def allow_tl(id):
     Temp_Lesson.objects.filter(id=id).update(state='已通过')
     return
+
+def add_branch(dict,id):
+    ins = umodel.Institution.objects.get(user_id=id)
+    dict['Ins'] = ins
+    b = Branch(**dict)
+    b.save()
+    return
+
+def display_Ins_info(id,bid):
+    branch = Branch.objects.get(id = bid)
+    ins = umodel.Institution.objects.get(user_id = id)
+    dict = {}
+    dict['name'] = ins.name
+    dict['PhoneNumber'] = branch.PhoneNumber
+    dict['branch_province'] = branch.branch_province
+    dict['branch_city'] = branch.branch_city
+    dict['branch_distinct'] = branch.branch_distinct
+    dict['LDirection'] = branch.LDirection
+    dict['Fitage'] = branch.Fitage
+    dict['Address'] = branch.Address
+    return dict
