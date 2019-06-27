@@ -3,6 +3,8 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from . import trans
 import apps.User.models as Um
+from apps.fundamental.article.models import Announcement
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 def TeacherInfo(request):
@@ -16,7 +18,7 @@ def dispatch(request):
     if Um.Parent.objects.filter(user_id=id):
         return render(request,'userHome/ParentInfomation.html')
     if Um.Institution.objects.filter(user_id=id):
-        return render(request,'userHome/InstitutionInfomation.html')
+        return HttpResponseRedirect('/userHome/InstitutionInfo/0/')
     if Um.Admin.objects.filter(user_id=id):
         return render(request,'userHome/AdminInfomation.html')
     return render(request,'User/login.html')
@@ -74,18 +76,80 @@ def add_course(request):
     return render(request,'userHome/AddCourse.html',dict)
 
 def add_announcement(request):
-
-    return
+    id = request.user.id
+    dict = {}
+    if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
+        return render(request, 'User/login.html')
+    if request.method == "POST":
+        dict['title'] = request.POST.get('title')
+        dict['body'] = request.POST.get('body')
+        dict['author'] = request.user
+        trans.add_ann(dict)
+    return render(request,'userHome/Addannouncement.html',dict)
 
 def update_announcement(request):
-    return
+    id = request.user.id
+    if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
+        return render(request, 'User/login.html')
+    dict = {}
+    if request.method == "POST":
+        dict['id'] = request.POST.get('id')
+        dict['title'] = request.POST.get('title')
+        dict['body'] = request.POST.get("body")
+        trans.update_ann(dict)
+    dict['res'] = '修改成功'
+    return render(request,'userHome/Updateannouncement.html',dict)
 
 def show_announcement(request):
     id = request.user.id
     if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
         return render(request, 'User/login.html')
-    dict = trans.display_all_course()
-    return render(request,'')
+    if request.method == "POST":
+        aid = request.POST.get('id')
+        Announcement.objects.filter(id=id).delete()
+    dict = trans.display_all_ann(id)
+    return render(request,'userHome/announcement.html',dict)
 
 def all_tlesson(request):
-    return
+    id = request.user.id
+    if not Um.Teacher.objects.filter(user_id=id) and not Um.Institution.objects.filter(user_id=id):
+        return render(request, 'User/login.html')
+    if request.method == "POST":
+        if request.POST.get('deny'):
+            did = request.POST.get('did')
+            trans.deny_tl(did)
+        else:
+            tid = request.POST.get('tid')
+            trans.allow_tl(tid)
+    dict = trans.display_all_tlesson(id)
+
+    return render(request,'userHome/tlesson.html',dict)
+
+def insinfo(request,bid):
+    id = request.user.id
+    if not Um.Institution.objects.filter(user_id=id):
+        return render(request, 'User/login.html')
+    dict = {}
+    dict['bid'] = bid
+    return render(request,'userHome/InstitutionInfomation.html',dict)
+
+def choosebranch(request,bid):
+    id = request.user.id
+    if not Um.Institution.objects.filter(user_id=id):
+        return render(request, 'User/login.html')
+    dict={}
+    if request.method == 'POST':
+        dict['bid'] = request.POST.get('bid')
+        print(dict['bid'])
+        return HttpResponseRedirect('../'+str(dict['bid'])+'/')
+    else:
+        dict['bid'] = bid
+    return render(request,'userHome/ChooseBranch.html',dict)
+
+def addbranch(request,bid):
+    id = request.user.id
+    if not Um.Institution.objects.filter(user_id=id):
+        return render(request, 'User/login.html')
+    dict={}
+    if request.method == 'POST':
+        dict['']

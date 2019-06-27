@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-from apps.User import views 
+from apps.User import views
+import apps.userHome.views as ahv
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('userHome/',include('apps.userHome.urls', namespace='userHome')),
+    path(r'userHome/',include('apps.userHome.urls', namespace='userHome')),
     path('User/',include('apps.User.urls',namespace='User')),
     path('article/', include('apps.fundamental.article.urls', namespace='article')),
     path('UpdateInfo/', views.VisitUpdateInfo),
