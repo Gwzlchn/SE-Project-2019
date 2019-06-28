@@ -6,6 +6,7 @@ app_name = 'userHome'
 
 urlpatterns = [
     path(r'',views.dispatch),
+    path('TeacherInformation',views.TeacherInfo),
     path(r'tChangeInfo',views.change_t_info),
     path(r'SetCourse',views.set_course),
     path(r'tlesson',views.all_tlesson),

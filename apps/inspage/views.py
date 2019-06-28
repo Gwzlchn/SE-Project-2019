@@ -13,13 +13,19 @@ from functools import wraps
 
 def Inst(request,iid = None):
     Iid = iid
+    print(Iid)
     try:
        inst =  usemodels.Institution.objects.get(id = Iid)
     except usemodels.Institution.DoesNotExist:
        inst = None
     if inst is not None:
        #课程信息模块
-       CofI = insmodels.Course_Institution.objects.filter(course_ins = inst.id)
+       bran = usemodels.Branch.objects.filter(Ins_id = inst.id)
+       bral = []
+       for bra in bran:
+           bral.append(bra.id)
+       print(bral)
+       CofI = insmodels.Course_Institution.objects.filter(course_ins__in = bral)
        cosl = []
        for Cof in CofI:
            course = insmodels.Course_Base.objects.get(id = Cof.course_id.id)
@@ -34,6 +40,28 @@ def Inst(request,iid = None):
        res = {"inst":inst,"cou":cosl}
        return render(request,"ins/Ins.html",{'data':res})
     return render(request,"ins/Ins.html",)
+
+def isearch(request):
+    if request.method == "POST":
+        age = request.POST.get('Fitage',None)
+        ld = request.POST.get('LDirection',None)
+        print(age,ld)
+        if age is not None and age != 'All':
+           if ld is not None and ld != 'All':
+                relist = usemodels.Institution.objects.filter(Q(Fitage = age)&Q(LDirection = ld))
+           else:
+                relist = usemodels.Institution.objects.filter(Fitage = age)
+        else:
+           if ld is not None and ld != 'All':
+                relist = usemodels.Institution.objects.filter(LDirection = ld)
+           else:
+                relist = usemodels.Institution.objects.all()
+        wanted = []
+        for re in relist:
+            print(re)
+            wanted.append(re)
+        return render(request,"ins/ires.html",{'data':wanted})
+    return render(request,"ins/isearch.html",)
 
 def isearch(request):
     if request.method == "POST":
