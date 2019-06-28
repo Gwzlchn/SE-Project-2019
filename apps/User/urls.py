@@ -8,12 +8,13 @@ app_name = 'User'
 urlpatterns = [
     #path('admin/',admin.site.urls),
     path(r'register/', views.regChoice),
-    path(r'login/', views.Slogin),
-    path(r'login/login-form.html',views.realogin),
-    path(r'POSreg/',views.POSreg),
-    path(r'Teareg/',views.Teareg),
-    path(r'Insreg/',views.Insreg),
+    path(r'login/', views.login),
+    path(r'login/login-form.html', views.Slogin),
+    path(r'register3/',views.POSreg),
+    path(r'register2/',views.Teareg),
+    path(r'register1/',views.Insreg),
     path(r'Admreg/',views.Admreg),
+<<<<<<< HEAD
     path(r'POS/',views.POS),
     path(r'Tea/',views.Tea),
     path(r'Adm/',views.Adm),
@@ -34,4 +35,8 @@ urlpatterns = [
     path(r'ParentPageC/',views.VisitPPageC),
     path(r'ParentPageA/',views.VisitPPageA),
     
+=======
+    path(r'find/',views.Find),
+    path(r'logout/',views.logout)
+>>>>>>> origin/master
 ]

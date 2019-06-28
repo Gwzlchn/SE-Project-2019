@@ -1,5 +1,5 @@
 <!-- extends表明此页面继承自 base.html 文件 -->
-{% extends "base.html" %}
+{% extends "article/base.html" %}
 {% load staticfiles %}
 
 <!-- 写入 base.html 中定义的 title -->
@@ -55,7 +55,7 @@
     {% else %}
         <br>
         <h5 class="row justify-content-center">
-            请<a href="{% url 'userprofile:login' %}">登录</a>后回复
+{#            请<a href="{% url 'userprofile:login' %}">登录</a>后回复#}
         </h5>
         <br>
     {% endif %}

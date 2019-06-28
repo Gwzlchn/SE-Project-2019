@@ -6,19 +6,22 @@ from ..article.models import News
 from .forms import CommentForm
 
 # 文章评论
-@login_required(login_url='/userprofile/login/')
+# @login_required(login_url='/userprofile/login/')
 def post_comment(request, article_id):
-    article = get_object_or_404(News, id=article_id)
+    news = get_object_or_404(News, id=article_id)
+    #news_id = News.objects.get(news_id=article_id)
+    print(news)
 
     # 处理 POST 请求
     if request.method == 'POST':
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
-            new_comment.article = article
+            new_comment.News = news
             new_comment.user = request.user
+            print(new_comment)
             new_comment.save()
-            return redirect(article)
+            return redirect(news)
         else:
             return HttpResponse("表单内容有误，请重新填写。")
     # 处理错误请求

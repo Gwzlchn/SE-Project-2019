@@ -16,11 +16,11 @@
 
 <body>
     <!-- 引入导航栏 -->
-    {% include 'header.html' %}
+    {% include 'article/header.html' %}
     <!-- 预留具体页面的位置 -->
     {% block content %}{% endblock content %}
     <!-- 引入注脚 -->
-    {% include 'footer.html' %}
+    {% include 'article/footer.html' %}
     <!-- bootstrap.js 依赖 jquery.js 和popper.js，因此在这里引入 -->
     <script src="{% static 'jquery/jquery-3.4.1.js' %}"></script>
     <script src="{% static 'layer/layer.js' %}"></script>

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from apps.fundamental.CHINA_LOCATION.models import ChinaLocation
 # Create your models here.
 
 
@@ -34,9 +35,15 @@ class Parent(models.Model):
     Age=models.IntegerField()
     Sex=models.CharField(max_length=6,choices=Gender_Choice)
     PhoneNumber=models.CharField(max_length=11)
+<<<<<<< HEAD
     LDirection=models.CharField(max_length=15,choices=Lesson_Direction)
     FeeRange=models.IntegerField()
     Area=models.CharField(max_length=10)
+=======
+    LDirection=models.CharField(max_length=15,choices=Lesson_Direction,default = "All")
+    FeeRange=models.IntegerField(default= 3000)
+    Area=models.CharField(max_length=10,default = "All")
+>>>>>>> origin/master
     Wallet=models.FloatField(default=0)
 
 class Teacher(models.Model):
@@ -62,10 +69,17 @@ class Institution(models.Model):
     PhoneNumber = models.CharField(max_length = 20)
     Brief = models.CharField(max_length = 80)
     Wallet=models.FloatField(default=0)
+    name = models.CharField(max_length=30,default='待填写')
 
 class Branch(models.Model):
     Ins = models.ForeignKey(Institution,on_delete=models.CASCADE)
-    Address = models.CharField(max_length = 64)
+    branch_province = models.ForeignKey(ChinaLocation,on_delete=models.CASCADE, \
+                                                 related_name='branch_province',verbose_name="所在省份")
+    branch_city = models.ForeignKey(ChinaLocation,on_delete=models.CASCADE , \
+                                             related_name='branch_city',verbose_name="所在城市")
+    branch_distinct = models.ForeignKey(ChinaLocation,on_delete=models.CASCADE, \
+                                                 related_name='branch_distinct',verbose_name="所在区")
+    Address = models.CharField(max_length=50,default=None)
     LDirection = models.CharField(max_length=15,choices=Lesson_Direction)
     Fitage =models.CharField(max_length=15,choices=Age_Choice)
     PhoneNumber = models.CharField(max_length = 20)

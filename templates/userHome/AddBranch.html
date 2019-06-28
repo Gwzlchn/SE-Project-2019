@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>店面增加</title>
+</head>
+<body>
+<form method="post">
+    {%csrf_token%}
+    联系电话:<input type="text" name="PhoneNumber" value=""><br>
+    省:<input type="text" name="branch_province" value=""><br>
+    市:<input type="text" name="branch_city" value=""><br>
+    区、县:<input type="text" name="branch_distinct" value=""><br>
+    店面地址<input type="text" name="Address"><br>
+    <input type="submit" value="添加店面" >
+</form>
+<a href="./InsChangeInfo"><button>返回</button></a>
+</body>
+</html>

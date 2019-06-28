@@ -252,51 +252,54 @@
             <div class="container">
                 <div class="register-form box-content">
                     <h3 class="title">注册|学生家长</h3>
-                    <form>
+                    <form action="/User/register3/" method="post">
                         <div class="row"> 
                             <div class="col-lg-6"> 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="id_username" placeholder="孩子姓名">
+                                    <input type="text" class="form-control" id="id_username" placeholder="孩子姓名" name="stuname">
                                 </div>
                             </div>
                             
                             <div class="col-lg-6"> 
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="id_contact" placeholder="孩子年龄">
+                                    <input type="text" class="form-control" id="id_contact" placeholder="孩子年龄" name="age">
                                 </div>
                             </div>
                         </div>
                         <div class="row"> 
                             <div class="col-lg-6"> 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="id_type" placeholder="孩子性别">
+                                    <input type="text" class="form-control" id="id_type" placeholder="孩子性别" name="gender">
                                 </div>
                             </div>
                             
                             <div class="col-lg-6"> 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="id_age" placeholder="家长姓名">
+                                    <input type="text" class="form-control" id="id_age" placeholder="家长姓名" name="parname">
                                 </div>
+                            </div>
+
+                            <div class="col-lg-6"> 
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="id_contact" placeholder="联系邮箱" name="email" required>
+                                    </div>
                             </div>
                         </div>
                
                         <div class="form-group">
-                            <input type="text" class="form-control" id="id_phone_number" placeholder="联系方式">
+                            <input type="text" class="form-control" id="id_phone_number" placeholder="联系电话" name="phone">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="id_phone_number" placeholder="用户名">
+                            <input type="text" class="form-control" id="id_phone_number" placeholder="用户名" name="username">
                         </div>
                         
                         <div class="form-group">
-                            <input type="password" class="form-control" id="id_password" placeholder="密码">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="id_repeat_password" placeholder="确认密码">
+                            <input type="password" class="form-control" id="id_password" placeholder="密码" name="password">
                         </div>
                   
                         <div class="form-foot"> 
-                            <a href="register-results2.html"><button type="submit" class="btn default-btn">注册完成</button></a>
-                            <p>已经拥有账号？<a href="login.html">点此登陆</a></p>
+                            <button type="submit" class="btn default-btn">注册</button></a>
+                            <p>已经拥有账号？<a href="/User/login">点此登陆</a></p>
                         </div>
                     </form>
                 </div>

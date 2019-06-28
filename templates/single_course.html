@@ -33,7 +33,8 @@
         <title>EduSplash - Education Responsive HTML Template</title>
     </head>
 
-    <script id="single_course_template" type="text/x-custom-template">
+       <body>
+
         <!-- Preloader -->
         <div class="preloader">
             <div class="loader">
@@ -226,7 +227,17 @@
                             </button>
                         </div>
                         <form class="search-form">
-                            <input type="text" class="form-control" id="search" placeholder="Search...">
+{#                            <input type="text" class="form-control" id="search" placeholder="Search...">#}
+
+<select id="province" >
+    <option value="">请选择省份</option>
+</select>
+<select id="city">
+    <option value="">请选择城市</option>
+</select>
+<select id="district">
+    <option value="">请选择区/县</option>
+</select>
                             <button type="submit" class="search-btn"><i class="icofont-search"></i></button>
                         </form>
                     </div>
@@ -257,18 +268,21 @@
                 <div class="row"> 
                     <div class="col-lg-8">
                         <div class="single-course-header">
-                            <h2>%course_name%</h2>
-                            
+                            <h2>
+                            <div id="course_name">
+
+                            </div>
+                            </h2>
                             <ul class="course-meta">
                                 <li class="author">
                                     <div class="thumb">
                                         <img src=“{%static "/assets/img/tutor/7.png" %}" alt="image">
                                     </div>
-                                        <a href="#">%course_teacher%</a>
+                                        <a href="#"><div id="course_teacher"></div></a>
                                         <p>Teacher</p>
                                 </li>
                                 <li class="categories">
-                                    <a href="#" class="course-name">%course_subject%</a>
+                                    <a href="#" class="course-name"><div id="course_subject"></div></a>
                                     <p>Categories</p>
                                 </li>
                                 <div id="star"></div>
@@ -291,12 +305,12 @@
                        
                         <div class="single-event-description">
                             <h3>课程内容</h3>
-                            <p>%course_contains%</p>
+                            <p><div id="course_contains"></div></p>
                         </div>
 
                         <div class="single-event-description">
                             <h3>课程作业</h3>
-                            <p>%course_homework%</p>
+                            <p><div id="course_homework"></div></p>
                         </div>
 
                         <div class="row mb-30">
@@ -652,47 +666,10 @@
                         </div>
                         
                         <div class="comment-area mt-30">
-                            <h3 class="title">(3) Comments</h3>
-                            
-                            <div class="media">
-                                <img class="mr-3" src=“{%static "/static/assets/img/tutor/4.png" %}" alt="">
-                                <div class="media-body">
-                                    <h5 class="mt-0">Author Name</h5>
-                                    <span class="date"> 20 December 2018</span>
-                                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum</p>
-                                    <a href="#" class="reply">
-                                        <i class="icofont-reply-all"></i> Reply
-                                    </a>
+                            <h3 class="title">Comments</h3>
 
-                                    <div class="media">
-                                        <a class="pr-3" href="#">
-                                            <img src=“{%static "/static/assets/img/tutor/5.png" %}" alt="Generic placeholder image">
-                                        </a>
-                                        <div class="media-body">
-                                            <h5 class="mt-0">Author Name</h5>
-                                            <span class="date"> 21 December 2018</span>
-                                            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</p>
-                                            
-                                            <a href="#" class="reply">
-                                                <i class="icofont-reply-all"></i> Reply
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="media">
-                                <img class="align-self-start mr-3" src=“{%static "/static/assets/img/tutor/6.png" %}"  alt="">
-                                <div class="media-body">
-                                    <h5 class="mt-0">Author Name</h5>
-                                    <span class="date"> 22 December 2018</span>
-                                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</p>
-                                    
-                                    <a href="#" class="reply">
-                                        <i class="icofont-reply-all"></i> Reply
-                                    </a>
-                                </div>
-                            </div>
+                            <div id="comment_content"></div>
+
                         </div>
                         
                         <div class="comment-form-area mt-30">
@@ -733,37 +710,38 @@
                                 <li>
                                     <i class="icofont-check-alt"></i>
                                     <span class="label">Weeks</span>
-                                    <span class="date">%course_duration_of_week%</span>
+                                    <span class="date"><div id="course_duration_of_week"></div></span>
                                 </li>
                                 <li>
                                     <i class="icofont-check-alt"></i>
                                     <span class="label">所在省份</span>
-                                    <span class="date">%province_name%</span>
+                                    <span class="date"><div id="province_name"></div></span>
                                 </li>
                                 <li>
                                     <i class="icofont-check-alt"></i>
                                     <span class="label">所在城市</span>
-                                    <span class="date">%city_name%</span>
+                                    <span class="date"><div id="city_name"></div></span>
                                 </li>
                                 <li>
                                     <i class="icofont-check-alt"></i>
                                     <span class="label">所在区县</span>
-                                    <span class="date">%distinct_name%</span>
+                                    <span class="date"><div id="distinct_name"></div></span>
                                 </li>
                                 <li>
                                     <i class="icofont-check-alt"></i>
                                     <span class="label">地点</span>
-                                    <span class="date">%course_location%</span>
+                                    <span class="date"><div id="course_location"></div></span>
                                 </li>
                                 <li>
                                     <i class="icofont-check-alt"></i>
                                     <span class="label">适用年龄</span>
-                                    <span class="date">%course_age%</span>
+                                    <span class="date"><div id="course_age"></div></span>
+
                                 </li>
                             </ul>
 
                             <div class="se-info-foot">
-                                <div class="price">%course_price%</div>
+                                <div class="price"><div id="course_price"></div></div>
                                 <a href="#" class="default-btn">Enroll</a>
                             </div>
                         </div>
@@ -920,11 +898,12 @@
                 </div>
             </div>
         </div>
-        </script>
-        <!-- End bottom footer -->
-       
 
-       <body>
+        <!-- End bottom footer -->
+
+
+
+
         
         <!-- JQuery Min JS -->
         <script src="{% static "assets/js/jquery.1.12.4.min.js" %}"></script>
@@ -948,32 +927,111 @@
         <script src="{% static "assets/js/contact-form-script.js" %}"></script>
         <!-- Script JS -->
         <script src="{% static "assets/js/script.js" %}"></script>
-        <script>$(function() {
-            $.get('getinfo', function (json_data) {
-                //console.log(json)
-                var template = document.getElementById("single_course_template").innerHTML;
-                var html = template
-                            .replace(/%course_teacher%/, json_data['course_teacher'])
-                            .replace(/%course_name%/, json_data['course_name'])
-                            .replace(/%course_subject%/, json_data['course_subject'])
-                            .replace(/%course_age%/, json_data['course_age'])
-                            .replace(/%course_contains%/, json_data['course_contains'])
-                            .replace(/%course_duration_of_week%/, json_data['course_duration_of_week'])
-                            .replace(/%course_price%/, json_data['course_price'])
-                            .replace(/%course_location%/, json_data['course_location'])
-                            .replace(/%province_name%/, json_data['province_name'])
-                            .replace(/%city_name%/, json_data['city_name'])
-                            .replace(/%distinct_name%/, json_data['distinct_name'])
-                            .replace(/%course_homework%/, json_data['course_homework']);
-
-                document.getElementById('to_fill').innerHTML = html;
-            });
-        })
-        </script>
-
-    <div class="to_fill" id="to_fill">
 
 
-    </div>
+        <script id="single_comment_template" type="text/x-custom-template">
+
+
+
+    </script>
+
+
+
+
+<script>$(function(){
+
+
+ $.get('getinfo', function (json_data) {
+
+    $('#course_teacher').html(json_data['course_teacher']);
+
+    $('#course_name').html( json_data['course_name']);
+    $('#course_subject').html(json_data['course_subject']);
+    $('#course_age').html(json_data['course_age']);
+    $('#course_contains').html(json_data['course_contains']);
+    $('#course_duration_of_week').html(json_data['course_duration_of_week']);
+    $('#course_price').html(json_data['course_price']);
+    $('#course_location').html(json_data['course_location']);
+    $('#province_name').html(json_data['province_name']);
+    $('#city_name').html(json_data['city_name']);
+    $('#distinct_name').html(json_data['distinct_name']);
+    $('#course_homework').html(json_data['course_homework']);
+});
+
+
+$.get('getcomment',function (json_data) {
+
+    for(var i = 0, l = json_data.comment.length; i < l; i++) {
+        json_one = json_data.comment[i];
+        var html='<div class="media">  <div class="media-body"> <h5 class="mt-0">'+
+            json_one['Parent_Name'] +'</h5> <span class="date">' + json_one['Date_time'] +
+            '</span> <p>' + json_one['body']+ '</p> </div> </div>';
+        $('#comment_content').append(html);
+        }
+
+});
+
+// 获取省份
+$.get('/loc/getProvince/',function(data){
+
+for(var i = 0,len = data.provinces.length; i<len ;i++){
+    $new = $("<option value="+data.provinces[i][0] +">"+  data.provinces[i][1]  +"</option>" );
+    $("#province").append( $new );
+}
+
+});
+
+
+//改变省份后
+$("#province").change(function(){
+//清空市和区
+    console.log($("#province").val())
+    ;
+$("#city").empty().append('<option value="">请选择城市</option>');
+$("#district").empty().append('<option value="">请选择区/县</option>');
+$.ajax({
+    url:'/loc/getCity/',
+    type:'get',
+    data:{"city_id":$(this).val()}
+}).done(function(data){
+    for(var i = 0,len = data.cities.length; i<len ;i++){
+        $new = $( "<option value="+data.cities[i][0] +">"+  data.cities[i][1]  +"</option>" );
+        $("#city").append( $new );
+    }
+});
+});
+
+//改变城市后
+$("#city").change(function(){
+//清空市和区
+$("#district").empty().append('<option value="">请选择区/县</option>');
+$.ajax({
+    url:'/loc/getDistrict/',
+    type:'get',
+    data:{"district_id":$(this).val()}
+}).done(function(data){
+    for(var i = 0,len = data.district.length; i<len ;i++){
+        $new = $( "<option value="+data.district[i][0] +">"+  data.district[i][1]  +"</option>" );
+        $("#district").append($new );
+    }
+});
+});
+
+//改变区域后
+$("#district").change(function(){
+
+$.ajax({
+    url:'/loc/getAll/',
+    type:'get',
+    data:{"province_id":$("#province").val(),"city_id":$("#city").val(),"district_id":$(this).val()}
+});
+});
+
+}
+
+
+)
+</script>
+
     </body>
 </html>

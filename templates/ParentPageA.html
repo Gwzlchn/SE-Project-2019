@@ -1,0 +1,127 @@
+﻿{% load static %}
+<!doctype html>
+<html lang="zxx">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap Min CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/bootstrap.min.css" %}">
+        <!--Animate CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/animate.min.css"%}">
+        <!-- IcoFont CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/icofont.min.css" %}">
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/owl.carousel.min.css" %}">
+        <!-- Owl Theme Default CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/owl.theme.default.min.css" %}">
+        <!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/magnific-popup.css" %}">
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/main.css" %}">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/responsive.css"  %}">
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="{% static "assets/img/favicon.png" %}">
+        
+        <title>个人主页</title>
+    </head>
+
+    <body>
+        <!-- Preloader -->
+        <div class="preloader">
+            <div class="loader">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- End Preloader -->
+        
+        <!-- Top header -->
+        <header class="top-header"> 
+            <div class="container"> 
+                <div class="row"> 
+                    <div class="col-md-6 col-lg-6"> 
+                        <ul class="top-info-links"> 
+                            <li><i class="icofont-clock-time"></i> 7.30 AM - 9.30 PM</li>
+                            <li><i class="icofont-phone-circle"></i> +44 485854789</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-6 text-right"> 
+                        <ul class="top-social-links"> 
+                            <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                            <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                            <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                            <li><a href="#"><i class="icofont-instagram"></i></a></li>
+                        </ul>
+                        
+                        <ul class="login-regi-links"> 
+                            <li><a href="login.html">注销</a></li>
+                            <li><a href="register.html">注册</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End top header -->
+  
+        
+        <!-- Page Banner -->
+        <div class="page-banner banner-bg-one">
+            <div class="container"> 
+                <div class="banner-text"> 
+                    <h1>查询成功！</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/User/ParentPage">试听申请查询</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">查询结果页</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Banner -->
+
+<!-- PrintArea-->
+        <section class="login-section pt-100 pb-180">
+            <div class="container">
+                <div class="register-form box-content" align="center">
+                    <h3 class="title">内容显示区</h3>
+		{% for var in data %}
+		课程名称：{{ var.name }}<br></br>
+		是否成功：{{ var.flag }}<br></br><br></br>
+		{% endfor %}
+	</div>
+            </div>
+        </section>
+        <!-- End PrintArea -->
+         
+
+        <!-- JQuery Min JS -->
+        <script src="{% static "assets/js/jquery.1.12.4.min.js" %}"></script>
+        <!-- Popper Min JS -->
+        <script src="{% static "assets/js/popper.min.js" %}"></script>
+        <!-- Bootstrap Min JS -->
+        <script src="{% static "assets/js/bootstrap.min.js" %}"></script>
+        <!-- Owl Carousel JS -->
+        <script src="{% static "assets/js/owl.carousel.min.js" %}"></script>
+        <!-- Magnific Popup JS -->
+        <script src="{% static "assets/js/jquery.magnific-popup.min.js" %}"></script>
+        <!-- WayPonits JS -->
+        <script src="{% static "assets/js/waypoints.js" %}"></script>
+        <!-- CounterUp JS -->
+        <script src="{% static "assets/js/jquery.counterup.min.js" %}"></script>
+		<!-- Tilt JS -->
+        <script src="{% static "assets/js/tilt.jquery.min.js" %}"></script>
+        <!-- Form Validator JS FILES -->
+        <script src="{% static "assets/js/form-validator.min.js" %}"></script>
+        <!-- Contact Form JS -->
+        <script src="{% static "assets/js/contact-form-script.js" %}"></script>
+        <!-- Script JS -->
+        <script src="{% static "assets/js/script.js" %}"></script>
+    </body>
+</html>

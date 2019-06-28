@@ -5,6 +5,30 @@
     <title>Title</title>
 </head>
 <body>
+<form method="post">
+    {%csrf_token%}
+    要审核通过的申请id: <input type="text" name="tid" value="">
+    <input type="submit" name="allow" value = "通过"><br>
+    要审核拒绝的申请id: <input type="text" name="did" value="">
+    <input type="submit" name="deny" value = "拒绝"><br>
+</form>
 
+<a href = "./"><button>返回</button></a>
+<table border="1">
+    <tr>
+        <th>&nbsp;&nbsp;申请id&nbsp;&nbsp;</th>
+        <th>&nbsp;&nbsp;&nbsp;课程名称&nbsp;&nbsp;&nbsp;</th>
+        <th>家长名称</th>
+        <th>审核状态</th>
+    </tr>
+    {% for c in res %}
+        <tr>
+            <th>{{ c.0 }}</th>
+            <th>{{ c.1 }}</th>
+            <th>{{ c.2 }}</th>
+            <th>{{ c.3 }}</th>
+        </tr>
+    {% endfor %}
+</table>
 </body>
 </html>

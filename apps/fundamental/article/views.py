@@ -21,7 +21,7 @@ def article_list(request):
 def article_detail(request, id):
     article = News.objects.get(id=id)
     # 取出文章评论
-    comments = Comment.objects.filter(article=id)
+    comments = Comment.objects.filter(News=id)
     # 将markdown语法渲染成html样式
     article.body = markdown.markdown(article.body,
         extensions=[

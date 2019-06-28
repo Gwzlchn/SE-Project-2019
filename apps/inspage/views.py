@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 
 from apps.course import models as insmodels
 from apps.User import models as usemodels
+from apps.fundamental.comment import models as fmodels
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.db.models import Q
@@ -10,56 +11,71 @@ from functools import wraps
 
 # Create your views here.
 
-def check_login(f):
-    @wraps(f)
-    def inner(request,*arg,**kwargs):
-        if request.session.get('is_login')=='1':
-            return f(request,*arg,**kwargs)
-        else:
-            return redirect('/login/')
-    return inner
-
-
-
-def Inst(request):
-    Cuid = request.session.get('user_id')
-    Utype = User.objects.get(id = Cuid)
-    if Utype is  None:
-       return render(request,"login.html",)    
-       
-    Iid = 11 
-
-    if Cuid == Iid:
-       print("self")
-
-    inst =  usemodels.Institution.objects.get(user_id = Iid)
+def Inst(request,iid = None):
+    Iid = iid
+    try:
+       inst =  usemodels.Institution.objects.get(id = Iid)
+    except usemodels.Institution.DoesNotExist:
+       inst = None
     if inst is not None:
-       print("Inst_info")
-       print(inst.id,inst.Id_num,inst.Address,inst.LDirection,inst.Fitage,inst.PhoneNumber,inst.Wallet)
-       print(inst.Brief)
-       print("Inst_Comment")
-    
-    #课程信息模块
-    CoF = insmodels.Course_Institution.objects.filter(course_ins = inst.id)
-    recorder = []
-    num = 1
-    print("InstCourseinfo")
-    for CofI in CoF:
-       print("课程",num,":")
-       num +=1
-       course = insmodels.Course_Base.objects.get(id = CofI.course_id.id)
-       recorder.append(CofI.course_id.id)
-       print(course.id,course.course_subject,course.course_age,course.course_teacher)
-    
-    print(recorder)
+       #课程信息模块
+       CofI = insmodels.Course_Institution.objects.filter(course_ins = inst.id)
+       cosl = []
+       for Cof in CofI:
+           course = insmodels.Course_Base.objects.get(id = Cof.course_id.id)
+           cosl.append(course)
+       #机构评论
+       '''
+       ComI = insmodels.Comment_Ins.objects.filter(com_ins = inst.id)
+       coml = []
+       for Com in ComI:
+           com = fmodels.Commenr_Ins.objects.get(id = Com.course_id.id)
+       '''   
+       res = {"inst":inst,"cou":cosl}
+       return render(request,"ins/Ins.html",{'data':res})
+    return render(request,"ins/Ins.html",)
 
-    if request.method == 'POST':
-       key = request.POST.get("key",None)
-       print("looking for",key)
-       course_list = insmodels.Course_Base.objects.filter(Q(id__in =  recorder)&Q(course_age = key))
-       print("over")
-       #复合查询
-       for RoS in course_list:
-          print(RoS.id)
-    
-    return render(request,"Ins.html",)
+def isearch(request):
+    if request.method == "POST":
+        age = request.POST.get('Fitage',None)
+        ld = request.POST.get('LDirection',None)
+        print(age,ld)
+        if age is not None and age != 'All':
+           if ld is not None and ld != 'All':
+                relist = usemodels.Institution.objects.filter(Q(Fitage = age)&Q(LDirection = ld))
+           else:
+                relist = usemodels.Institution.objects.filter(Fitage = age)
+        else:
+           if ld is not None and ld != 'All':
+                relist = usemodels.Institution.objects.filter(LDirection = ld)
+           else:
+                relist = usemodels.Institution.objects.all()
+        wanted = []
+        for re in relist:
+            print(re)
+            wanted.append(re)
+        return render(request,"ins/ires.html",{'data':wanted})
+    return render(request,"ins/isearch.html",)
+
+def tsearch(request):
+    if request.method == "POST":
+        age = request.POST.get('Fitage',None)
+        ld = request.POST.get('LDirection',None)
+        print(age,ld)
+        if age is not None and age != 'All':
+             if ld is not None and ld != 'All':
+                relist = usemodels.Teacher.objects.filter(Q(Fitage = age)&Q(LDirection = ld))
+             else:
+                relist = usemodels.Teacher.objects.filter(Fitage = age)
+        else:
+             if ld is not None and ld != 'All':
+                relist = usemodels.Teacher.objects.filter(LDirection = ld)
+             else:
+                relist = usemodels.Teacher.objects.all()
+
+        wanted = []
+        for re in relist:
+            print(re)
+            wanted.append(re)
+        return render(request,"ins/tres.html",{'data':wanted})
+    return render(request,"ins/tsearch.html",)

@@ -8,8 +8,8 @@
 
         <!-- Bootstrap Min CSS -->
         <link rel="stylesheet" href="{% static "assets/css/bootstrap.min.css" %}">
-        <!--Animate CSS -->
-        <link rel="stylesheet" href="{% static "assets/css/animate.min.css"%}">
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/animate.min.css" %}">
         <!-- IcoFont CSS -->
         <link rel="stylesheet" href="{% static "assets/css/icofont.min.css" %}">
         <!-- Owl Carousel CSS -->
@@ -21,11 +21,11 @@
         <!-- Main CSS -->
         <link rel="stylesheet" href="{% static "assets/css/main.css" %}">
         <!-- Responsive CSS -->
-        <link rel="stylesheet" href="{% static "assets/css/responsive.css"  %}">
+        <link rel="stylesheet" href="{% static "assets/css/responsive.css" %}">
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="{% static "assets/img/favicon.png" %}">
         
-        <title>EduSplash - Education Responsive HTML Template</title>
+        <title>jluu- 软件工程课程设计 </title>
     </head>
 
     <body>
@@ -47,7 +47,7 @@
                     <div class="col-md-6 col-lg-6"> 
                         <ul class="top-info-links"> 
                             <li><i class="icofont-clock-time"></i> 7.30 AM - 9.30 PM</li>
-                            <li><i class="icofont-phone-circle"></i> +44 485854789</li>
+                            <li><i class="icofont-phone-circle"></i> +0431 82341267</li>
                         </ul>
                     </div>
                     
@@ -73,7 +73,7 @@
         <nav class="navbar navbar-expand-lg navbar-light edu-navbar header-sticky">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="{%static "assets/img/logo透明版本.png"%}"  alt="Logo">
+                    <img src="{% static "assets/img/logo透明版本.png" %}" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -87,10 +87,11 @@
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="index.html">Home v1</a></li>
-                                <li><a class="dropdown-item" href="index-2.html">Home v2</a></li>
-                                <li><a class="dropdown-item" href="index-3.html">Home v3</a></li>
-                                <li><a class="dropdown-item" href="index-4.html">Home v4</a></li>
+                                <li><a class="dropdown-item" href="index.html">教育机构入口</a></li>
+                                <li><a class="dropdown-item" href="index-2.html">授课老师入口</a></li>
+                                <li><a class="dropdown-item" href="index-3.html">学生家长入口</a></li>
+                                <li><a class="dropdown-item" href="index-4.html">游客入口</a></li>
+                                <li><a class="dropdown-item" href="index-5.html">管理员入口</a></li>
                             </ul>
                         </li>
                      
@@ -107,14 +108,14 @@
  
                         <li class="nav-item active dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Pages
+                                功能页面
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownPages">
                                 <li><a class="dropdown-item" href="about-us.html">关于我们</a></li>
-                                <li><a class="dropdown-item" href="instructor.html">老师|机构</a></li>
-                                <li><a class="dropdown-item" href="register.html">注册</a></li>
-                                <li><a class="dropdown-item active" href="login.html">登陆</a></li>
+                                <li><a class="dropdown-item" href="instructor.html">教师名片</a></li>
+                                <li><a class="dropdown-item active" href="register.html">注册</a></li>
+                                <li><a class="dropdown-item" href="login.html">登陆</a></li>
                                 <li><a class="dropdown-item" href="contact.html">联系我们</a></li>
                                 <li><a class="dropdown-item" href="404.html">404</a></li>
                             </ul>
@@ -126,19 +127,19 @@
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownEvent">
-                                <li><a class="dropdown-item" href="event.html">近期新闻</a></li>
+                                <li><a class="dropdown-item" href="event.html">新闻总览</a></li>
                                 <li><a class="dropdown-item" href="single-event.html">头条新闻</a></li>
                             </ul>
                         </li>
                         
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                课程
+                                课程列表
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownCourses">
-                                <li><a class="dropdown-item" href="courses.html">课程总览</a></li>
-                                <li><a class="dropdown-item" href="single-courses.html">热门课程</a></li>
+                                <li><a class="dropdown-item" href="courses.html">总列表</a></li>
+                                <li><a class="dropdown-item" href="single-courses.html">推荐课程</a></li>
                             </ul>
                         </li>
                         
@@ -158,12 +159,12 @@
                         
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Blog
+                                原创博客
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownBlog">
-                                <li><a class="dropdown-item" href="blog.html">个人中心</a></li>
-                                <li><a class="dropdown-item" href="blog-with-sidebar.html">热门个站</a></li>
+                                <li><a class="dropdown-item" href="blog.html">原创博客</a></li>
+                                <li><a class="dropdown-item" href="blog-with-sidebar.html">分类查看博客</a></li>
                                 <li><a class="dropdown-item" href="single-blog.html">推荐内容</a></li>
                             </ul>
                         </li>
@@ -234,11 +235,11 @@
         <div class="page-banner banner-bg-one">
             <div class="container"> 
                 <div class="banner-text"> 
-                    <h1>Login</h1>
+                    <h1>注册</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">回到首页</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">登陆</li>
+                            <li class="breadcrumb-item active" aria-current="page">教育机构</li>
                         </ol>
                     </nav>
                 </div>
@@ -246,48 +247,80 @@
         </div>
         <!-- End Page Banner -->
         
-        <!-- Login -->
-        <section class="login-section pt-100 pb-180">
+        <!-- Register -->
+        <section class="register-section pt-100 pb-180">
             <div class="container">
                 <div class="register-form box-content">
-                    <h3 class="title">登陆您的账户</h3>
-                    <form action="login-form.html" method="post">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="id_username" name="username" placeholder="用户名">
-                        </div>
+                    <h3 class="title">注册|教育机构</h3>
+                    <form action="/User/register1/" method="post">
+                        <div class="row"> 
+                            <div class="col-lg-6"> 
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="id_name" placeholder="机构名" name="iname" required>
+                                </div>
+                            </div>
 
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="id_password"  name="password" placeholder="密码">
+                            <div class="col-lg-6"> 
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="id_num" placeholder="机构标识码" name="id_num" required>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6"> 
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="id_contact" placeholder="企业邮箱" name="email" required>
+                                </div>
+                            </div>
                         </div>
-
+                        <div class="row"> 
+                            
+                            <div class="col-lg-6"> 
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="id_Ldirect" placeholder="教育方向" name="LDirection" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6"> 
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="id_age" placeholder="适合年龄" name="Fitage" required>
+                                </div>
+                            </div>
+                        </div>
+               
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="id_phone_number" placeholder="座机号码" name="phone" required> 
+                        </div>
                         
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="id_address" placeholder="所在地址" name="address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="id_introduction" placeholder="机构简介" name="Brief" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="id_username" name="username" placeholder="用户名" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="id_password" placeholder="密码" name="password" required >
+                        </div>
+
+                  
                         <div class="form-foot"> 
-                            <button type="submit" class="btn default-btn">登陆</button>
-                            <p>还没有账户？ <a href="register.html">现在注册</a></p>
+                            <button type="submit" class="btn default-btn">注册</button>
+                            <p>已经拥有账号？<a href="/User/login">点此登陆</a></p>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
-        <!-- End Login -->
+        <!-- End Register -->
        
         <!-- Footer Area -->
         <footer class="footer-area ptb-100">
             <div class="container">
                 <div class="contact-information-box">
                     <div class="row">
-                        <div class="col-lg-4">
-                            <div class="media single-box bor-right">
-                                <div class="align-self-center mr-3">
-                                    <i class="icofont-google-map"></i>
-                                </div>
-                                
-                                <div class="media-body">
-                                    <h3>Address</h3>
-                                    <p>184 Collins Street West Victoria, United States</p>
-                                </div>
-                            </div>
-                        </div>
+                      
                         
                         <div class="col-lg-4">
                             <div class="media single-box bor-right">
@@ -296,9 +329,9 @@
                                 </div>
                                 
                                 <div class="media-body">
-                                    <h3>Email</h3>
-                                    <p><a href="#">support@education.com</a></p>
-                                    <p><a href="#">info@education.com</a></p>
+                                    <h3>电子邮箱</h3>
+                                    <p><a href="#">support@jluu.edu.cn</a></p>
+                                    <p><a href="#">info@jluu.edu.cn</a></p>
                                 </div>
                             </div>
                         </div>
@@ -310,9 +343,9 @@
                                 </div>
                                 
                                 <div class="media-body">
-                                    <h3>Phone</h3>
-                                    <p><a href="#">+44 44859 4875</a></p>
-                                    <p><a href="#">+44 44859 4875</a></p>
+                                    <h3>欢迎致电：</h3>
+                                    <p><a href="#">+0431 8596 4875</a></p>
+                                    <p><a href="#">+0431 8596 4876</a></p>
                                 </div>
                             </div>
                         </div>
@@ -322,52 +355,52 @@
                 <div class="row">
                     <div class="col-sm-7 col-md-6 col-lg-3">
                         <div class="single-footer-widget">
-                            <h3>About Us</h3>
-                            <p>Lorem ipsum dolor, consectetur adipisicing sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <p>Ut enim ad minim veniam, quis nostrud Svoluptatem.</p>
+                            <h3>关于我们</h3>
+                            <p>吉林大学计算机学院</p>
+                            <p>软件工程课程设计</p>
                         </div>
                     </div>
                     
                     <div class="col-sm-5 col-md-6 col-lg-3">
                         <div class="single-footer-widget pl-30">
-                            <h3>Quick Menu</h3>
+                            <h3>快速菜单</h3>
                             <ul class="quick-menu">
-                                <li><a href="#"><i class="icofont-thin-double-right"></i> Home</a></li>
-                                <li><a href="#"><i class="icofont-thin-double-right"></i> About</a></li>
-                                <li><a href="#"><i class="icofont-thin-double-right"></i> Blog</a></li>
-                                <li><a href="#"><i class="icofont-thin-double-right"></i> Event</a></li>
-                                <li><a href="#"><i class="icofont-thin-double-right"></i> Shop</a></li>
-                                <li><a href="#"><i class="icofont-thin-double-right"></i> Contact</a></li>
+                                <li><a href="#"><i class="icofont-thin-double-right"></i> 主页</a></li>
+                                <li><a href="#"><i class="icofont-thin-double-right"></i> 关于我们</a></li>
+                                <li><a href="#"><i class="icofont-thin-double-right"></i> 博客</a></li>
+                                <li><a href="#"><i class="icofont-thin-double-right"></i> 新闻</a></li>
+                                <li><a href="#"><i class="icofont-thin-double-right"></i> 商城</a></li>
+                                <li><a href="#"><i class="icofont-thin-double-right"></i> 联系我们</a></li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="col-sm-6 col-md-6 col-lg-3">
                         <div class="single-footer-widget">
-                            <h3>Instagram Feed</h3>
+                            <h3>社交支持</h3>
                             <ul class="instagram-feed">
-                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/1.jpg" %}" alt="Instagram image"> </a></li>
-                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/2.jpg" %}" alt="Instagram image"> </a></li>
-                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/3.jpg" %}" alt="Instagram image"> </a></li>
-                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/4.jpg" %}" alt="Instagram image"> </a></li>
-                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/5.jpg" %}" alt="Instagram image"> </a></li>
-                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/6.jpg" %}" alt="Instagram image"> </a></li>
-                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/5.jpg" %}" alt="Instagram image"> </a></li>
-                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/2.jpg" %}" alt="Instagram image"></a></li>
-                                <li><a href="#"><img src="{% static "assets/img/instagram-feed/1.jpg" %}" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/1.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/2.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/3.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/4.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/5.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/6.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/5.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/2.jpg" alt="Instagram image"></a></li>
+                                <li><a href="#"><img src="assets/img/instagram-feed/1.jpg" alt="Instagram image"></a></li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="col-sm-6 col-md-6 col-lg-3">
                         <div class="single-footer-widget">
-                            <h3>Newsletter</h3>
+                            <h3>订阅我们</h3>
                             
                             <div class="newsletter">
-                                <p>Lorem ipsum dolor, consectetur adipisicing sed do eiusmod tempor.</p>
-                                <p>Ut enim ad minim veniam, quis nostrud Svoluptatem.</p>
+                                <p>jluu为您提供与您课程相关的推荐信息</p>
+                                <p>填入邮箱 免费订阅即刻开启</p>
                                 <form>
-                                    <input type="text" placeholder="Enter Your Email" class="form-control">
+                                    <input type="text" placeholder="在此输入邮箱：" class="form-control">
                                     <button type="submit" class="submit-btn"><i class="icofont-paper-plane"></i></button>
                                 </form>
                             </div>
@@ -382,9 +415,6 @@
         <div class="bottom-footer">
             <div class="container"> 
                 <div class="row"> 
-                    <div class="col-md-6 col-lg-6"> 
-                        <p>© EduSplash 2019, All Rights Reserved by <a href="http://www.bootstrapmb.com/" target="_blank">EnvyTheme</a></p>
-                    </div>
                     
                     <div class="col-md-6 col-lg-6"> 
                         <ul class="social-links">
@@ -400,14 +430,14 @@
         <!-- End bottom footer -->
        
     
-        
+ 
         
         <!-- JQuery Min JS -->
         <script src="{% static "assets/js/jquery.1.12.4.min.js" %}"></script>
         <!-- Popper Min JS -->
-        <script src="{% static "assets/js/popper.min.js" %}"></script>
+        <script src="{% static "assets/js/popper.min.js"%}"></script>
         <!-- Bootstrap Min JS -->
-        <script src="{% static "assets/js/bootstrap.min.js" %}"></script>
+        <script src="{% static "assets/js/bootstrap.min.js"%}"></script>
         <!-- Owl Carousel JS -->
         <script src="{% static "assets/js/owl.carousel.min.js" %}"></script>
         <!-- Magnific Popup JS -->
