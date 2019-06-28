@@ -17,24 +17,21 @@ def Course_Index(request):
 def Single_Course_Index(request,course_id):
     return render(request,"single_course.html")
 
+
+
 def Search_Course(request):
     print(request)
-    province_id =  request.GET.get('province_id')
-    city_id = request.GET.get('city_id')
-    district_id = request.GET.get('district_id')
-    course_obj = Course_Base.objects.filter(course_location_province_id=province_id,
-                                            course_location_city_id=city_id,
-                                            course_location_distinct_id = district_id)
+    dict_arr = []
+    if request.method == 'GET':
+        print(request.GET['search_input'])
+        txt = request.GET['search_input']
+        course_obj = Course_Base.objects.filter(course_contains__contains=txt)
+        for i in course_obj:
+            dict_arr.append(i.to_dict())
 
+    res = {'test':1,'search_res':dict_arr}
 
-    dict_obj = []
-    for i in course_obj:
-        dict_obj.append(i.to_dict())
-
-    print(dict_obj)
-    print(dict_obj)
-
-    return render(request,"search_courses.html",{'course_all': dict_obj})
+    return render(request,"search_courses.html",res)
 
 
 
@@ -88,10 +85,10 @@ def Single_Course_Comment(request,course_id):
 def Comment_Submit(request,course_id):
     print("commet")
     user_id = request.user.id
-    comment_text = request.GET['comment_text']
+
     if request.user.id is  not None and request.GET['comment_text'] is not None:
         user_id = request.user.id
-        comment = request.GET['comment_text']
+        comment_text = request.GET['comment_text']
         course_base_obj = Course_Base.objects.get(id=course_id)
         parent_obj = Parent.objects.get(id = user_id)
 

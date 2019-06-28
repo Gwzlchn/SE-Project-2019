@@ -12,7 +12,8 @@ urlpatterns = [
     path('getAllInfo/', views.All_Course_Info, name='All_course_info'),
     path('<int:course_id>/score/' , views.Scoring_Course ,name='course_score'),
     path('<int:course_id>/getcomment/' , views.Single_Course_Comment ,name='course_comment'),
-    path('search',views.Search_Course,name='course_search'),
+
+    path('search_course',views.Search_Course,name='search'),
     path('<int:course_id>/comment_submit',views.Comment_Submit,name='submit'),
 
 path('<int:course_id>/add_to_cart',views.Add_To_Cart,name='cart'),

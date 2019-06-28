@@ -222,14 +222,7 @@
                             </button>
                         </div>
                         <form class="search-form">
-                           <select id="province" >
-    <option value="">请选择省份</option>
-</select>
-<select id="city">
-    <option value="">请选择城市</option>
-</select>
-<select id="district">
-    <option value="">请选择区/县</option>
+  <input type="text" name="search_input" class="form-control" id="search" placeholder="Search...">
 </select>
                             <button type="submit" class="search-btn"><i class="icofont-search"></i></button>
                         </form>
@@ -451,13 +444,22 @@
         <script src="{% static "assets/js/contact-form-script.js" %}"></script>
         <!-- Script JS -->
         <script src="{% static "assets/js/script.js" %}"></script>
-        <script>$(function() {
-            $.get('search', function (json_data) {
+        <script>
+             var search_result = {{ search_res }} ;
+            console.log(search_result);
+            if (search_result == undefined){
+               throw new Error('this is my customed error');
+            }
+            $(function(search_result) {
 
+            if(search_result.length==0){
+                alert("blank");
+                throw new Error('this is my customed error');
+            }else{
             var html ='';
-            for(var i = 0, l = json_data.course_all.length; i < l; i++) {
+            for(var i = 0, l = search_result.length; i < l; i++) {
 
-                var json_one = json_data.course_all[i];
+                var json_one = search_result[i];
                html+='<div class="col-md-6col-lg-4">'+
                     '<div class="single-course mb-30">' +
                     '<a href="#" class="thumb-img">' +
@@ -477,69 +479,32 @@
 
             }
              $('#course_contents').html(html);
-            });
+            }}
+            );
 
-
-            // 获取省份
-$.get('/loc/getProvince/',function(data){
-
-for(var i = 0,len = data.provinces.length; i<len ;i++){
-    $new = $("<option value="+data.provinces[i][0] +">"+  data.provinces[i][1]  +"</option>" );
-    $("#province").append( $new );
+             function isEmpty(v) {
+    switch (typeof v) {
+    case 'undefined':
+        return true;
+    case 'string':
+        if (v.replace(/(^[ \t\n\r]*)|([ \t\n\r]*$)/g, '').length == 0) return true;
+        break;
+    case 'boolean':
+        if (!v) return true;
+        break;
+    case 'number':
+        if (0 === v || isNaN(v)) return true;
+        break;
+    case 'object':
+        if (null === v || v.length === 0) return true;
+        for (var i in v) {
+            return false;
+        }
+        return true;
+    }
+    return false;
 }
 
-});
-
-
-//改变省份后
-$("#province").change(function(){
-//清空市和区
-    console.log($("#province").val())
-    ;
-$("#city").empty().append('<option value="">请选择城市</option>');
-$("#district").empty().append('<option value="">请选择区/县</option>');
-$.ajax({
-    url:'/loc/getCity/',
-    type:'get',
-    data:{"city_id":$(this).val()}
-}).done(function(data){
-    for(var i = 0,len = data.cities.length; i<len ;i++){
-        $new = $( "<option value="+data.cities[i][0] +">"+  data.cities[i][1]  +"</option>" );
-        $("#city").append( $new );
-    }
-});
-});
-
-//改变城市后
-$("#city").change(function(){
-//清空市和区
-$("#district").empty().append('<option value="">请选择区/县</option>');
-$.ajax({
-    url:'/loc/getDistrict/',
-    type:'get',
-    data:{"district_id":$(this).val()}
-}).done(function(data){
-    for(var i = 0,len = data.district.length; i<len ;i++){
-        $new = $( "<option value="+data.district[i][0] +">"+  data.district[i][1]  +"</option>" );
-        $("#district").append($new );
-    }
-});
-});
-
-//改变区域后
-$("#district").change(function(){
-
-$.ajax({
-    url:'search',
-    type:'get',
-    data:{"province_id":$("#province").val(),"city_id":$("#city").val(),"district_id":$(this).val()}
-});
-});
-
-}
-
-
-)
         </script>
 
 

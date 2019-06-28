@@ -226,18 +226,18 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form class="search-form">
-{#                            <input type="text" class="form-control" id="search" placeholder="Search...">#}
+                        <form class="search-form" action="/course/search_course" method="GET">
+                            <input type="text" name="search_input" class="form-control" id="search" placeholder="Search...">
 
-<select id="province" >
-    <option value="">请选择省份</option>
-</select>
-<select id="city">
-    <option value="">请选择城市</option>
-</select>
-<select id="district">
-    <option value="">请选择区/县</option>
-</select>
+{#<select id="province" >#}
+{#    <option value="">请选择省份</option>#}
+{#</select>#}
+{#<select id="city">#}
+{#    <option value="">请选择城市</option>#}
+{#</select>#}
+{#<select id="district">#}
+{#    <option value="">请选择区/县</option>#}
+{#</select>#}
                             <button type="submit" class="search-btn"><i class="icofont-search"></i></button>
                         </form>
                     </div>
@@ -336,302 +336,306 @@
                             <h3>Course Syllabus</h3>
                             <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
                       
-                            <ul class="course-accordion mt-30">
-                                <li class="course-accordion-list">
-                                    <h4 class="ca-section-title">
-                                        Section 1: ReactJS - Getting Started
-                                    </h4>
-
-                                    <div class="course-accordion-content">
-                                        <ul class="course-section-content">
-                                            <li class="course-lesson">
-                                                <span class="number">1.</span>
-                                                <a href="#" class="lesson-title">Introduction</a>
-
-                                                <a href="#" class="lesson-preview">Preview</a>
-
-                                                <div class="fr">
-                                                    <span class="duration">
-                                                        <i class="icofont-clock-time"></i> 
-                                                        2 minute
-                                                    </span>
-                                                    <a href="https://www.youtube.com/watch?v=pgAvVxowaYU" class="attrachment-video popup-youtube">
-                                                        <i class="icofont-play-alt-1"></i> 
-                                                        video
-                                                    </a>
-                                                </div>
-                                            </li>
-
-                                            <li class="course-lesson">
-                                                <span class="number">2.</span>
-                                                <a href="#" class="lesson-title">What is React?</a>
-
-                                                <a href="#" class="lesson-preview">Preview</a>
-
-                                                <div class="fr">
-                                                    <span class="duration">
-                                                        <i class="icofont-clock-time"></i> 
-                                                        3 minute
-                                                    </span>
-                                                    <a href="https://www.youtube.com/watch?v=pgAvVxowaYU" class="attrachment-video popup-youtube">
-                                                        <i class="icofont-play-alt-1"></i> 
-                                                        video
-                                                    </a>
-                                                </div>
-                                            </li>
-
-                                            <li class="course-lesson">
-                                                <span class="number">3.</span>
-                                                <a href="#" class="lesson-title">Real-World SPAs & React Web Apps</a>
-
-                                                <a href="#" class="lesson-preview">Preview</a>
-
-                                                <div class="fr">
-                                                    <span class="duration">
-                                                        <i class="icofont-clock-time"></i> 
-                                                        5 minute
-                                                    </span>
-                                                    <a href="https://www.youtube.com/watch?v=pgAvVxowaYU" class="attrachment-video popup-youtube">
-                                                        <i class="icofont-play-alt-1"></i> 
-                                                        video
-                                                    </a>
-                                                </div>
-                                            </li>
-
-                                            <li class="course-lesson">
-                                                <span class="number">5.</span>
-                                                <a href="#" class="lesson-title">Adding the Right React Version to Codepen</a>
-
-                                                <a href="#" class="lesson-preview">Preview</a>
-
-                                                <div class="fr">
-                                                    <span class="duration">
-                                                        <i class="icofont-clock-time"></i> 
-                                                        10 minute
-                                                    </span>
-                                                    <a href="#" class="attrachment">
-                                                        <i class="icofont-file-pdf"></i> 
-                                                        file
-                                                    </a>
-                                                </div>
-                                            </li>
-
-                                            <li class="course-lesson">
-                                                <span class="number">6.</span>
-                                                <a href="#" class="lesson-title">Writing our First React Code</a>
-
-                                                <span class="lp-looked">Looked</span>
-
-                                                <div class="fr">
-                                                    <span class="duration">
-                                                        <i class="icofont-clock-time"></i> 
-                                                        45 minute
-                                                    </span>
-                                                    <a href="#" class="attrachment-video">
-                                                        <i class="icofont-play-alt-1"></i> 
-                                                        video
-                                                    </a>
-                                                </div>
-                                            </li>
-
-                                            <li class="course-lesson">
-                                                <span class="number">7.</span>
-                                                <a href="#" class="lesson-title">Why Should we Choose React?</a>
-
-                                                <span class="lp-looked">Looked</span>
-
-                                                <div class="fr"> 
-                                                    <span class="duration">
-                                                        <i class="icofont-clock-time"></i> 
-                                                        2 hours
-                                                    </span>
-                                                    <a href="#" class="question">
-                                                        <i class="icofont-question"></i> Questions
-                                                    </a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                               
-                                <li class="course-accordion-list">
-                                    <h4 class="ca-section-title">
-                                        Section 2: Refreshing Next Generation JavaScript (Optional)
-                                    </h4>
-
-                                    <div class="course-accordion-content">
-                                        <ul class="course-section-content">
-                                            <li class="course-lesson">
-                                                <span class="number">8.</span>
-                                                <a href="#" class="lesson-title">Module Introduction</a>
-
-                                                <span class="lp-looked">Looked</span>
-
-                                                <div class="fr"> 
-                                                    <span class="duration">12 minute</span>
-                                                    <a href="#" class="attrachment-video">
-                                                        <i class="icofont-play-alt-1"></i> 
-                                                        video
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            
-                                            <li class="course-lesson">
-                                                <span class="number">9.</span>
-                                                <a href="#" class="lesson-title">Understanding "let" and "const"</a>
-
-                                                <span class="lp-looked">Looked</span>
-
-                                                <div class="fr"> 
-                                                    <span class="duration">15 minute</span>
-                                                    <a href="#" class="attrachment-video">
-                                                        <i class="icofont-play-alt-1"></i> 
-                                                        video
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            
-                                            <li class="course-lesson">
-                                                <span class="number">10.</span>
-                                                <a href="#" class="lesson-title">Arrow Functions</a>
-
-                                                <span class="lp-looked">Looked</span>
-
-                                                <div class="fr"> 
-                                                    <span class="duration">18 minute</span>
-                                                    <a href="#" class="attrachment-video">
-                                                        <i class="icofont-play-alt-1"></i> 
-                                                        video
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            
-                                            <li class="course-lesson">
-                                                <span class="number">11.</span>
-                                                <a href="#" class="lesson-title">Exports and Imports</a>
-
-                                                <span class="lp-looked">Looked</span>
-
-                                                <div class="fr"> 
-                                                    <span class="duration">8 minute</span>
-                                                    <a href="#" class="attrachment-video">
-                                                        <i class="icofont-play-alt-1"></i> 
-                                                        video
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            
-                                            <li class="course-lesson">
-                                                <span class="number">12.</span>
-                                                <a href="#" class="lesson-title">Understanding Classes</a>
-
-                                                <span class="lp-looked">Looked</span>
-
-                                                <div class="fr"> 
-                                                    <span class="duration">9 minute</span>
-                                                    <a href="#" class="attrachment-video">
-                                                        <i class="icofont-play-alt-1"></i> 
-                                                        video
-                                                    </a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                
-                                <li class="course-accordion-list">
-                                    <h4 class="ca-section-title">
-                                        Section 3: Understanding the Base Features & Syntax
-                                    </h4>
-
-                                    <div class="course-accordion-content">
-                                        <ul class="course-section-content">
-                                            <li class="course-lesson">
-                                                <span class="number">13.</span>
-                                                <a href="#" class="lesson-title">Module Introduction</a>
-
-                                                <span class="lp-looked">Looked</span>
-
-                                                <div class="fr"> 
-                                                    <span class="duration">11 minute</span>
-                                                    <a href="#" class="attrachment-video">
-                                                        <i class="icofont-play-alt-1"></i> 
-                                                        video
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            
-                                            <li class="course-lesson">
-                                                <span class="number">14.</span>
-                                                <a href="#" class="lesson-title">Using Create React App</a>
-
-                                                <span class="lp-looked">Looked</span>
-
-                                                <div class="fr"> 
-                                                    <span class="duration">25 minute</span>
-                                                    <a href="#" class="attrachment-video">
-                                                        <i class="icofont-play-alt-1"></i> 
-                                                        video
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            
-                                            <li class="course-lesson">
-                                                <span class="number">16.</span>
-                                                <a href="#" class="lesson-title">Understanding the Folder Structure</a>
-
-                                                <span class="lp-looked">Looked</span>
-
-                                                <div class="fr"> 
-                                                    <span class="duration">22 minute</span>
-                                                    <a href="#" class="attrachment-video">
-                                                        <i class="icofont-play-alt-1"></i> 
-                                                        video
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            
-                                            <li class="course-lesson">
-                                                <span class="number">17.</span>
-                                                <a href="#" class="lesson-title">Understanding JSX</a>
-
-                                                <span class="lp-looked">Looked</span>
-
-                                                <div class="fr"> 
-                                                    <span class="duration">6 minute</span>
-                                                    <a href="#" class="attrachment-video">
-                                                        <i class="icofont-play-alt-1"></i> 
-                                                        video
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            
-                                            <li class="course-lesson">
-                                                <span class="number">18.</span>
-                                                <a href="#" class="lesson-title">Creating a Functional Component</a>
-
-                                                <span class="lp-looked">Looked</span>
-
-                                                <div class="fr"> 
-                                                    <span class="duration">10 minute</span>
-                                                    <a href="#" class="attrachment-video">
-                                                        <i class="icofont-play-alt-1"></i> 
-                                                        video
-                                                    </a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
+{#                            <ul class="course-accordion mt-30">#}
+{#                                <li class="course-accordion-list">#}
+{#                                    <h4 class="ca-section-title">#}
+{#                                        Section 1: ReactJS - Getting Started#}
+{#                                    </h4>#}
+{##}
+{#                                    <div class="course-accordion-content">#}
+{#                                        <ul class="course-section-content">#}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">1.</span>#}
+{#                                                <a href="#" class="lesson-title">Introduction</a>#}
+{##}
+{#                                                <a href="#" class="lesson-preview">Preview</a>#}
+{##}
+{#                                                <div class="fr">#}
+{#                                                    <span class="duration">#}
+{#                                                        <i class="icofont-clock-time"></i> #}
+{#                                                        2 minute#}
+{#                                                    </span>#}
+{#                                                    <a href="https://www.youtube.com/watch?v=pgAvVxowaYU" class="attrachment-video popup-youtube">#}
+{#                                                        <i class="icofont-play-alt-1"></i> #}
+{#                                                        video#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{##}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">2.</span>#}
+{#                                                <a href="#" class="lesson-title">What is React?</a>#}
+{##}
+{#                                                <a href="#" class="lesson-preview">Preview</a>#}
+{##}
+{#                                                <div class="fr">#}
+{#                                                    <span class="duration">#}
+{#                                                        <i class="icofont-clock-time"></i> #}
+{#                                                        3 minute#}
+{#                                                    </span>#}
+{#                                                    <a href="https://www.youtube.com/watch?v=pgAvVxowaYU" class="attrachment-video popup-youtube">#}
+{#                                                        <i class="icofont-play-alt-1"></i> #}
+{#                                                        video#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{##}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">3.</span>#}
+{#                                                <a href="#" class="lesson-title">Real-World SPAs & React Web Apps</a>#}
+{##}
+{#                                                <a href="#" class="lesson-preview">Preview</a>#}
+{##}
+{#                                                <div class="fr">#}
+{#                                                    <span class="duration">#}
+{#                                                        <i class="icofont-clock-time"></i> #}
+{#                                                        5 minute#}
+{#                                                    </span>#}
+{#                                                    <a href="https://www.youtube.com/watch?v=pgAvVxowaYU" class="attrachment-video popup-youtube">#}
+{#                                                        <i class="icofont-play-alt-1"></i> #}
+{#                                                        video#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{##}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">5.</span>#}
+{#                                                <a href="#" class="lesson-title">Adding the Right React Version to Codepen</a>#}
+{##}
+{#                                                <a href="#" class="lesson-preview">Preview</a>#}
+{##}
+{#                                                <div class="fr">#}
+{#                                                    <span class="duration">#}
+{#                                                        <i class="icofont-clock-time"></i> #}
+{#                                                        10 minute#}
+{#                                                    </span>#}
+{#                                                    <a href="#" class="attrachment">#}
+{#                                                        <i class="icofont-file-pdf"></i> #}
+{#                                                        file#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{##}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">6.</span>#}
+{#                                                <a href="#" class="lesson-title">Writing our First React Code</a>#}
+{##}
+{#                                                <span class="lp-looked">Looked</span>#}
+{##}
+{#                                                <div class="fr">#}
+{#                                                    <span class="duration">#}
+{#                                                        <i class="icofont-clock-time"></i> #}
+{#                                                        45 minute#}
+{#                                                    </span>#}
+{#                                                    <a href="#" class="attrachment-video">#}
+{#                                                        <i class="icofont-play-alt-1"></i> #}
+{#                                                        video#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{##}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">7.</span>#}
+{#                                                <a href="#" class="lesson-title">Why Should we Choose React?</a>#}
+{##}
+{#                                                <span class="lp-looked">Looked</span>#}
+{##}
+{#                                                <div class="fr"> #}
+{#                                                    <span class="duration">#}
+{#                                                        <i class="icofont-clock-time"></i> #}
+{#                                                        2 hours#}
+{#                                                    </span>#}
+{#                                                    <a href="#" class="question">#}
+{#                                                        <i class="icofont-question"></i> Questions#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{#                                        </ul>#}
+{#                                    </div>#}
+{#                                </li>#}
+{#                               #}
+{#                                <li class="course-accordion-list">#}
+{#                                    <h4 class="ca-section-title">#}
+{#                                        Section 2: Refreshing Next Generation JavaScript (Optional)#}
+{#                                    </h4>#}
+{##}
+{#                                    <div class="course-accordion-content">#}
+{#                                        <ul class="course-section-content">#}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">8.</span>#}
+{#                                                <a href="#" class="lesson-title">Module Introduction</a>#}
+{##}
+{#                                                <span class="lp-looked">Looked</span>#}
+{##}
+{#                                                <div class="fr"> #}
+{#                                                    <span class="duration">12 minute</span>#}
+{#                                                    <a href="#" class="attrachment-video">#}
+{#                                                        <i class="icofont-play-alt-1"></i> #}
+{#                                                        video#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{#                                            #}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">9.</span>#}
+{#                                                <a href="#" class="lesson-title">Understanding "let" and "const"</a>#}
+{##}
+{#                                                <span class="lp-looked">Looked</span>#}
+{##}
+{#                                                <div class="fr"> #}
+{#                                                    <span class="duration">15 minute</span>#}
+{#                                                    <a href="#" class="attrachment-video">#}
+{#                                                        <i class="icofont-play-alt-1"></i> #}
+{#                                                        video#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{#                                            #}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">10.</span>#}
+{#                                                <a href="#" class="lesson-title">Arrow Functions</a>#}
+{##}
+{#                                                <span class="lp-looked">Looked</span>#}
+{##}
+{#                                                <div class="fr"> #}
+{#                                                    <span class="duration">18 minute</span>#}
+{#                                                    <a href="#" class="attrachment-video">#}
+{#                                                        <i class="icofont-play-alt-1"></i> #}
+{#                                                        video#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{#                                            #}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">11.</span>#}
+{#                                                <a href="#" class="lesson-title">Exports and Imports</a>#}
+{##}
+{#                                                <span class="lp-looked">Looked</span>#}
+{##}
+{#                                                <div class="fr"> #}
+{#                                                    <span class="duration">8 minute</span>#}
+{#                                                    <a href="#" class="attrachment-video">#}
+{#                                                        <i class="icofont-play-alt-1"></i> #}
+{#                                                        video#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{#                                            #}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">12.</span>#}
+{#                                                <a href="#" class="lesson-title">Understanding Classes</a>#}
+{##}
+{#                                                <span class="lp-looked">Looked</span>#}
+{##}
+{#                                                <div class="fr"> #}
+{#                                                    <span class="duration">9 minute</span>#}
+{#                                                    <a href="#" class="attrachment-video">#}
+{#                                                        <i class="icofont-play-alt-1"></i> #}
+{#                                                        video#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{#                                        </ul>#}
+{#                                    </div>#}
+{#                                </li>#}
+{#                                #}
+{#                                <li class="course-accordion-list">#}
+{#                                    <h4 class="ca-section-title">#}
+{#                                        Section 3: Understanding the Base Features & Syntax#}
+{#                                    </h4>#}
+{##}
+{#                                    <div class="course-accordion-content">#}
+{#                                        <ul class="course-section-content">#}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">13.</span>#}
+{#                                                <a href="#" class="lesson-title">Module Introduction</a>#}
+{##}
+{#                                                <span class="lp-looked">Looked</span>#}
+{##}
+{#                                                <div class="fr"> #}
+{#                                                    <span class="duration">11 minute</span>#}
+{#                                                    <a href="#" class="attrachment-video">#}
+{#                                                        <i class="icofont-play-alt-1"></i> #}
+{#                                                        video#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{#                                            #}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">14.</span>#}
+{#                                                <a href="#" class="lesson-title">Using Create React App</a>#}
+{##}
+{#                                                <span class="lp-looked">Looked</span>#}
+{##}
+{#                                                <div class="fr"> #}
+{#                                                    <span class="duration">25 minute</span>#}
+{#                                                    <a href="#" class="attrachment-video">#}
+{#                                                        <i class="icofont-play-alt-1"></i> #}
+{#                                                        video#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{#                                            #}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">16.</span>#}
+{#                                                <a href="#" class="lesson-title">Understanding the Folder Structure</a>#}
+{##}
+{#                                                <span class="lp-looked">Looked</span>#}
+{##}
+{#                                                <div class="fr"> #}
+{#                                                    <span class="duration">22 minute</span>#}
+{#                                                    <a href="#" class="attrachment-video">#}
+{#                                                        <i class="icofont-play-alt-1"></i> #}
+{#                                                        video#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{#                                            #}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">17.</span>#}
+{#                                                <a href="#" class="lesson-title">Understanding JSX</a>#}
+{##}
+{#                                                <span class="lp-looked">Looked</span>#}
+{##}
+{#                                                <div class="fr"> #}
+{#                                                    <span class="duration">6 minute</span>#}
+{#                                                    <a href="#" class="attrachment-video">#}
+{#                                                        <i class="icofont-play-alt-1"></i> #}
+{#                                                        video#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{#                                            #}
+{#                                            <li class="course-lesson">#}
+{#                                                <span class="number">18.</span>#}
+{#                                                <a href="#" class="lesson-title">Creating a Functional Component</a>#}
+{##}
+{#                                                <span class="lp-looked">Looked</span>#}
+{##}
+{#                                                <div class="fr"> #}
+{#                                                    <span class="duration">10 minute</span>#}
+{#                                                    <a href="#" class="attrachment-video">#}
+{#                                                        <i class="icofont-play-alt-1"></i> #}
+{#                                                        video#}
+{#                                                    </a>#}
+{#                                                </div>#}
+{#                                            </li>#}
+{#                                        </ul>#}
+{#                                    </div>#}
+{#                                </li>#}
+{#                            </ul>#}
                         </div>
                         
                         <div class="about-instructor mt-30">
                             <h3 class="title">About Instructor</h3>
                             <div class="about-instructor-content">
                                 <img src=“{%static "/static/assets/img/tutor/7.png" %}" alt="">
-                                <h6><a href="#">Dora Caelan</a></h6>
-                                <p>React JS Developer</p>
+                                <h6><a href="#">
+                                    <div id="course_teacher2">
+
+                                    </div>
+                                </a></h6>
+
                                 
                                 <ul>
                                     <li>
@@ -662,7 +666,7 @@
                                 </ul>
                             </div>
                             
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+{#                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>#}
                         </div>
                         
                         <div class="comment-area mt-30">
@@ -740,27 +744,27 @@
 
                             </div>
                         </div>
-                        
-                        <div class="widget categories-widget mt-30">
-                            <h3 class="title">Courses Categories</h3>
-                            <ul>
-                                <li><a href="#">Django <span>(6)</span></a></li>
-                                <li><a href="#">Ruby on Rails <span>(3)</span></a></li>
-                                <li><a href="#">React JS <span>(5)</span></a></li>
-                                <li><a href="#">Meteor JS <span>(10)</span></a></li>
-                                <li><a href="#">Meteor JS <span>(8)</span></a></li>
-                                <li><a href="#">Bu JS <span>(15)</span></a></li>
-                                <li><a href="#">Ember JS <span>(20)</span></a></li>
-                                <li><a href="#">App Development <span>(5)</span></a></li>
-                                <li><a href="#">Web Development <span>(4)</span></a></li>
-                                <li><a href="#">WP Theme Development <span>(6)</span></a></li>
-                                <li><a href="#">WP Theme Development <span>(7)</span></a></li>
-                                <li><a href="#">Joomla! <span>(11)</span></a></li>
-                                <li><a href="#">Drupal <span>(22)</span></a></li>
-                                <li><a href="#">Express <span>(14)</span></a></li>
-                                <li><a href="#">Laravel <span>(17)</span></a></li>
-                            </ul>
-                        </div>
+
+{#                        <div class="widget categories-widget mt-30">#}
+{#                            <h3 class="title">Courses Categories</h3>#}
+{#                            <ul>#}
+{#                                <li><a href="#">Django <span>(6)</span></a></li>#}
+{#                                <li><a href="#">Ruby on Rails <span>(3)</span></a></li>#}
+{#                                <li><a href="#">React JS <span>(5)</span></a></li>#}
+{#                                <li><a href="#">Meteor JS <span>(10)</span></a></li>#}
+{#                                <li><a href="#">Meteor JS <span>(8)</span></a></li>#}
+{#                                <li><a href="#">Bu JS <span>(15)</span></a></li>#}
+{#                                <li><a href="#">Ember JS <span>(20)</span></a></li>#}
+{#                                <li><a href="#">App Development <span>(5)</span></a></li>#}
+{#                                <li><a href="#">Web Development <span>(4)</span></a></li>#}
+{#                                <li><a href="#">WP Theme Development <span>(6)</span></a></li>#}
+{#                                <li><a href="#">WP Theme Development <span>(7)</span></a></li>#}
+{#                                <li><a href="#">Joomla! <span>(11)</span></a></li>#}
+{#                                <li><a href="#">Drupal <span>(22)</span></a></li>#}
+{#                                <li><a href="#">Express <span>(14)</span></a></li>#}
+{#                                <li><a href="#">Laravel <span>(17)</span></a></li>#}
+{#                            </ul>#}
+{#                        </div>#}
                     </div>
                 </div>
             </div>
@@ -934,7 +938,7 @@
  $.get('getinfo', function (json_data) {
 
     $('#course_teacher').html(json_data['course_teacher']);
-
+$('#course_teacher2').html(json_data['course_teacher']);
     $('#course_name').html( json_data['course_name']);
     $('#course_subject').html(json_data['course_subject']);
     $('#course_age').html(json_data['course_age']);
