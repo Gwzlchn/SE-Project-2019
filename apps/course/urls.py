@@ -18,4 +18,6 @@ urlpatterns = [
 
 path('<int:course_id>/add_to_cart',views.Add_To_Cart,name='cart'),
 path('<int:course_id>/add_to_temp_lesson',views.Add_To_Temp_Lesson,name='temp_lesson'),
+
+    path('<int:course_id>/comment_del/<int:comment_id>',views.article_delete,name='del'),
 ]

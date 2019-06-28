@@ -960,6 +960,7 @@ $.get('getcomment',function (json_data) {
         var html='<div class="media">  <div class="media-body"> <h5 class="mt-0">'+
             json_one['Parent_Name'] +'</h5> <span class="date">' + json_one['Date_time'] +
             '</span> <p>' + json_one['body']+ '</p> </div> </div>';
+        html +=' <a href="#" onclick="confirm_delete()">删除评论</a>';
         $('#comment_content').append(html);
         }
 
@@ -1026,6 +1027,12 @@ $.ajax({
 
 )
 </script>
+
+
+
+
+
+
 
     </body>
 </html>

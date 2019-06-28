@@ -23,14 +23,15 @@ def Search_Course(request):
     print(request)
     dict_arr = []
     if request.method == 'GET':
-        print(request.GET['search_input'])
         txt = request.GET['search_input']
-        course_obj = Course_Base.objects.filter(course_contains__contains=txt)
+        print(txt)
+        course_obj = Course_Base.objects.filter(course_contains__icontains=txt)
+        print(course_obj)
         for i in course_obj:
             dict_arr.append(i.to_dict())
 
     res = {'test':1,'search_res':dict_arr}
-
+    print(res)
     return render(request,"search_courses.html",res)
 
 
@@ -128,3 +129,14 @@ def Add_To_Temp_Lesson(request,course_id):
         tl.save()
 
     return redirect(reverse('course:course_single', kwargs={'course_id':course_id}))
+
+
+
+# 删文章
+def article_delete(request, course_id,comment_id):
+    # 根据 id 获取需要删除的文章
+    article = Course_Comment.objects.get(id=comment_id)
+    # 调用.delete()方法删除文章
+    article.delete()
+    # 完成删除后返回文章列表
+    return redirect(reverse('course:course_single', kwargs={'course_id': course_id}))

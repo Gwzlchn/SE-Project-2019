@@ -87,7 +87,7 @@ class Course_Base(models.Model):
 
             if isinstance(f, DateTimeField):
                 print(value)
-                value = value.strftime('%Y-%m-%d %H:%M:%S') if value else None
+                value =""
 
             data[f.name] = value
 

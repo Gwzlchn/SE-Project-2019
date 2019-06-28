@@ -445,10 +445,11 @@
         <!-- Script JS -->
         <script src="{% static "assets/js/script.js" %}"></script>
         <script>
-             var search_result = {{ search_res }} ;
+             var search_result = {{ search_res|safe }} ;
             console.log(search_result);
-            if (search_result == undefined){
-               throw new Error('this is my customed error');
+
+            if (isEmpty({{ search_res|safe }} )){
+               alert("无结果");
             }
             $(function(search_result) {
 
@@ -457,9 +458,12 @@
                 throw new Error('this is my customed error');
             }else{
             var html ='';
-            for(var i = 0, l = search_result.length; i < l; i++) {
 
-                var json_one = search_result[i];
+            for(var i = 0, l = {{ search_res|safe }}.length; i < l; i++) {
+
+                var json_one = {{ search_res|safe }}[i];
+
+                console.log(json_one);
                html+='<div class="col-md-6col-lg-4">'+
                     '<div class="single-course mb-30">' +
                     '<a href="#" class="thumb-img">' +
@@ -479,6 +483,7 @@
 
             }
              $('#course_contents').html(html);
+            console.log($('#course_contents'));
             }}
             );
 
