@@ -1,10 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse,JsonResponse
+from django.http import HttpResponse,JsonResponse,HttpResponseRedirect
 from django.core import serializers
 from django.forms.models import model_to_dict
 from .models import Course_Base,Course_Comment,Parent
 from apps.fundamental.CHINA_LOCATION.models import ChinaLocation
+from apps.sab.models import Shopping_Cart
+from apps.userHome.models import Temp_Lesson
 import json
+from django.urls import reverse
+from django.shortcuts import redirect
 
 # Create your views here.
 def Course_Index(request):
@@ -91,8 +95,28 @@ def Comment_Submit(request,course_id):
     return render(request,"single_course.html",res)
 
 def Add_To_Cart(request,course_id):
-    print("ADSfad")
-    print(request.user.id)
-    print(course_id)
 
-    return render(request,"single_course.html")
+    uid= request.user.id
+    cid = course_id
+    amount = Course_Base.objects.get(id=course_id).course_price
+    if uid is not None and cid is not None:
+        cart = Shopping_Cart()
+        cart.Amount = amount
+        cart.C_id = cid
+        cart.P_id = uid
+        cart.save()
+
+    return redirect(reverse('course:course_single', kwargs={'course_id':course_id}))
+
+
+def Add_To_Temp_Lesson(request,course_id):
+    uid = request.user.id
+    cid = course_id
+    obj = Temp_Lesson.objects.filter(person_id=uid,lesson_id=course_id)
+    if uid is not None and cid is not None and obj is None:
+        tl = Temp_Lesson()
+        tl.person_id = uid
+        tl.lesson_id = cid
+        tl.save()
+        
+    return redirect(reverse('course:course_single', kwargs={'course_id':course_id}))

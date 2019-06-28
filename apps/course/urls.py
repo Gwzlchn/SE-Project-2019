@@ -16,4 +16,5 @@ urlpatterns = [
     path('<int:course_id>/comment_submit',views.Comment_Submit,name='submit'),
 
 path('<int:course_id>/add_to_cart',views.Add_To_Cart,name='cart'),
+path('<int:course_id>/add_to_temp_lesson',views.Add_To_Temp_Lesson,name='temp_lesson'),
 ]
