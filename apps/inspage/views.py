@@ -13,17 +13,17 @@ from functools import wraps
 
 def Inst(request,iid = None):
     Iid = iid
-    print(Iid)
+    #print(Iid)
     try:
        inst =  usemodels.Institution.objects.get(id = Iid)
     except usemodels.Institution.DoesNotExist:
        inst = None
     if inst is not None:
        #课程信息模块
-       bran = usemodels.Branch.objects.filter(Ins_id = inst.id)
+       bran = usemodels.Branch.objects.filter(Ins_id = inst.id).values("id")
        bral = []
        for bra in bran:
-           bral.append(bra.id)
+           bral.append(bra['id'])
        print(bral)
        CofI = insmodels.Course_Institution.objects.filter(course_ins__in = bral)
        cosl = []
