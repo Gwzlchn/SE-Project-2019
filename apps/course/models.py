@@ -1,9 +1,9 @@
 from django.db import models
 from django.db.models.fields.related import ManyToManyField
 from django.db.models.fields import DateTimeField
-
+from ..User.models import Age_Choice,Lesson_Direction,Teacher,Institution,Branch
 from apps.fundamental.CHINA_LOCATION.models import ChinaLocation
-from apps.User.models import *
+
 
 
 class PrintableModel(models.Model):
@@ -143,40 +143,3 @@ class Course_Score(models.Model):
     course_score = models.SmallIntegerField(verbose_name='课程评分')
     class Meta:
         db_table = 'Course_Score'
-
-
-class Course_Comment(models.Model):
-    course_id = models.ForeignKey(Course_Base,on_delete=models.CASCADE,\
-                                  db_column='course_id',verbose_name='被评价课程')
-    comment_parent = models.ForeignKey(Parent,on_delete=models.CASCADE,\
-                                     db_column='parent_id',verbose_name='评价者')
-    body = models.TextField()
-    created = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        ordering = ('created',)
-
-    def __str__(self):
-        return self.body[:20]
-
-    def to_dict(self, fields=None, exclude=None):
-        data = {}
-        for f in self._meta.concrete_fields + self._meta.many_to_many:
-            value = f.value_from_object(self)
-
-            if fields and f.name not in fields:
-                continue
-
-            if exclude and f.name in exclude:
-                continue
-
-            if isinstance(f, DateTimeField):
-                print(value)
-                value = value.strftime('%Y-%m-%d %H:%M:%S') if value else None
-
-            data[f.name] = value
-
-        return data
-
-
-

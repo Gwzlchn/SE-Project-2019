@@ -1,11 +1,9 @@
 
-from django.shortcuts import render,HttpResponse,redirect
-from . import Transaction
+from django.shortcuts import render, redirect
 from apps.User import models
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.contrib import auth
-from apps.userHome.views import dispatch
 from django.http import HttpResponseRedirect
 
 from functools import wraps
@@ -147,36 +145,52 @@ def Admreg(request):
 
 
 
-def VisitUpdateInfo(request):
-    return render(request,"UpdateInfo.html")
-
-def VisitUResult(request):
-    Transaction.UpdateInfo(request)
-    return render(request,'UResult.html')
-
-def VisitRecharge(request):
-    return render(request,'Recharge.html')
-
-def VisitRResult(request):
-    Transaction.Recharge(request)
-    return render(request,'RResult.html')
-
-def VisitApplyAudi(request):
-    return render(request,'ApplyAudi.html')
-
-def VisitAResult(request):
-    if Transaction.ApplyAudi(request):
-        return render(request,'AResultS.html')
 
 
-    return render(request,'AResultF.html')
 
-def VisitAddToCart(request):
-    return render(request,'AddToCart.html')
 
-def VisitATResult(request):
-    Transaction.AddToCart(request)
-    return render(request,'ATResult.html')
+
+
+
+
+@check_login
+def Adm(request):
+   Cuid = request.session.get('user_id')
+   Utype = User.objects.get(id = Cuid)
+   if Utype is not None:
+       print(Cuid)
+       if(Utype.first_name != '4'):
+          return render(request,"User/login.html",)
+       print(request.session.get('user_id'))
+       return render(request,"User/Adm.html")
+   else:
+       return render(request,"User/login.html",)
+
+@check_login
+def POS(request):
+   Cuid = request.session.get('user_id')
+   Utype = User.objects.get(id = Cuid)
+   if Utype is not None:
+       print(Cuid)
+       if(Utype.first_name != '1'):
+          return render(request,"User/login.html",)
+       print(request.session.get('user_id'))
+       return render(request,"User/POS.html")
+   else:
+       return render(request,"User/login.html",)
+
+@check_login
+def Tea(request):
+   Cuid = request.session.get('user_id')
+   Utype = User.objects.get(id = Cuid)
+   if Utype is not None:
+       print(Cuid)
+       if(Utype.first_name != '2'):
+          return render(request,"User/login.html",)
+       print(request.session.get('user_id'))
+       return render(request,"User/Tea.html")
+   else:
+       return render(request,"User/login.html",)
 
 def Find(request):
     if request.method == "POST":
@@ -217,4 +231,6 @@ def Find(request):
                     au.save()
                     return render(request,"User/login.html",)
     return render(request,"User/find.html",)
+
+
 

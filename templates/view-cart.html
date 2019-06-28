@@ -1,0 +1,124 @@
+﻿{% load static %}
+<!doctype html>
+<html lang="zxx">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap Min CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/bootstrap.min.css" %}">
+        <!-- Animate CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/animate.min.css" %}">
+        <!-- IcoFont CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/icofont.min.css" %}">
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/owl.carousel.min.css" %}">
+        <!-- Owl Theme Default CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/owl.theme.default.min.css" %}">
+        <!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/magnific-popup.css" %}">
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/main.css" %}">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="{% static "assets/css/responsive.css" %}">
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="{% static "assets/img/favicon.png" %}">
+        
+        <title>查看购物车</title>
+    </head>
+
+    <body>
+        <!-- Preloader -->
+        <div class="preloader">
+            <div class="loader">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- End Preloader --> 
+  
+        <!-- Page Banner -->
+        <div class="page-banner banner-bg-one">
+            <div class="container"> 
+                <div class="banner-text"> 
+                    <h1>我的购物车</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/User/ParentPage">个人主页</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">购物车</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Banner -->
+        
+        <!-- Cart -->
+        <section class="cart-section pt-100 pb-180">
+            <div class="container">
+                <div class="table-responsive cart-table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+		{% for var in data %}
+		<tr>
+                                <td>{{ var.name }}</td>
+                                <td>{{ var.price }}</td>
+                                <td>{{ var.amount }}</td>
+                                <td>{{ var.total }}</td>
+		</tr>
+		{% endfor %}                      
+                        </tbody>
+                    </table>
+                </div>
+                <a href="/sab/reset-cart/" class="checkout-btn" style='float:right;text-align: right;'>Reset!</a>
+
+                <a href="/sab/pay-cart/" class="checkout-btn" style='float:right;text-align: right;' onclick="MsgBox()">Pay!</a>
+<script language="javascript">
+
+function MsgBox() 
+
+{
+
+alert("Success!"); 
+
+}
+</script>  
+            </div>
+        </section>
+        <!-- End Cart -->
+
+        <!-- JQuery Min JS -->
+        <script src="{% static "assets/js/jquery.1.12.4.min.js" %}"></script>
+        <!-- Popper Min JS -->
+        <script src="{% static "assets/js/popper.min.js"%}"></script>
+        <!-- Bootstrap Min JS -->
+        <script src="{% static "assets/js/bootstrap.min.js"%}"></script>
+        <!-- Owl Carousel JS -->
+        <script src="{% static "assets/js/owl.carousel.min.js" %}"></script>
+        <!-- Magnific Popup JS -->
+        <script src="{% static "assets/js/jquery.magnific-popup.min.js" %}"></script>
+        <!-- WayPonits JS -->
+        <script src="{% static "assets/js/waypoints.js" %}"></script>
+        <!-- CounterUp JS -->
+        <script src="{% static "assets/js/jquery.counterup.min.js" %}"></script>
+		<!-- Tilt JS -->
+        <script src="{% static "assets/js/tilt.jquery.min.js" %}"></script>
+        <!-- Form Validator JS FILES -->
+        <script src="{% static "assets/js/form-validator.min.js" %}"></script>
+        <!-- Contact Form JS -->
+        <script src="{% static "assets/js/contact-form-script.js" %}"></script>
+        <!-- Script JS -->
+        <script src="{% static "assets/js/script.js" %}"></script>
+    </body>
+</html>

@@ -25,4 +25,12 @@ urlpatterns = [
     path('InstitutionInfo/<int:bid>/announcement',views.show_announcement),
     path('InstitutionInfo/<int:bid>/Updateannouncement',views.update_announcement),
     path('InstitutionInfo/<int:bid>/UpdateCourse/<int:cid>/',views.update_course),
+    path(r'ParentPage/',views.VisitPPage),
+    path(r'updatePinfo/',views.VisitUpPInfo),
+    path(r'UpPInfo/',views.VisitUpPInfo),
+    path(r'UpPInfo-Submit/',views.VisitPPageMB),
+    path(r'ParentPageG/',views.VisitPPageG),
+    path(r'ParentPageC/',views.VisitPPageC),
+    path(r'ParentPageA/',views.VisitPPageA),
+
 ]

@@ -12,6 +12,7 @@ class Shopping_Cart(models.Model):
 #付款记录
 class Pay_Record(models.Model):
     P = models.ForeignKey(Parent,on_delete=models.CASCADE)
+    C = models.ForeignKey(Course_Base,on_delete=models.CASCADE)
     CName = models.CharField(max_length=50)
     Amount = models.IntegerField()
     TPrice = models.FloatField()

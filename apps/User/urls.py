@@ -14,6 +14,11 @@ urlpatterns = [
     path(r'register2/',views.Teareg),
     path(r'register1/',views.Insreg),
     path(r'Admreg/',views.Admreg),
+    path(r'POS/',views.POS),
+    path(r'Tea/',views.Tea),
+    path(r'Adm/',views.Adm),
+    #模板url
+
     path(r'find/',views.Find),
     path(r'logout/',views.logout)
 ]

@@ -1,16 +1,23 @@
 from django.contrib.auth.decorators import permission_required, login_required
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from . import trans
 import apps.User.models as Um
 from apps.fundamental.article.models import Announcement
 from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate, login
 # Create your views here.
 
 def TeacherInfo(request):
     return render(request,'userHome/TeacherInfomation.html')
 
 def dispatch(request):
+    if request.method == 'POST':
+        username = request.POST.get('username',None)
+        password = request.POST.get('password',None)
+        user = authenticate(request,username=username,password=password)
+        if user is not None and user.is_active:
+            login(request, user)
     print('here')
     id = request.user.id
     print(id)
@@ -19,7 +26,7 @@ def dispatch(request):
     if Um.Parent.objects.filter(user_id=id):
         return render(request,'userHome/ParentInfomation.html')
     if Um.Institution.objects.filter(user_id=id):
-        return HttpResponseRedirect('/userHome/InstitutionInfo/0/')
+        return redirect('/userHome/InstitutionInfo/0/')
     if Um.Admin.objects.filter(user_id=id):
         return render(request,'userHome/AdminInfomation.html')
     return HttpResponseRedirect('/User/login')
@@ -205,3 +212,35 @@ def change_i_info(request,bid):
     if request.method == 'POST':
         dict['res'] = 'success!'
     return render(request,'userHome/InsChangeInfo.html',dict)
+
+
+#模板views
+def VisitPPage(request):
+    return render(request,'ParentPage.html')
+
+def VisitPPageG(request):
+    rlt={}
+    rlt=Transaction.GetPInfo(request)
+    #print(rlt)
+    return render(request,'ParentPageG.html',rlt)
+
+def VisitPPageC(request):
+    rlt={}
+    rlt['data']=Transaction.GetSchedule(request)
+    #print(rlt)
+    return render(request,'ParentPageC.html',rlt)
+
+def VisitPPageA(request):
+    rlt={}
+    rlt['data']=Transaction.GetAudition(request)
+    #print(rlt)
+    return render(request,'ParentPageA.html',rlt)
+
+def VisitUpPInfo(request):
+    return render(request,'updatePinfo.html')
+
+
+def VisitPPageMB(request):
+    Transaction.UpdatePInfo(request)
+    return render(request,'ParentPage.html')
+

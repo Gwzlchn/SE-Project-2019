@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Alter Personal Information</title>
+</head>
+<body>
+<form action="/sab/Pay/" method="post">
+        {% csrf_token %}
+        {% for item in data %}
+	{% for var in item %}
+        	{{ var }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	{% endfor %}
+	<p></p>
+        {% endfor %}
+<input type="submit" value="Pay">
+</form>
+</body>
+</html>

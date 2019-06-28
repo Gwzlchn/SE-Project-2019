@@ -81,4 +81,3 @@ class Branch(models.Model):
 class Admin(models.Model):
     Aid =  models.IntegerField(primary_key=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='Adm')
-
