@@ -212,3 +212,35 @@ def change_i_info(request,bid):
     if request.method == 'POST':
         dict['res'] = 'success!'
     return render(request,'userHome/InsChangeInfo.html',dict)
+
+
+#模板views
+def VisitPPage(request):
+    return render(request,'ParentPage.html')
+
+def VisitPPageG(request):
+    rlt={}
+    rlt=Transaction.GetPInfo(request)
+    #print(rlt)
+    return render(request,'ParentPageG.html',rlt)
+
+def VisitPPageC(request):
+    rlt={}
+    rlt['data']=Transaction.GetSchedule(request)
+    #print(rlt)
+    return render(request,'ParentPageC.html',rlt)
+
+def VisitPPageA(request):
+    rlt={}
+    rlt['data']=Transaction.GetAudition(request)
+    #print(rlt)
+    return render(request,'ParentPageA.html',rlt)
+
+def VisitUpPInfo(request):
+    return render(request,'updatePinfo.html')
+
+
+def VisitPPageMB(request):
+    Transaction.UpdatePInfo(request)
+    return render(request,'ParentPage.html')
+

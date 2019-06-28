@@ -18,11 +18,7 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from apps.User import views
-<<<<<<< HEAD
 
-=======
-import apps.userHome.views as ahv
->>>>>>> origin/master
 
 
 urlpatterns = [
@@ -30,22 +26,10 @@ urlpatterns = [
     path(r'userHome/',include('apps.userHome.urls', namespace='userHome')),
     path('User/',include('apps.User.urls',namespace='User')),
     path('article/', include('apps.fundamental.article.urls', namespace='article')),
-<<<<<<< HEAD
+
     path('homepage/',include('apps.homepage.urls', namespace='homepage')),
     path('sab/',include('apps.sab.urls', namespace='sab')),
-    
-=======
     path('ins/',include('apps.inspage.urls',namespace='inspage')),
-    path('UpdateInfo/', views.VisitUpdateInfo),
-    path('UResult/', views.VisitUResult),
-    path('Recharge/', views.VisitRecharge),
-    path('RResult/', views.VisitRResult),
-    path('ApplyAudi/',views.VisitApplyAudi),
-    path('AResult/',views.VisitAResult),
-    path('AddToCart/',views.VisitAddToCart),
-    path('ATResult/',views.VisitATResult),
->>>>>>> origin/master
-    #测试用
     path('storage/', include('apps.fundamental.storage.urls', namespace='storage')),
     path('comment/', include('apps.fundamental.comment.urls', namespace='comment')),
 

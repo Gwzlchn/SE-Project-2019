@@ -1,11 +1,9 @@
 
-from django.shortcuts import render,HttpResponse,redirect
-from . import Transaction
+from django.shortcuts import render, redirect
 from apps.User import models
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.contrib import auth
-from apps.userHome.views import dispatch
 from django.http import HttpResponseRedirect
 
 from functools import wraps
@@ -147,69 +145,9 @@ def Admreg(request):
 
 
 
-def VisitUpdateInfo(request):
-    return render(request,'UpdateInfo.html')
-
-def VisitUResult(request):
-    Transaction.UpdateInfo(request)
-    return render(request,'UResult.html')
-
-def VisitRecharge(request):
-    return render(request,'Recharge.html')
-
-def VisitRResult(request):
-    Transaction.Recharge(request)
-    return render(request,'RResult.html')
-
-def VisitApplyAudi(request):
-    return render(request,'ApplyAudi.html')
-
-def VisitAResult(request):
-    if Transaction.ApplyAudi(request):
-        return render(request,'AResultS.html')
-
-
-    return render(request,'AResultF.html')
-
-
-def VisitParent(request):
-    rlt={}
-    rlt=Transaction.ParentPage(request)
-    return render(request,'Parent.html',rlt)
-
-<<<<<<< HEAD
-
-
-#模板views
-def VisitPPage(request):
-    return render(request,'ParentPage.html')
-
-def VisitPPageG(request):
-    rlt={}
-    rlt=Transaction.GetPInfo(request)
-    #print(rlt)
-    return render(request,'ParentPageG.html',rlt)
-
-def VisitPPageC(request):
-    rlt={}
-    rlt['data']=Transaction.GetSchedule(request)
-    #print(rlt)
-    return render(request,'ParentPageC.html',rlt)
-
-def VisitPPageA(request):
-    rlt={}
-    rlt['data']=Transaction.GetAudition(request)
-    #print(rlt)
-    return render(request,'ParentPageA.html',rlt)
-
-def VisitUpPInfo(request):
-    return render(request,'updatePinfo.html')
 
 
 
-def VisitPPageMB(request):
-    Transaction.UpdatePInfo(request)
-    return render(request,'ParentPage.html')
 
 
 
@@ -253,7 +191,7 @@ def Tea(request):
        return render(request,"User/Tea.html")
    else:
        return render(request,"User/login.html",)
-=======
+
 def Find(request):
     if request.method == "POST":
         phone = request.POST.get("phone",None)
@@ -293,6 +231,6 @@ def Find(request):
                     au.save()
                     return render(request,"User/login.html",)
     return render(request,"User/find.html",)
->>>>>>> origin/master
+
 
 

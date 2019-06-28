@@ -14,29 +14,11 @@ urlpatterns = [
     path(r'register2/',views.Teareg),
     path(r'register1/',views.Insreg),
     path(r'Admreg/',views.Admreg),
-<<<<<<< HEAD
     path(r'POS/',views.POS),
     path(r'Tea/',views.Tea),
     path(r'Adm/',views.Adm),
-    path(r'logout/',views.logout),
-    path(r'UpdateInfo/', views.VisitUpdateInfo),
-    path(r'UResult/', views.VisitUResult),
-    path(r'Recharge/', views.VisitRecharge),
-    path(r'RResult/', views.VisitRResult),
-    path(r'ApplyAudi/',views.VisitApplyAudi),
-    path(r'AResult/',views.VisitAResult),
-    path(r'Parent/',views.VisitParent),
     #模板url
-    path(r'ParentPage/',views.VisitPPage),
-    path(r'updatePinfo/',views.VisitUpPInfo),
-    path(r'UpPInfo/',views.VisitUpPInfo),
-    path(r'UpPInfo-Submit/',views.VisitPPageMB),
-    path(r'ParentPageG/',views.VisitPPageG),
-    path(r'ParentPageC/',views.VisitPPageC),
-    path(r'ParentPageA/',views.VisitPPageA),
-    
-=======
+
     path(r'find/',views.Find),
     path(r'logout/',views.logout)
->>>>>>> origin/master
 ]
