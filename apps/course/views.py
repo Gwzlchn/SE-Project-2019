@@ -86,13 +86,24 @@ def Single_Course_Comment(request,course_id):
 
 
 def Comment_Submit(request,course_id):
-    print(request)
+    print("commet")
     user_id = request.user.id
-    comment = request.GET['comment_text']
-    print(user_id)
-    print(comment)
-    res= {'uid':user_id,'comment_text':comment}
-    return render(request,"single_course.html",res)
+    comment_text = request.GET['comment_text']
+    if request.user.id is  not None and request.GET['comment_text'] is not None:
+        user_id = request.user.id
+        comment = request.GET['comment_text']
+        course_base_obj = Course_Base.objects.get(id=course_id)
+        parent_obj = Parent.objects.get(id = user_id)
+
+        comment = Course_Comment()
+        comment.course_id = course_base_obj
+        comment.body = comment_text
+        comment.comment_parent = parent_obj
+        comment.save()
+
+    return redirect(reverse('course:course_single', kwargs={'course_id':course_id}))
+
+
 
 def Add_To_Cart(request,course_id):
 
@@ -118,5 +129,5 @@ def Add_To_Temp_Lesson(request,course_id):
         tl.person_id = uid
         tl.lesson_id = cid
         tl.save()
-        
+
     return redirect(reverse('course:course_single', kwargs={'course_id':course_id}))
