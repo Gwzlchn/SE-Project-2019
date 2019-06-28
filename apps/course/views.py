@@ -73,9 +73,26 @@ def Single_Course_Comment(request,course_id):
     dict_obj = []
     for i in comment_set:
         i_dict_temp = i.to_dict()
-        print(i.comment_parent)
+        #print(i.comment_parent)
         i_dict_temp['Parent_Name'] = i.comment_parent.PName
         #print(i_dict_temp)
         dict_obj.append(i_dict_temp)
 
     return JsonResponse({'comment': dict_obj})
+
+
+def Comment_Submit(request,course_id):
+    print(request)
+    user_id = request.user.id
+    comment = request.GET['comment_text']
+    print(user_id)
+    print(comment)
+    res= {'uid':user_id,'comment_text':comment}
+    return render(request,"single_course.html",res)
+
+def Add_To_Cart(request,course_id):
+    print("ADSfad")
+    print(request.user.id)
+    print(course_id)
+
+    return render("single_course.html")
