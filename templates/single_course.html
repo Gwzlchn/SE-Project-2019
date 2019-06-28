@@ -732,9 +732,10 @@
 
                             <div class="se-info-foot">
                                 <div class="price"><div id="course_price"></div></div>
-                                <form method="GET",action="add_to_cart">
-                                 <input type="submit" class="btn default-btn" value="试听" onclick="add_to_cart">
-                                </form>>
+
+                                 <input type="submit" class="btn default-btn" value="试听"
+                                        onclick="{ if(confirm('确定跳转？'))location.href='add_to_cart'}">
+
                             </div>
                         </div>
                         

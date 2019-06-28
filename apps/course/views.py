@@ -95,4 +95,4 @@ def Add_To_Cart(request,course_id):
     print(request.user.id)
     print(course_id)
 
-    return render("single_course.html")
+    return render(request,"single_course.html")
