@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import permission_required, login_required
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from . import trans
 import apps.User.models as Um
@@ -26,7 +26,7 @@ def dispatch(request):
     if Um.Parent.objects.filter(user_id=id):
         return render(request,'userHome/ParentInfomation.html')
     if Um.Institution.objects.filter(user_id=id):
-        return HttpResponseRedirect('/userHome/InstitutionInfo/0/')
+        return redirect('/userHome/InstitutionInfo/0/')
     if Um.Admin.objects.filter(user_id=id):
         return render(request,'userHome/AdminInfomation.html')
     return HttpResponseRedirect('/User/login')
