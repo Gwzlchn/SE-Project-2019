@@ -28,8 +28,12 @@ def Search_Course(request):
         dict_obj.append(i.to_dict())
 
     print(dict_obj)
+    print(dict_obj)
 
-    return render(request,"courses.html",{'course_all': dict_obj})
+    return render(request,"search_courses.html",{'course_all': dict_obj})
+
+
+
 #todo: 时间未处理！！！
 
 def Single_Course_Info(request,course_id):
@@ -49,8 +53,6 @@ def All_Course_Info(request):
     dict_obj =[]
     for i in course_obj:
         dict_obj.append( i.to_dict())
-
-    print(dict_obj)
     return JsonResponse({'course_all':dict_obj})
 
 
@@ -68,7 +70,6 @@ def Scoring_Course(request):
 
 def Single_Course_Comment(request,course_id):
     comment_set = Course_Comment.objects.filter(course_id=course_id)
-    print(comment_set[0].created)
     dict_obj = []
     for i in comment_set:
         i_dict_temp = i.to_dict()
