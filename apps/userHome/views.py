@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import permission_required, login_required
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
-from . import trans
+from . import trans,Transaction
 import apps.User.models as Um
 from apps.fundamental.article.models import Announcement
 from django.http import HttpResponseRedirect
@@ -24,7 +24,7 @@ def dispatch(request):
     if Um.Teacher.objects.filter(user_id=id):
         return render(request,'userHome/TeacherInfomation.html')
     if Um.Parent.objects.filter(user_id=id):
-        return render(request,'userHome/ParentInfomation.html')
+        return redirect('/userHome/ParentPage/')
     if Um.Institution.objects.filter(user_id=id):
         return redirect('/userHome/InstitutionInfo/0/')
     if Um.Admin.objects.filter(user_id=id):
