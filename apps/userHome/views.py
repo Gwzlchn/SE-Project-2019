@@ -24,6 +24,7 @@ def dispatch(request):
     if Um.Teacher.objects.filter(user_id=id):
         return render(request,'userHome/TeacherInfomation.html')
     if Um.Parent.objects.filter(user_id=id):
+        print('parent')
         return redirect('/userHome/ParentPage/')
     if Um.Institution.objects.filter(user_id=id):
         return redirect('/userHome/InstitutionInfo/0/')
