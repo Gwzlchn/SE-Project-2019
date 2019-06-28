@@ -2,23 +2,18 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Alter Personal Information</title>
+<title>修改个人信息</title>
 </head>
 <body>
-    <form action="/UResult/" method="post">
+    <form action="/User/UResult/" method="post">
         {% csrf_token %}
-        PName<input type="text" name="PName"><br></br>
-        KName<input type="text" name="KName"><br></br>
-        Age<input type="text" name="Age"><br></br>
-        Sex<input type="text" name="Sex"><br></br>
-        PhoneNumber<input type="text" name="PhoneNumber"><br></br>
-        Email<input type="text" name="Email"><br></br>
-        Birthday<input type="text" name="Birthday"><br></br>
-        LDirection<input type="text" name="LDirection"><br></br>
-        FeeRange<input type="text" name="FeeRange"><br></br>
-        Area<input type="text" name="Area"><br></br>
-        Wallet<input type="text" name="Wallet"><br></br>
-        <input type="submit" value="Submit">
+	<h1 align="center">请输入您要修改的个人信息</h1>
+        PhoneNumber:&nbsp;<input type="text" name="PhoneNumber"><br></br>
+        Email:&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type="text" name="Email"><br></br>
+        LDirection:&emsp;&emsp;&nbsp;<input type="text" name="LDirection"><br></br>
+        FeeRange:&emsp;&emsp;&nbsp;&nbsp;<input type="text" name="FeeRange"><br></br>
+        Area:&emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" name="Area"><br></br>
+        <input type="submit" value="确认修改">
     </form>
 </body>
 </html>

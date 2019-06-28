@@ -17,21 +17,18 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-from apps.User import views 
+from apps.User import views
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('userHome/',include('apps.userHome.urls', namespace='userHome')),
     path('User/',include('apps.User.urls',namespace='User')),
     path('article/', include('apps.fundamental.article.urls', namespace='article')),
-    path('UpdateInfo/', views.VisitUpdateInfo),
-    path('UResult/', views.VisitUResult),
-    path('Recharge/', views.VisitRecharge),
-    path('RResult/', views.VisitRResult),
-    path('ApplyAudi/',views.VisitApplyAudi),
-    path('AResult/',views.VisitAResult),
-    path('AddToCart/',views.VisitAddToCart),
-    path('ATResult/',views.VisitATResult),
+    path('homepage/',include('apps.homepage.urls', namespace='homepage')),
+    path('sab/',include('apps.sab.urls', namespace='sab')),
+    
     #测试用
     path('storage/', include('apps.fundamental.storage.urls', namespace='storage')),
     path('comment/', include('apps.fundamental.comment.urls', namespace='comment')),

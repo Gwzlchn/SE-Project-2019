@@ -162,7 +162,7 @@ def Admreg(request):
 
 
 def VisitUpdateInfo(request):
-    return render(request,"UpdateInfo.html")
+    return render(request,'UpdateInfo.html')
 
 def VisitUResult(request):
     Transaction.UpdateInfo(request)
@@ -185,14 +185,50 @@ def VisitAResult(request):
 
     return render(request,'AResultF.html')
 
-def VisitAddToCart(request):
-    return render(request,'AddToCart.html')
 
-def VisitATResult(request):
-    Transaction.AddToCart(request)
-    return render(request,'ATResult.html')
+def VisitParent(request):
+    rlt={}
+    rlt=Transaction.ParentPage(request)
+    return render(request,'Parent.html',rlt)
 
-check_login
+
+
+#模板views
+def VisitPPage(request):
+    return render(request,'ParentPage.html')
+
+def VisitPPageG(request):
+    rlt={}
+    rlt=Transaction.GetPInfo(request)
+    #print(rlt)
+    return render(request,'ParentPageG.html',rlt)
+
+def VisitPPageC(request):
+    rlt={}
+    rlt['data']=Transaction.GetSchedule(request)
+    #print(rlt)
+    return render(request,'ParentPageC.html',rlt)
+
+def VisitPPageA(request):
+    rlt={}
+    rlt['data']=Transaction.GetAudition(request)
+    #print(rlt)
+    return render(request,'ParentPageA.html',rlt)
+
+def VisitUpPInfo(request):
+    return render(request,'updatePinfo.html')
+
+
+
+def VisitPPageMB(request):
+    Transaction.UpdatePInfo(request)
+    return render(request,'ParentPage.html')
+
+
+
+
+
+@check_login
 def Adm(request):
    Cuid = request.session.get('user_id')
    Utype = User.objects.get(id = Cuid)
@@ -230,4 +266,5 @@ def Tea(request):
        return render(request,"User/Tea.html")
    else:
        return render(request,"User/login.html",)
+
 

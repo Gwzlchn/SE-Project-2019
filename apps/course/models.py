@@ -143,8 +143,3 @@ class Course_Score(models.Model):
     course_score = models.SmallIntegerField(verbose_name='课程评分')
     class Meta:
         db_table = 'Course_Score'
-
-
-
-
-
