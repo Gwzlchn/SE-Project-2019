@@ -5,12 +5,19 @@ from . import trans
 import apps.User.models as Um
 from apps.fundamental.article.models import Announcement
 from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate, login
 # Create your views here.
 
 def TeacherInfo(request):
     return render(request,'userHome/TeacherInfomation.html')
 
 def dispatch(request):
+    if request.method == 'POST':
+        username = request.POST.get('username',None)
+        password = request.POST.get('password',None)
+        user = authenticate(request,username=username,password=password)
+        if user is not None and user.is_active:
+            login(request, user)
     print('here')
     id = request.user.id
     print(id)
